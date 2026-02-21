@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Resources | The Real Vacations</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .resource-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .resource-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-widget {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .search-widget h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .affiliate-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .affiliate-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .affiliate-link.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .affiliate-link.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Travel Resources</h1>
+        <p>Helpful tools and links for planning your perfect trip</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Services Overview -->
+        <div class="section">
+            <h2>Beyond Group Trips</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">While we're known for our all-inclusive group experiences, we also offer personalized travel services for every occasion.</p>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>🎯 Custom & Private Trips</h3>
+                    <p>Tailored experiences for individuals, families, or small groups. We design trips that match your interests, budget, and travel style—from weekend getaways to bucket-list adventures.</p>
+                    <a href="contact.html" class="affiliate-link secondary">Get a Quote →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>💼 Corporate Travel Planning</h3>
+                    <p>Team retreats, conferences, and corporate events. We handle all logistics—transportation, accommodations, activities, and meals—so you can focus on your business objectives.</p>
+                    <a href="contact.html" class="affiliate-link secondary">Plan Your Retreat →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>💍 Destination Weddings & Honeymoons</h3>
+                    <p>From intimate ceremonies to romantic getaways, we create unforgettable celebrations in stunning locations. Let us handle every detail of your special day.</p>
+                    <a href="contact.html" class="affiliate-link secondary">Start Planning →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>✈️ Travel Consulting</h3>
+                    <p>Expert advice and planning services for any trip. Whether you're planning independently or need guidance, our travel experts help you navigate your options and make informed decisions.</p>
+                    <a href="contact.html" class="affiliate-link secondary">Get Consultation →</a>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin: 4rem 0; border: none; border-top: 2px solid #e0e0e0;">
+
+        <!-- Intro -->
+        <div class="intro">
+            <h2>Booking Travel Independently?</h2>
+            <p>While our all-inclusive packages offer the best value and stress-free experience, we understand some travelers prefer to book components separately. Use these resources to plan your trip.</p>
+            <p style="margin-top: 1rem;"><strong>💡 Tip:</strong> Compare prices! Our packages often save you money vs. booking everything individually.</p>
+        </div>
+
+        <!-- Flights Section -->
+        <div class="section">
+            <h2>✈️ Flight Search</h2>
+            <div class="search-widget">
+                <h3>Search Flights</h3>
+                <p>Find and compare flight prices to your destination</p>
+                <!-- REPLACE THIS COMMENT WITH YOUR EXPEDIA FLIGHT SEARCH WIDGET CODE -->
+                <!-- Example: <div id="expedia-flight-widget"></div> -->
+                <p style="margin-top: 1.5rem;">
+                    <a href="#" class="affiliate-link">Search Flights on Expedia →</a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <em>Affiliate links help support our business at no extra cost to you</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Hotels Section -->
+        <div class="section">
+            <h2>🏨 Hotel Search</h2>
+            <div class="search-widget">
+                <h3>Search Hotels</h3>
+                <p>Find accommodations for your trip</p>
+                <!-- REPLACE THIS COMMENT WITH YOUR EXPEDIA HOTEL SEARCH WIDGET CODE -->
+                <p style="margin-top: 1.5rem;">
+                    <a href="#" class="affiliate-link">Search Hotels on Expedia →</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Event Tickets Section -->
+        <div class="section">
+            <h2>🎫 Event Tickets</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Ticketmaster</h3>
+                    <p>Find tickets to concerts, festivals, and events. Browse upcoming shows and secure your seats.</p>
+                    <a href="#" class="affiliate-link secondary">Browse Events →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>StubHub</h3>
+                    <p>Marketplace for verified event tickets. Great for sold-out shows and last-minute seats.</p>
+                    <a href="#" class="affiliate-link secondary">Find Tickets →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Insurance Section -->
+        <div class="section">
+            <h2>🛡️ Travel Insurance</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Travel Insurance Recommended</h3>
+                    <p>Protect your investment! We highly recommend travel insurance for all trips. Coverage includes trip cancellation, medical emergencies, and more.</p>
+                    <a href="#" class="affiliate-link secondary">Get a Quote →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Why You Need It</h3>
+                    <p>Life happens. Flight cancellations, medical emergencies, weather delays - insurance gives you peace of mind and financial protection.</p>
+                    <a href="#" class="affiliate-link secondary">Compare Plans →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Car Rentals Section -->
+        <div class="section">
+            <h2>🚗 Car Rentals</h2>
+            <div class="search-widget">
+                <h3>Rent a Car</h3>
+                <p>Need wheels at your destination? Compare rental car prices.</p>
+                <!-- REPLACE THIS COMMENT WITH YOUR CAR RENTAL WIDGET CODE -->
+                <p style="margin-top: 1.5rem;">
+                    <a href="#" class="affiliate-link">Search Car Rentals →</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="section">
+            <h2>📚 Helpful Travel Tips</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Packing Lists</h3>
+                    <p>Don't forget anything! Check out our destination-specific packing guides.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Travel Documents</h3>
+                    <p>Passport, ID requirements, and what you need to bring for domestic and international travel.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Destination Guides</h3>
+                    <p>Learn about your destination - best restaurants, attractions, local customs, and insider tips.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA to Packages -->
+        <div class="intro" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white;">Ready for Stress-Free Travel?</h2>
+            <p>Let us handle all the details! Our all-inclusive packages include flights (optional), hotels, event tickets, transportation, and experiences - all at a better price than booking separately.</p>
+            <p style="margin-top: 2rem;">
+                <a href="trips.html" class="affiliate-link" style="background: white; color: #667eea;">View Our Packages →</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.jpeg" alt="The Real Vacations" style="height: 50px; margin-bottom: 1rem;">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="/cdn-cgi/l/email-protection#96f5f9f8e2f7f5e2d6e2fef3e4f3f7fae0f7f5f7e2fff9f8e5b8f5f9fb"><span class="__cf_email__" data-cfemail="482b27263c292b3c083c202d3a2d29243e292b293c2127263b662b2725">[email&#160;protected]</span></a></p>
+                <p>Phone: <a href="tel:4049230017">404-
