@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Trip Request Form | The Real Vacations</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+        
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .intro h1 {
+            color: #1a1a2e;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .intro p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Form Container */
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .form-container iframe {
+            width: 100%;
+            max-width: 640px;
+            height: 3071px;
+            border: none;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        /* FareHarbor Section */
+        .fareharbor-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .fareharbor-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .fareharbor-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fh-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .fh-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .fh-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .fh-button.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .intro h1 {
+                font-size: 1.5rem;
+            }
+            
+            .fareharbor-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fh-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Intro -->
+        <div class="intro">
+            <h1>Plan Your Custom Trip</h1>
+            <p>Complete the form below to tell us about your dream vacation. A travel specialist will review your request and contact you within 24-48 hours with a personalized quote.</p>
+        </div>
+
+        <!-- Embedded Google Form -->
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNCpKON0Yj7Bmkr56d4xayXQlnYLFBp3hct6XIcHIB9PQ39Q/viewform?embedded=true" width="640" height="3071" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+
+        <!-- FareHarbor Payment/Login Section -->
+        <div class="fareharbor-section">
+            <h2>Already Booked? Make a Payment or Manage Your Trip</h2>
+            <p>If you've already submitted your custom trip request and received your booking confirmation, you can make a deposit payment or log in to manage your account.</p>
+            <div class="button-group">
+                <a href="#" class="fh-button">Make a Deposit Payment</a>
+                <a href="#" class="fh-button secondary">Login to My Account</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">Questions? <a href="contact.html" style="color: white; text-decoration: underline;">Contact us</a> and we'll help!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.jpeg" alt="The Real Vacations" style="height: 50px; margin-bottom: 1rem;">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
+                <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
+            </div>
+            <p>&copy; 2026 The Real Vacations. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
