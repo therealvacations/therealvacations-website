@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keith Sweat R&B Lovers Tour | Atlanta | The Real Vacations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-details {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        
+        /* Venue Section */
+        .venue-highlight {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .venue-highlight h3 {
+            font-size: 2rem;
+            color: #00f2fe;
+            margin-bottom: 1rem;
+        }
+        
+        .venue-highlight p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .venue-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .venue-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Package Details */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .package-card h3 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .package-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Lineup */
+        .lineup-section {
+            background: white;
+        }
+        
+        .lineup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .artist-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .artist-card h4 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            background: #f8f9fa;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #00f2fe;
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: #00f2fe;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .price-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Why This Trip */
+        .why-trip {
+            background: white;
+        }
+        
+        .why-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .why-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Included/Excluded */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .details-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+        
+        .details-column ul {
+            list-style: none;
+        }
+        
+        .details-column li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #666;
+        }
+        
+        .details-column li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00f2fe;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .excluded li:before {
+            content: "✗";
+            color: #999;
+        }
+        
+        /* CTA Footer */
+        .cta-footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 5%;
+        }
+        
+        .cta-footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-footer p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="homepage.html" class="logo">The Real Vacations</a>
+            <nav>
+                <a href="homepage.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Keith Sweat R&B Lovers Tour</h1>
+            <p class="hero-subtitle">An Epic Night of Classic R&B</p>
+            <p class="hero-details">August 29, 2026 • Atlanta, Georgia</p>
+        </div>
+    </section>
+
+    <!-- Venue Highlight -->
+    <section>
+        <div class="venue-highlight">
+            <h3>State Farm Arena</h3>
+            <p>Atlanta's premier indoor arena and home of the Hawks, State Farm Arena is the perfect setting for this unforgettable R&B showcase. With state-of-the-art acoustics and a 21,000-seat capacity, you'll experience these legendary artists up close in one of the nation's best concert venues.</p>
+            <a href="https://www.ticketmaster.com/state-farm-arena-tickets-atlanta/venue/113979" class="venue-button" target="_blank">Get Tickets via Ticketmaster →</a>
+        </div>
+    </section>
+
+    <!-- Lineup -->
+    <section class="lineup-section">
+        <h2 class="section-title">The Lineup</h2>
+        <div class="lineup-grid">
+            <div class="artist-card">
+                <h4>Keith Sweat</h4>
+                <p style="color: #666; margin-top: 0.5rem;">The King of R&B</p>
+            </div>
+            <div class="artist-card">
+                <h4>Joe</h4>
+                <p style="color: #666; margin-top: 0.5rem;">Smooth Vocals</p>
+            </div>
+            <div class="artist-card">
+                <h4>Dru Hill</h4>
+                <p style="color: #666; margin-top: 0.5rem;">90s Legends</p>
+            </div>
+            <div class="artist-card">
+                <h4>Ginuwine</h4>
+                <p style="color: #666; margin-top: 0.5rem;">The Pony King</p>
+            </div>
+            <div class="artist-card">
+                <h4>Kut Klose</h4>
+                <p style="color: #666; margin-top: 0.5rem;">R&B Royalty</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Details -->
+    <section class="section-alt">
+        <h2 class="section-title">What's Included</h2>
+        <div class="package-grid">
+            <div class="package-card">
+                <div class="package-icon">🎫</div>
+                <h3>Event Access</h3>
+                <p>Premium tickets to the R&B Lovers Tour at State Farm Arena. VIP package includes floor seats or lower bowl premium seating with early venue entry.</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🏨</div>
+                <h3>Accommodations</h3>
+                <p><strong>2 nights at Omni Atlanta Hotel at Centennial Park</strong> (directly connected to State Farm Arena via covered walkway). General: Deluxe rooms. VIP: Premium rooms with upgraded amenities.</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🚐</div>
+                <h3>Transportation</h3>
+                <p>Round-trip airport transfers. Hotel connected to arena via covered walkway—no additional transportation needed for the concert!</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🍽️</div>
+                <h3>Atlanta Experiences</h3>
+                <p>Pre-concert meet & greet with group, access to exclusive lounge, and optional add-ons: Brunch at The Breakfast Club, MLK Historic Site tour, or Ponce City Market exploration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <h2 class="section-title">Choose Your Package</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>General Package</h3>
+                <div class="price">$1,295</div>
+                <p class="price-note">per person (double occupancy)</p>
+                <ul style="text-align: left; margin-bottom: 2rem;">
+                    <li style="padding: 0.5rem 0;">✓ Deluxe room at Omni Atlanta</li>
+                    <li style="padding: 0.5rem 0;">✓ Premium concert tickets</li>
+                    <li style="padding: 0.5rem 0;">✓ Airport transfers</li>
+                    <li style="padding: 0.5rem 0;">✓ Group meet & greet</li>
+                </ul>
+                <a href="#" class="book-button">Book Now - Pay $300 Deposit</a>
+            </div>
+            <div class="pricing-card">
+                <h3>VIP Package</h3>
+                <div class="price">$2,195</div>
+                <p class="price-note">per person (double occupancy)</p>
+                <ul style="text-align: left; margin-bottom: 2rem;">
+                    <li style="padding: 0.5rem 0;">✓ Premium room with upgrades</li>
+                    <li style="padding: 0.5rem 0;">✓ Floor or lower bowl seats</li>
+                    <li style="padding: 0.5rem 0;">✓ Early venue entry</li>
+                    <li style="padding: 0.5rem 0;">✓ VIP lounge access</li>
+                    <li style="padding: 0.5rem 0;">✓ Pre-concert reception with premium bar</li>
+                </ul>
+                <a href="#" class="book-button">Book VIP - Pay $500 Deposit</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #666;">Flexible payment plans available. Deposit required to secure your spot. Final payment due 45 days before travel.</p>
+    </section>
+
+    <!-- Why This Trip -->
+    <section class="why-trip">
+        <div class="why-content">
+            <h2 class="section-title">Why This Trip is Special</h2>
+            <p>If you grew up in the 90s and early 2000s, this lineup needs no introduction. Keith Sweat, Joe, Dru Hill, Ginuwine, and Kut Klose defined an era of R&B that still moves us today. These aren't just artists—they're the soundtrack to our memories.</p>
+            <p>State Farm Arena is one of the best venues in the country to experience live music. The acoustics are incredible, the sightlines are perfect, and the energy is unmatched. Plus, you'll be staying at a hotel literally connected to the arena—step out of your room and you're there.</p>
+            <p>This isn't just a concert. It's a reunion. It's a celebration. It's a chance to sing every word with a crowd that knows them by heart. And with our all-inclusive package, all you have to do is show up and enjoy the ride.</p>
+        </div>
+    </section>
+
+    <!-- What's Included/Excluded -->
+    <section class="section-alt">
+        <h2 class="section-title">Trip Details</h2>
+        <div class="details-grid">
+            <div class="details-column">
+                <h3>What's Included</h3>
+                <ul>
+                    <li>2 nights at Omni Atlanta Hotel</li>
+                    <li>Premium concert tickets</li>
+                    <li>Round-trip airport transfers</li>
+                    <li>Group meet & greet before show</li>
+                    <li>Access to exclusive lounge (VIP)</li>
+                    <li>Early venue entry (VIP)</li>
+                    <li>24/7 trip coordinator support</li>
+                    <li>Travel insurance option</li>
+                </ul>
+            </div>
+            <div class="details-column excluded">
+                <h3>What's Not Included</h3>
+                <ul>
+                    <li>Airfare to/from Atlanta</li>
+                    <li>Meals (dining on your own)</li>
+                    <li>Personal expenses & merchandise</li>
+                    <li>Optional add-on experiences</li>
+                    <li>Parking (if driving)</li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; color: #666; font-size: 0.95rem;"><strong>Cancellation Policy:</strong> Full refund if cancelled within 24 hours of booking. After 24 hours, deposits are non-refundable but transferable to another traveler with $50 fee. Travel insurance highly recommended.</p>
+    </section>
+
+    <!-- CTA Footer -->
+    <section class="cta-footer">
+        <h2>Ready for an Epic R&B Night?</h2>
+        <p>Book now with a deposit and pay monthly. Don't miss this legendary lineup!</p>
+        <a href="contact.html" class="cta-button">Contact Us to Book</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">The Real Vacations</div>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
+                <p>Phone: <a href="tel:40492300

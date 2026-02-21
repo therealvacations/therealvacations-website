@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We Do What We Do | The Real Vacations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        
+        /* Story Section */
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 5%;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="homepage.html" class="logo">The Real Vacations</a>
+            <nav>
+                <a href="homepage.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Why We Do What We Do</h1>
+        <p>Creating unforgettable group travel experiences for over 20 years</p>
+    </section>
+
+    <!-- Our Story -->
+    <section>
+        <h2 class="section-title">Our Story</h2>
+        <div class="story-content">
+            <p>At The Real Vacations, we believe that the best memories are made when we step away from the chaos of life and come together to experience something extraordinary. Whether it's a solo adventure, a couple's getaway, or a gathering of friends and family, we know that travel is about more than just a destination—it's about making meaningful connections, sharing laughter, and creating memories that last a lifetime.</p>
+            
+            <p>But here's the thing: we also know how stressful it can be to plan the perfect trip. Life is hectic. The constant juggling of work, schedules, and responsibilities leaves little room for much else. And when it comes to travel, finding the time, energy, and patience to plan a trip that everyone will enjoy can feel overwhelming. From booking flights to selecting the right hotel, arranging transportation, discovering great places to eat, and managing logistics, it can become more of a chore than a vacation.</p>
+            
+            <p>For us, the desire to make travel easier was born from a simple family tradition that has been with us for over 20 years. Every December 26th, regardless of the circumstances, we gather as a family to create new memories, explore new places, and escape the stresses of daily life. We call it "Cates 26", and it serves as a reminder that, no matter how busy life gets, we must make time for the things that matter most. But as our family grew, so did the challenges of coordinating the perfect trip. We were a growing family—siblings, cousins, children—and booking for everyone felt like a never-ending puzzle. Flights, accommodations, transportation, finding the best places to eat, and all the details that come with planning a trip—it started to feel overwhelming. The joy of being together was quickly overshadowed by the stress of trying to make it all come together.</p>
+            
+            <p>And that's when The Real Vacations was born.</p>
+            
+            <p>I realized there had to be a better way—an easier, stress-free way to plan group trips without the endless back-and-forth between websites, the comparing of prices, or the anxiety of hoping everything would go smoothly. The Real Vacations was created to take that weight off your shoulders.</p>
+            
+            <p>We specialize in curated, all-inclusive group trips that make travel simple, affordable, and, most importantly, stress-free. Whether it's a family reunion, a company retreat, a group of friends, or even a destination music event like SweatFest Punta Cana, we handle all the details so you don't have to. Imagine a trip where you can simply show up, and everything—flights, accommodations, transportation, and VIP experiences—is already taken care of. No stress. No hassle. Just the freedom to enjoy the moment and each other's company.</p>
+            
+            <p>What's even better is that we offer customized group trips, designed specifically for your needs. Whether you're planning a family vacation where everyone can finally escape the everyday and enjoy quality time together, a team-building retreat for your company, or a celebration with friends, we curate experiences tailored to your unique group. From exclusive concerts and festivals to sporting events and cultural celebrations, we ensure your trip aligns with what you love most.</p>
+            
+            <p>Here's the relief: You won't have to spend hours, days, or weeks planning. No more endless searches or comparing prices. You won't have to worry about the details that usually leave you stressed and frustrated. We take care of everything, so you can focus on what really matters—the experience.</p>
+            
+            <p>We understand that the most valuable part of travel is the time you spend together. That's why we're here to ensure that you don't just get away, but you enjoy the journey—without all the anxiety. We offer flexibility in payments, allowing larger groups to plan without the burden of paying everything up front. Whether it's a family vacation, a corporate retreat, or a group of friends looking to reconnect, we make travel easy, affordable, and stress-free.</p>
+            
+            <p>The Real Vacations is about more than just a trip. It's about offering you comfort, relief, and that confidence that comes with knowing everything is taken care of. It's about giving you the freedom to create the memories you've been waiting for—without the stress, the frustration, or the confusion.</p>
+            
+            <p>So, are you ready to let go of the planning stress and finally have a vacation that's everything you've dreamed of? With The Real Vacations, your perfect trip is just a click away. We'll take care of the details, so you can focus on what truly matters—being together.</p>
+            
+            <p>Welcome to The Real Vacations, where your dream trip becomes a reality—effortlessly.</p>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="section-alt">
+        <h2 class="section-title">What We Stand For</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Connection First</h3>
+                <p>We believe travel is about more than destinations—it's about the people you experience them with. Every trip we design prioritizes connection and community.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💎</div>
+                <h3>Quality Matters</h3>
+                <p>From the hotels we choose to the experiences we curate, we never cut corners. You deserve excellence, and that's what we deliver every single time.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Intentional Experiences</h3>
+                <p>Every detail is chosen with purpose. We don't just book trips—we craft experiences that reflect your interests, celebrate your culture, and honor your time.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💪</div>
+                <h3>Accessibility & Flexibility</h3>
+                <p>Great travel shouldn't require a trust fund. Our flexible payment plans and deposit options make unforgettable experiences accessible to everyone.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌟</div>
+                <h3>Black Excellence</h3>
+                <p>We proudly support Black-owned businesses, celebrate Black culture, and create space for our community to thrive. Representation matters in every industry, including travel.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3>Peace of Mind</h3>
+                <p>We handle every detail so you don't have to. From booking to departure, you'll have 24/7 support and the confidence that everything is taken care of.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section>
+        <h2 class="section-title">By the Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1,500+</div>
+                <div class="stat-label">Happy Travelers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Trips Organized</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Commitment to Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Travel with Us?</h2>
+        <p>Let's create your next unforgettable experience together.</p>
+        <a href="homepage.html" class="cta-button">Explore Our Trips</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">The Real Vacations</div>
+            <div class="footer-links">
+                <a href="homepage.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
+                <p>Phone: <a href="tel:40492300

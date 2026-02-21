@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Trips | The Real Vacations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Trips Section */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .trips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .trip-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .trip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .trip-header {
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .essence-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .keith-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .mary-header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .napa-header {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+        
+        .trip-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trip-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .trip-body {
+            padding: 30px;
+        }
+        
+        .trip-body p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+        
+        .trip-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 25px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        
+        .trip-link:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="homepage.html" class="logo">The Real Vacations</a>
+            <nav>
+                <a href="homepage.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Our Upcoming Trips</h1>
+        <p>Choose your next unforgettable adventure</p>
+    </section>
+
+    <!-- Trips Grid -->
+    <section>
+        <div class="trips-grid">
+            <!-- Essence Festival -->
+            <div class="trip-card">
+                <div class="trip-header essence-header">
+                    <h3>Essence Festival</h3>
+                    <p>July 3-5, 2026 • New Orleans</p>
+                </div>
+                <div class="trip-body">
+                    <p>Experience the world's largest celebration of Black culture and music at the iconic Caesars Superdome. 4 nights of unforgettable performances, culture, and NOLA hospitality.</p>
+                    <div class="price-tag">From $2,495 per person</div>
+                    <a href="essence-festival.html" class="trip-link">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Keith Sweat -->
+            <div class="trip-card">
+                <div class="trip-header keith-header">
+                    <h3>Keith Sweat R&B Lovers Tour</h3>
+                    <p>August 29, 2026 • Atlanta</p>
+                </div>
+                <div class="trip-body">
+                    <p>An epic night of classic R&B with Keith Sweat, Joe, Dru Hill, Ginuwine, and Kut Klose at State Farm Arena. VIP packages with exclusive perks available.</p>
+                    <div class="price-tag">From $1,295 per person</div>
+                    <a href="keith-sweat-atlanta.html" class="trip-link">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Mary J Blige -->
+            <div class="trip-card">
+                <div class="trip-header mary-header">
+                    <h3>Mary J Blige Residency Finale</h3>
+                    <p>July 18, 2026 • Las Vegas</p>
+                </div>
+                <div class="trip-body">
+                    <p>Witness the final show of Mary J's "My Life, My Story" residency at Dolby Live. An intimate, powerful performance you'll never forget.</p>
+                    <div class="price-tag">From $1,695 per person</div>
+                    <a href="mary-j-blige-vegas.html" class="trip-link">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Napa Juneteenth -->
+            <div class="trip-card">
+                <div class="trip-header napa-header">
+                    <h3>Napa Valley Juneteenth</h3>
+                    <p>June 19-22, 2026 • California</p>
+                </div>
+                <div class="trip-body">
+                    <p>Celebrate freedom with wine tastings at Black-owned vineyards, cultural experiences, and the beauty of Napa Valley wine country.</p>
+                    <div class="price-tag">From $2,195 per person</div>
+                    <a href="napa-juneteenth.html" class="trip-link">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">The Real Vacations</div>
+            <div class="footer-links">
+                <a href="homepage.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
+                <p>Phone: <a href="tel:40492300
