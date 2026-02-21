@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Stories | The Real Vacations</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+        
+        .section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Photo Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 4/3;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .review-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .review-author-avatar {
+            width: 50px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .review-author-info h4 {
+            color: #1a1a2e;
+            margin-bottom: 0.25rem;
+        }
+        
+        .review-author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Book Your Story Section */
+        .book-story-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 5%;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .book-story-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .book-story-section p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Featured Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Real Stories from Real Travelers</h1>
+        <p>See the memories we've made and hear from travelers who've experienced The Real difference</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Photo Gallery Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2>📸 See Where We've Been</h2>
+                <p>Real moments from real trips. This is what The Real Vacations experience looks like.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <!-- Upload your trip photos here -->
+                    <span>Photo 1</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 2</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 3</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 4</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 5</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 6</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 7</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 8</span>
+                </div>
+                <div class="gallery-item">
+                    <span>Photo 9</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2>💬 What Travelers Are Saying</h2>
+                <p>Don't just take our word for it—hear from people who've traveled with us</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best trip ever! Everything was handled perfectly—from the hotel to the concert tickets. We just showed up and had an amazing time. Already booking our next trip with The Real Vacations!"</p>
+                    <div class="review-author">
+                        <div class="review-author-avatar">JM</div>
+                        <div class="review-author-info">
+                            <h4>Jessica M.</h4>
+                            <p>Essence Festival 2025</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The Napa Valley trip was absolutely incredible. The Black-owned wineries were beautiful, the food was amazing, and our group had such a great time. This was the stress-free vacation I needed!"</p>
+                    <div class="review-author">
+                        <div class="review-author-avatar">TB</div>
+                        <div class="review-author-info">
+                            <h4>Terrence B.</h4>
+                            <p>Napa Juneteenth 2025</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Seeing Mary J live in Vegas was a dream come true! The Real Vacations made it so easy—great hotel, perfect seats, and the group vibe was amazing. Can't wait for the next one!"</p>
+                    <div class="review-author">
+                        <div class="review-author-avatar">AM</div>
+                        <div class="review-author-info">
+                            <h4>Angela M.</h4>
+                            <p>Mary J Blige Vegas 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Services -->
+        <section class="section">
+            <div class="section-header">
+                <h2>✨ How We Can Help You Travel</h2>
+                <p>From group adventures to custom getaways, we've got you covered</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Group Getaways</h3>
+                    <p>Join our curated group trips to concerts, festivals, and cultural celebrations</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎤</div>
+                    <h3>Destination Events</h3>
+                    <p>Experience music festivals, concerts, and special events with all-inclusive packages</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Vacations</h3>
+                    <p>Create lasting memories with custom family trips tailored to your needs</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Corporate Retreats</h3>
+                    <p>Team building and corporate travel experiences designed for your organization</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⭐</div>
+                    <h3>VIP Packages</h3>
+                    <p>Upgrade your experience with premium accommodations, exclusive access, and more</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Book Your Story Section -->
+    <section class="book-story-section" style="margin: 0 5% 4rem;">
+        <h2>Ready to Book Your Own Story?</h2>
+        <p>Join hundreds of travelers who've created unforgettable memories with The Real Vacations</p>
+        <div class="cta-buttons">
+            <a href="trips.html" class="cta-button">Browse Our Group Trips</a>
+            <a href="custom-trip-form.html" class="cta-button secondary">Request a Custom Trip</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Have questions? <a href="contact.html" style="color: white; text-decoration: underline;">Contact us</a> and we'll help you plan the perfect getaway.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.jpeg" alt="The Real Vacations" style="height: 70px; margin-bottom: 1rem;">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="/cdn-cgi/l/email-protection#debdb1b0aabfbdaa9eaab6bbacbbbfb2a8bfbdbfaab7b1b0adf0bdb1b3"><span class="__cf_email__" data-cfemail="14777b7a6075776054607c716671757862757775607d7b7a673a777b79">[email&#160;protected]</span></a></p>
+                <p>Phone: <a href="tel:4049230017">404-
