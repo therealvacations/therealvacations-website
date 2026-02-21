@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napa Valley Juneteenth | Wine Country Celebration | The Real Vacations</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-details {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        
+        /* Featured Wineries Section */
+        .wineries-section {
+            background: white;
+        }
+        
+        .wineries-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .wineries-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .wineries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .winery-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .winery-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .winery-card h3 {
+            font-size: 1.5rem;
+            color: #30cfd0;
+            margin-bottom: 1rem;
+        }
+        
+        .winery-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .winery-link {
+            display: inline-block;
+            color: #30cfd0;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #30cfd0;
+            border-radius: 25px;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+        
+        .winery-link:hover {
+            background: #30cfd0;
+            color: white;
+        }
+        
+        /* Package Details */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .package-card h3 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .package-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            background: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #30cfd0;
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: #30cfd0;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .price-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Why This Trip */
+        .why-trip {
+            background: #f8f9fa;
+        }
+        
+        .why-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .why-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Included/Excluded */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .details-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+        
+        .details-column ul {
+            list-style: none;
+        }
+        
+        .details-column li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #666;
+        }
+        
+        .details-column li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #30cfd0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .excluded li:before {
+            content: "✗";
+            color: #999;
+        }
+        
+        /* CTA Footer */
+        .cta-footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 5%;
+        }
+        
+        .cta-footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-footer p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Napa Valley Juneteenth</h1>
+            <p class="hero-subtitle">Celebrate Freedom in Wine Country</p>
+            <p class="hero-details">June 19-22, 2026 • Napa Valley, California</p>
+        </div>
+    </section>
+
+    <!-- Featured Black-Owned Wineries -->
+    <section class="wineries-section">
+        <h2 class="section-title">Featured Black-Owned Wineries</h2>
+        <div class="wineries-intro">
+            <p>This Juneteenth, we're centering Black excellence in wine country. Every tasting, every vineyard, every experience on this trip supports Black-owned businesses and celebrates the legacy of Black winemakers in Napa Valley.</p>
+        </div>
+        <div class="wineries-grid">
+            <div class="winery-card">
+                <h3>Brown Estate</h3>
+                <p><strong>Napa Valley's first Black-owned winery (founded 1996).</strong> Known for award-winning Zinfandels and bold reds. Tasting room in downtown Napa, walking distance from your hotel. This is where the story begins.</p>
+                <a href="https://www.brownestate.com/" class="winery-link" target="_blank">Visit Website →</a>
+            </div>
+            <div class="winery-card">
+                <h3>J. Moss Wines</h3>
+                <p>Boutique winery specializing in handcrafted Cabernet and Merlot. Intimate, appointment-only tastings just 10 minutes from downtown Napa. Owners James and Janet Moss share their love story with every glass.</p>
+                <a href="http://www.jmosswines.com/" class="winery-link" target="_blank">Book Tasting →</a>
+            </div>
+            <div class="winery-card">
+                <h3>Okapi Wines</h3>
+                <p>Small-batch artisanal Cabernet Sauvignon with a mission. Tastings at The Caves at Soda Canyon, and a portion of proceeds supports okapi conservation in the Congo. Wine with purpose.</p>
+                <a href="https://www.okapiwines.com/" class="winery-link" target="_blank">Learn More →</a>
+            </div>
+            <div class="winery-card">
+                <h3>Housely</h3>
+                <p>Owned by Tamara Mowry (Sister, Sister) and her husband Adam. Family-friendly tasting room with indoor and outdoor seating, great music, and affordable $25 tastings with chocolate pairing. Pure joy in a glass.</p>
+                <a href="https://www.houselynapavalley.com/" class="winery-link" target="_blank">Visit Website →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Details -->
+    <section class="section-alt">
+        <h2 class="section-title">What's Included</h2>
+        <div class="package-grid">
+            <div class="package-card">
+                <div class="package-icon">🍷</div>
+                <h3>Wine Experiences</h3>
+                <p>Curated tastings at 4 Black-owned wineries, guided vineyard tours, and cultural context about Black contributions to Napa's wine industry. All reservations handled for you.</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🏨</div>
+                <h3>Accommodations</h3>
+                <p><strong>3 nights at River Terrace Inn</strong> in downtown Napa on the riverfront. General package: Standard rooms. VIP package: Premium riverfront suites with upgraded amenities. Walking distance to Brown Estate tasting room.</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🚐</div>
+                <h3>Transportation</h3>
+                <p>Round-trip airport transfers and daily wine tour transportation via Black-owned Napa Valley Chauffeur. Professional, personalized service with deep knowledge of the area.</p>
+            </div>
+            <div class="package-card">
+                <div class="package-icon">🎭</div>
+                <h3>Cultural Experiences</h3>
+                <p>Juneteenth celebration dinner featuring Black-owned restaurants (Lil Sistas Goodys, Buster's BBQ), live music, and optional add-ons: cooking class, spa day, or hot air balloon ride.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <h2 class="section-title">Choose Your Package</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>General Package</h3>
+                <div class="price">$2,195</div>
+                <p class="price-note">per person (double occupancy)</p>
+                <ul style="text-align: left; margin-bottom: 2rem;">
+                    <li style="padding: 0.5rem 0;">✓ 3 nights River Terrace Inn (standard room)</li>
+                    <li style="padding: 0.5rem 0;">✓ 4 Black-owned winery tastings</li>
+                    <li style="padding: 0.5rem 0;">✓ Daily wine tour transportation</li>
+                    <li style="padding: 0.5rem 0;">✓ Juneteenth celebration dinner</li>
+                    <li style="padding: 0.5rem 0;">✓ Welcome wine reception</li>
+                </ul>
+                <a href="#" class="book-button">Book Now - Pay $450 Deposit</a>
+            </div>
+            <div class="pricing-card">
+                <h3>VIP Package</h3>
+                <div class="price">$3,495</div>
+                <p class="price-note">per person (double occupancy)</p>
+                <ul style="text-align: left; margin-bottom: 2rem;">
+                    <li style="padding: 0.5rem 0;">✓ 3 nights premium riverfront suite</li>
+                    <li style="padding: 0.5rem 0;">✓ Private winery tours & barrel tastings</li>
+                    <li style="padding: 0.5rem 0;">✓ Premium transportation service</li>
+                    <li style="padding: 0.5rem 0;">✓ Private chef dinner experience</li>
+                    <li style="padding: 0.5rem 0;">✓ Spa treatment at hotel</li>
+                    <li style="padding: 0.5rem 0;">✓ Wine shipment home (6 bottles)</li>
+                </ul>
+                <a href="#" class="book-button">Book VIP - Pay $650 Deposit</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #666;">Flexible payment plans available. Deposit required to secure your spot. Final payment due 60 days before travel.</p>
+    </section>
+
+    <!-- Why This Trip -->
+    <section class="why-trip">
+        <div class="why-content">
+            <h2 class="section-title">Why This Trip is Special</h2>
+            <p>Juneteenth isn't just a holiday—it's a celebration of freedom, resilience, and Black excellence. And there's no better place to honor that than in Napa Valley, where Black winemakers have been breaking barriers and crafting world-class wines for decades.</p>
+            <p>This trip is intentionally curated to support Black-owned businesses at every turn. From the wineries you visit to the restaurants where you dine, from the chauffeur who drives you to the cultural experiences that frame your journey—every dollar you spend uplifts Black entrepreneurs and tells a story that deserves to be celebrated.</p>
+            <p>You'll taste incredible wines, yes. But you'll also connect with the people behind them, hear their stories, and understand the challenges they've overcome to thrive in an industry that wasn't built for them. It's wine country with purpose. It's celebration with meaning. And it's a trip you'll never forget.</p>
+        </div>
+    </section>
+
+    <!-- What's Included/Excluded -->
+    <section>
+        <h2 class="section-title">Trip Details</h2>
+        <div class="details-grid">
+            <div class="details-column">
+                <h3>What's Included</h3>
+                <ul>
+                    <li>3 nights at River Terrace Inn</li>
+                    <li>4 Black-owned winery tastings with reservations</li>
+                    <li>Daily wine tour transportation (Black-owned company)</li>
+                    <li>Round-trip airport transfers</li>
+                    <li>Juneteenth celebration dinner</li>
+                    <li>Welcome wine reception with group</li>
+                    <li>Guided vineyard tours</li>
+                    <li>24/7 trip coordinator support</li>
+                    <li>Travel insurance option</li>
+                </ul>
+            </div>
+            <div class="details-column excluded">
+                <h3>What's Not Included</h3>
+                <ul>
+                    <li>Airfare to/from Napa/San Francisco</li>
+                    <li>Most meals (beyond celebration dinner)</li>
+                    <li>Wine purchases & shipments (General package)</li>
+                    <li>Personal expenses & souvenirs</li>
+                    <li>Optional add-on experiences</li>
+                    <li>Gratuities for drivers/guides</li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; color: #666; font-size: 0.95rem;"><strong>Cancellation Policy:</strong> Full refund if cancelled within 24 hours of booking. After 24 hours, deposits are non-refundable but transferable to another traveler with $50 fee. Travel insurance highly recommended.</p>
+    </section>
+
+    <!-- CTA Footer -->
+    <section class="cta-footer">
+        <h2>Ready to Celebrate Freedom in Wine Country?</h2>
+        <p>Book now with a deposit and pay monthly. Support Black-owned businesses while making memories!</p>
+        <a href="contact.html" class="cta-button">Contact Us to Book</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo"><img src="logo.jpeg" alt="The Real Vacations"></div>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="/cdn-cgi/l/email-protection#4d2e2223392c2e390d3925283f282c213b2c2e2c392422233e632e2220"><span class="__cf_email__" data-c
