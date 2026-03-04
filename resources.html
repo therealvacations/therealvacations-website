@@ -4,232 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Resources | The Real Vacations</title>
-    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <meta name="description" content="Helpful travel resources, custom trip planning, and independent booking tools from The Real Vacations.">
+    <link rel="icon" type="image/png" href="favicon.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-purple: #6B2D8B;
+            --primary-green: #2E8B57;
+            --dark-purple: #4A1D6A;
+            --light-purple: #F5F0F8;
+            --accent-gold: #D4AF37;
+            --dark-bg: #1a1a2e;
+            --text-dark: #2D2D2D;
+            --text-medium: #555;
+            --text-light: #777;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
+            --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #4A1D6A 50%, #2E8B57 100%);
+            --shadow-soft: 0 4px 20px rgba(107, 45, 139, 0.15);
+            --shadow-hover: 0 8px 30px rgba(107, 45, 139, 0.25);
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.3; }
         
-        /* Header */
-        header {
-            background: #1a1a2e;
-            color: white;
-            padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        header { background: var(--dark-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 60px; width: auto; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-green); }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--white); }
         
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .hero { background: var(--gradient-hero); color: var(--white); padding: 60px 5%; text-align: center; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 70%, rgba(46, 139, 87, 0.3) 0%, transparent 50%); }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
         
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+        .content { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
         
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark-purple); border-left: 4px solid var(--primary-purple); padding-left: 1rem; }
+        .section > p { color: var(--text-medium); margin-bottom: 2rem; font-size: 1.1rem; }
         
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
+        /* Resource Grid */
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .resource-card { background: var(--white); border: 1px solid #e0e0e0; border-radius: 20px; padding: 2rem; transition: all 0.3s; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary-purple); }
+        .resource-card h3 { color: var(--primary-purple); margin-bottom: 1rem; font-size: 1.4rem; }
+        .resource-card p { color: var(--text-medium); margin-bottom: 1.5rem; line-height: 1.7; }
         
-        nav a:hover {
-            color: #667eea;
-        }
+        .affiliate-link { display: inline-block; background: var(--gradient-primary); color: var(--white); padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s; }
+        .affiliate-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+        .affiliate-link.secondary { background: var(--white); color: var(--primary-purple); border: 2px solid var(--primary-purple); }
+        .affiliate-link.secondary:hover { background: var(--primary-purple); color: var(--white); }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 5%;
-            text-align: center;
-        }
+        /* Search Widget */
+        .search-widget { background: var(--light-purple); padding: 2.5rem; border-radius: 20px; margin-bottom: 2rem; text-align: center; }
+        .search-widget h3 { color: var(--dark-purple); margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .search-widget > p { color: var(--text-medium); margin-bottom: 1.5rem; }
+        .search-widget .note { margin-top: 1rem; font-size: 0.85rem; color: var(--text-light); font-style: italic; }
         
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        /* Intro Box */
+        .intro-box { text-align: center; margin-bottom: 3rem; padding: 2.5rem; background: var(--light-purple); border-radius: 20px; }
+        .intro-box h2 { color: var(--primary-purple); margin-bottom: 1rem; }
+        .intro-box p { color: var(--text-medium); max-width: 700px; margin: 0 auto; }
+        .intro-box .tip { margin-top: 1rem; font-weight: 600; color: var(--dark-purple); }
         
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
+        /* CTA Section */
+        .cta-box { background: var(--gradient-primary); color: var(--white); padding: 3rem; border-radius: 24px; text-align: center; margin-top: 4rem; }
+        .cta-box h2 { color: var(--white); margin-bottom: 1rem; font-size: 2rem; }
+        .cta-box p { opacity: 0.95; margin-bottom: 2rem; font-size: 1.1rem; }
+        .cta-box .cta-button { display: inline-block; background: var(--white); color: var(--primary-purple); padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; transition: all 0.3s; }
+        .cta-box .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         
-        /* Main Content */
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 5%;
-        }
+        hr { border: none; border-top: 2px solid #e0e0e0; margin: 4rem 0; }
         
-        .intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
+        footer { background: var(--dark-bg); color: var(--white); padding: 60px 5% 30px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--primary-green); }
+        .footer-logo img { height: 50px; margin-bottom: 1rem; }
+        .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
         
-        .intro h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .section {
-            margin-bottom: 4rem;
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a2e;
-            border-left: 4px solid #667eea;
-            padding-left: 1rem;
-        }
-        
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .resource-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .resource-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .resource-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .search-widget {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .search-widget h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .affiliate-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .affiliate-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .affiliate-link.secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-        
-        .affiliate-link.secondary:hover {
-            background: #667eea;
-            color: white;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 40px 5%;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin: 2rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-        }
-        
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .resource-grid {
-                grid-template-columns: 1fr;
-            }
+            nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero h1 { font-size: 2rem; }
+            .resource-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
@@ -242,21 +117,22 @@
                 <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
-        <h1>Travel Resources</h1>
-        <p>Helpful tools and links for planning your perfect trip</p>
+        <div class="hero-content">
+            <h1>Travel Resources</h1>
+            <p>Helpful tools and services for planning your perfect trip</p>
+        </div>
     </section>
 
-    <!-- Main Content -->
     <div class="content">
-        <!-- Services Overview -->
+        <!-- Custom Services -->
         <div class="section">
             <h2>Beyond Group Trips</h2>
-            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">While we're known for our all-inclusive group experiences, we also offer personalized travel services for every occasion.</p>
+            <p>While we're known for our all-inclusive group experiences, we also offer personalized travel services for every occasion.</p>
             
             <div class="resource-grid">
                 <div class="resource-card">
@@ -276,102 +152,94 @@
                 </div>
                 <div class="resource-card">
                     <h3>✈️ Travel Consulting</h3>
-                    <p>Expert advice and planning services for any trip. Whether you're planning independently or need guidance, our travel experts help you navigate your options and make informed decisions.</p>
+                    <p>Expert advice and planning services for any trip. Whether you're planning independently or need guidance, our travel experts help you navigate your options.</p>
                     <a href="contact.html" class="affiliate-link secondary">Get Consultation →</a>
                 </div>
             </div>
         </div>
 
-        <hr style="margin: 4rem 0; border: none; border-top: 2px solid #e0e0e0;">
+        <hr>
 
-        <!-- Intro -->
-        <div class="intro">
+        <!-- Independent Booking Resources -->
+        <div class="intro-box">
             <h2>Booking Travel Independently?</h2>
             <p>While our all-inclusive packages offer the best value and stress-free experience, we understand some travelers prefer to book components separately. Use these resources to plan your trip.</p>
-            <p style="margin-top: 1rem;"><strong>💡 Tip:</strong> Compare prices! Our packages often save you money vs. booking everything individually.</p>
+            <p class="tip">💡 Tip: Compare prices! Our packages often save you money vs. booking everything individually.</p>
         </div>
 
-        <!-- Flights Section — EDITED: Removed "on Expedia" from button text -->
+        <!-- Flights -->
         <div class="section">
             <h2>✈️ Flight Search</h2>
             <div class="search-widget">
                 <h3>Search Flights</h3>
                 <p>Find and compare flight prices to your destination</p>
-                <p style="margin-top: 1.5rem;">
-                    <!-- AFFILIATE LINK: Replace the # below with your flight affiliate link -->
-                    <a href="#" class="affiliate-link">Search Flights →</a>
-                </p>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                    <em>Affiliate links help support our business at no extra cost to you</em>
-                </p>
+                <!-- AFFILIATE LINK: Replace # with your flight affiliate link -->
+                <a href="#" class="affiliate-link">Search Flights →</a>
+                <p class="note">Affiliate links help support our business at no extra cost to you</p>
             </div>
         </div>
 
-        <!-- Hotels Section — EDITED: Removed "on Expedia" from button text -->
+        <!-- Hotels -->
         <div class="section">
             <h2>🏨 Hotel Search</h2>
             <div class="search-widget">
                 <h3>Search Hotels</h3>
                 <p>Find accommodations for your trip</p>
-                <p style="margin-top: 1.5rem;">
-                    <!-- AFFILIATE LINK: Replace the # below with your hotel affiliate link -->
-                    <a href="#" class="affiliate-link">Search Hotels →</a>
-                </p>
+                <!-- AFFILIATE LINK: Replace # with your hotel affiliate link -->
+                <a href="#" class="affiliate-link">Search Hotels →</a>
             </div>
         </div>
 
-        <!-- Event Tickets Section -->
+        <!-- Event Tickets -->
         <div class="section">
             <h2>🎫 Event Tickets</h2>
             <div class="resource-grid">
                 <div class="resource-card">
                     <h3>Ticketmaster</h3>
                     <p>Find tickets to concerts, festivals, and events. Browse upcoming shows and secure your seats.</p>
-                    <!-- AFFILIATE LINK: Replace the # below with your Ticketmaster affiliate link -->
+                    <!-- AFFILIATE LINK: Replace # with your Ticketmaster affiliate link -->
                     <a href="#" class="affiliate-link secondary">Browse Events →</a>
                 </div>
                 <div class="resource-card">
                     <h3>StubHub</h3>
                     <p>Marketplace for verified event tickets. Great for sold-out shows and last-minute seats.</p>
-                    <!-- AFFILIATE LINK: Replace the # below with your StubHub affiliate link -->
+                    <!-- AFFILIATE LINK: Replace # with your StubHub affiliate link -->
                     <a href="#" class="affiliate-link secondary">Find Tickets →</a>
                 </div>
             </div>
         </div>
 
-        <!-- Travel Insurance Section -->
+        <!-- Travel Insurance -->
         <div class="section">
             <h2>🛡️ Travel Insurance</h2>
             <div class="resource-grid">
                 <div class="resource-card">
                     <h3>Travel Insurance Recommended</h3>
                     <p>Protect your investment! We highly recommend travel insurance for all trips. Coverage includes trip cancellation, medical emergencies, and more.</p>
-                    <!-- AFFILIATE LINK: Replace the # below with your insurance affiliate link -->
+                    <!-- AFFILIATE LINK: Replace # with your insurance affiliate link -->
                     <a href="#" class="affiliate-link secondary">Get a Quote →</a>
                 </div>
                 <div class="resource-card">
                     <h3>Why You Need It</h3>
-                    <p>Life happens. Flight cancellations, medical emergencies, weather delays - insurance gives you peace of mind and financial protection.</p>
-                    <!-- AFFILIATE LINK: Replace the # below with your insurance comparison affiliate link -->
+                    <p>Life happens. Flight cancellations, medical emergencies, weather delays—insurance gives you peace of mind and financial protection.</p>
+                    <!-- AFFILIATE LINK: Replace # with your insurance comparison affiliate link -->
                     <a href="#" class="affiliate-link secondary">Compare Plans →</a>
                 </div>
             </div>
         </div>
 
-        <!-- Car Rentals Section -->
+        <!-- Car Rentals -->
         <div class="section">
             <h2>🚗 Car Rentals</h2>
             <div class="search-widget">
                 <h3>Rent a Car</h3>
                 <p>Need wheels at your destination? Compare rental car prices.</p>
-                <p style="margin-top: 1.5rem;">
-                    <!-- AFFILIATE LINK: Replace the # below with your car rental affiliate link -->
-                    <a href="#" class="affiliate-link">Search Car Rentals →</a>
-                </p>
+                <!-- AFFILIATE LINK: Replace # with your car rental affiliate link -->
+                <a href="#" class="affiliate-link">Search Car Rentals →</a>
             </div>
         </div>
 
-        <!-- Additional Resources -->
+        <!-- Travel Tips -->
         <div class="section">
             <h2>📚 Helpful Travel Tips</h2>
             <div class="resource-grid">
@@ -385,38 +253,39 @@
                 </div>
                 <div class="resource-card">
                     <h3>Destination Guides</h3>
-                    <p>Learn about your destination - best restaurants, attractions, local customs, and insider tips.</p>
+                    <p>Learn about your destination—best restaurants, attractions, local customs, and insider tips.</p>
                 </div>
             </div>
         </div>
 
-        <!-- CTA to Packages -->
-        <div class="intro" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white;">Ready for Stress-Free Travel?</h2>
-            <p>Let us handle all the details! Our all-inclusive packages include flights (optional), hotels, event tickets, transportation, and experiences - all at a better price than booking separately.</p>
-            <p style="margin-top: 2rem;">
-                <a href="trips.html" class="affiliate-link" style="background: white; color: #667eea;">View Our Packages →</a>
-            </p>
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>Ready for Stress-Free Travel?</h2>
+            <p>Let us handle all the details! Our all-inclusive packages include hotels, event tickets, transportation, and experiences—all at a better price than booking separately.</p>
+            <a href="trips.html" class="cta-button">View Our Packages →</a>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="logo.jpeg" alt="The Real Vacations" style="height: 70px; margin-bottom: 1rem;">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="trips.html">Trips</a>
-                <a href="real-stories.html">Real Stories</a>
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col footer-logo">
+                    <img src="logo.jpeg" alt="The Real Vacations">
+                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="trips.html">Upcoming Trips</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+                    <a href="tel:4049230017">404-923-0017</a>
+                </div>
             </div>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
-                <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 The Real Vacations. All rights reserved.</p></div>
         </div>
     </footer>
 </body>

@@ -3,418 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Real Vacations | All-Inclusive Group Travel Experiences</title>
+    <title>The Real Vacations | All-Inclusive Group Travel for Music, Wine & Culture</title>
+    <meta name="description" content="Book unforgettable group trips to Essence Festival, Napa Valley wine tours, concerts & cultural celebrations. Flexible payment plans. 20+ years creating memories.">
     <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-purple: #6B2D8B;
+            --primary-green: #2E8B57;
+            --dark-purple: #4A1D6A;
+            --light-purple: #F5F0F8;
+            --accent-gold: #D4AF37;
+            --accent-wine: #722F37;
+            --accent-red: #E74C3C;
+            --dark-bg: #1a1a2e;
+            --text-dark: #2D2D2D;
+            --text-medium: #555;
+            --text-light: #777;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
+            --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #4A1D6A 50%, #2E8B57 100%);
+            --gradient-urgent: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+            --shadow-soft: 0 4px 20px rgba(107, 45, 139, 0.15);
+            --shadow-hover: 0 8px 30px rgba(107, 45, 139, 0.25);
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.3; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        
+        /* Countdown Banner */
+        .countdown-banner { background: var(--gradient-urgent); color: var(--white); padding: 12px 5%; text-align: center; position: relative; overflow: hidden; }
+        .countdown-banner::before { content: ''; position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 2s infinite; }
+        .countdown-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .countdown-text { font-weight: 600; font-size: 0.95rem; }
+        .countdown-text strong { font-size: 1.1rem; }
+        .countdown-timer { display: flex; gap: 0.5rem; }
+        .countdown-unit { background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 6px; text-align: center; min-width: 50px; }
+        .countdown-number { font-size: 1.3rem; font-weight: 700; display: block; }
+        .countdown-label { font-size: 0.65rem; text-transform: uppercase; opacity: 0.9; }
+        .countdown-cta { background: var(--white); color: var(--accent-red); padding: 8px 20px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; }
+        .countdown-cta:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         
         /* Header */
-        header {
-            background: #1a1a2e;
-            color: white;
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        header { background: var(--dark-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 60px; width: auto; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-green); }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--white); }
         
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* Hero */
+        .hero { background: var(--gradient-hero); color: var(--white); text-align: center; position: relative; overflow: hidden; min-height: 85vh; display: flex; align-items: center; justify-content: center; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(46, 139, 87, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(107, 45, 139, 0.4) 0%, transparent 50%); }
+        .hero-content { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; padding: 60px 5%; animation: fadeInUp 1s ease-out; }
+        .hero-eyebrow { display: inline-block; background: rgba(255,255,255,0.15); padding: 10px 25px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 1px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.15; }
+        .hero-subtitle { font-size: 1.35rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .hero-cta-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+        .cta-button { display: inline-block; padding: 18px 40px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none; transition: all 0.3s; }
+        .cta-button-primary { background: var(--primary-green); color: var(--white); box-shadow: 0 8px 25px rgba(46, 139, 87, 0.4); }
+        .cta-button-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(46, 139, 87, 0.5); }
+        .cta-button-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+        .cta-button-outline:hover { background: var(--white); color: var(--dark-purple); }
+        .trust-items { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.9; }
+        .trust-items span { display: flex; align-items: center; gap: 0.5rem; }
         
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+        /* Sections */
+        section { padding: 100px 5%; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.8rem; color: var(--dark-purple); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.2rem; color: var(--text-medium); max-width: 600px; margin: 0 auto; }
+        .section-alt { background: var(--light-purple); }
         
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
+        /* VIP Subscribe Section */
+        .vip-section { background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-purple) 100%); color: var(--white); padding: 80px 5%; position: relative; overflow: hidden; }
+        .vip-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%); }
+        .vip-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+        .vip-badge { display: inline-block; background: var(--accent-gold); color: var(--dark-bg); padding: 8px 20px; border-radius: 25px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .vip-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--white); }
+        .vip-section .vip-content > p { font-size: 1.2rem; opacity: 0.95; margin-bottom: 2rem; }
+        .vip-perks { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .vip-perk { display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
+        .vip-perk::before { content: '✓'; color: var(--accent-gold); font-weight: bold; }
+        .vip-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .vip-form input { flex: 1; min-width: 250px; padding: 16px 24px; border: none; border-radius: 50px; font-size: 1rem; font-family: inherit; }
+        .vip-form button { background: var(--accent-gold); color: var(--dark-bg); padding: 16px 35px; border: none; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .vip-form button:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); }
+        .vip-note { margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8; }
+        .vip-note strong { color: var(--accent-gold); }
         
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
+        /* Discount Tiers */
+        .discount-tiers { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+        .discount-tier { background: rgba(255,255,255,0.1); padding: 1.25rem 2rem; border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.2); }
+        .discount-tier.urgent { border-color: var(--accent-gold); background: rgba(212, 175, 55, 0.15); }
+        .discount-amount { font-size: 2rem; font-weight: 700; color: var(--accent-gold); font-family: 'Playfair Display', serif; }
+        .discount-condition { font-size: 0.85rem; opacity: 0.9; margin-top: 0.25rem; }
+        .discount-note { font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8; }
         
-        nav a:hover {
-            color: #667eea;
-        }
+        /* Emotional Hook */
+        .emotional-section { background: var(--white); }
+        .emotional-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .emotional-content h2 { font-size: 2.5rem; color: var(--dark-purple); margin-bottom: 1.5rem; line-height: 1.2; }
+        .emotional-content p { font-size: 1.1rem; color: var(--text-medium); margin-bottom: 1.5rem; line-height: 1.8; }
+        .emotional-highlight { background: var(--light-purple); padding: 1.5rem 2rem; border-radius: 16px; border-left: 4px solid var(--primary-purple); font-style: italic; color: var(--dark-purple); }
+        .emotional-image { background: var(--gradient-primary); border-radius: 24px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 5% 80px;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1a1a2e;
-        }
-        
-        /* Trip Cards */
-        .trips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .trip-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .trip-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .trip-header {
-            padding: 40px 20px;
-            color: white;
-            text-align: center;
-        }
-        
-        .essence-header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        
-        .keith-header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-        
-        .mary-header {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-        
-        .napa-header {
-            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-        }
-        
-        .trip-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .trip-header p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        .trip-body {
-            padding: 30px;
-        }
-        
-        .trip-body p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        
-        .trip-link {
-            display: inline-block;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 25px;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-        
-        .trip-link:hover {
-            background: #667eea;
-            color: white;
-        }
-        
-        /* Trip Types */
-        .trip-types {
-            background: #f8f9fa;
-        }
-        
-        .types-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .type-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .type-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .type-item h3 {
-            font-size: 1.2rem;
-            color: #1a1a2e;
-            margin-bottom: 0.5rem;
-        }
+        /* Trips Grid */
+        .trips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+        .trip-card { background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.4s; position: relative; }
+        .trip-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-hover); }
+        .trip-badge { position: absolute; top: 20px; right: 20px; padding: 8px 16px; border-radius: 25px; font-size: 0.75rem; font-weight: 700; z-index: 3; text-transform: uppercase; letter-spacing: 1px; }
+        .trip-badge.selling-fast { background: var(--accent-red); color: var(--white); }
+        .trip-badge.early-bird { background: var(--primary-green); color: var(--white); }
+        .trip-badge.limited { background: var(--accent-gold); color: var(--dark-bg); }
+        .trip-header { padding: 50px 25px 25px; color: white; text-align: center; }
+        .trip-header.napa { background: linear-gradient(135deg, #722F37 0%, #4A1D6A 100%); }
+        .trip-header.essence { background: linear-gradient(135deg, #6B2D8B 0%, #E74C3C 100%); }
+        .trip-header.maryj { background: linear-gradient(135deg, #D4AF37 0%, #6B2D8B 100%); }
+        .trip-header.keithsweat { background: linear-gradient(135deg, #E74C3C 0%, #1a1a2e 100%); }
+        .trip-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--white); }
+        .trip-header p { font-size: 0.9rem; opacity: 0.9; }
+        .trip-venue { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; margin-top: 1rem; }
+        .trip-body { padding: 2rem; }
+        .trip-body > p { color: var(--text-medium); margin-bottom: 1.5rem; line-height: 1.7; font-size: 0.95rem; }
+        .trip-pricing { background: var(--light-purple); border-radius: 16px; padding: 1.25rem; margin-bottom: 1.25rem; text-align: center; }
+        .trip-deposit { font-size: 2rem; font-weight: 700; color: var(--primary-green); font-family: 'Playfair Display', serif; }
+        .trip-deposit-label { font-size: 0.85rem; color: var(--text-medium); }
+        .trip-full-price { font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed rgba(0,0,0,0.1); }
+        .trip-link { display: block; background: var(--gradient-primary); color: var(--white); padding: 16px; text-decoration: none; border-radius: 30px; font-weight: 700; text-align: center; transition: all 0.3s; }
+        .trip-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
         
         /* How It Works */
-        .how-it-works {
-            background: white;
-        }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .step { text-align: center; padding: 2rem; }
+        .step-number { width: 60px; height: 60px; background: var(--gradient-primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1.5rem; font-family: 'Playfair Display', serif; }
+        .step h3 { font-size: 1.3rem; color: var(--dark-purple); margin-bottom: 0.75rem; }
+        .step p { color: var(--text-medium); font-size: 0.95rem; }
         
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
+        /* Testimonials */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .testimonial-card { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: var(--shadow-soft); position: relative; }
+        .testimonial-card::before { content: '"'; position: absolute; top: 20px; left: 25px; font-size: 4rem; color: var(--primary-purple); opacity: 0.15; font-family: 'Playfair Display', serif; line-height: 1; }
+        .testimonial-stars { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem; }
+        .testimonial-text { font-size: 1rem; color: var(--text-medium); font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; line-height: 1.8; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; }
+        .author-info h4 { font-size: 1rem; color: var(--dark-purple); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        .author-info p { font-size: 0.85rem; color: var(--text-light); }
         
-        .step {
-            text-align: center;
-        }
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature-card { background: var(--white); padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--primary-purple); }
+        .feature-card h3 { font-size: 1.2rem; color: var(--dark-purple); margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-medium); font-size: 0.95rem; }
         
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .step h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #1a1a2e;
-        }
-        
-        .step p {
-            color: #666;
-            line-height: 1.7;
-        }
-        
-        /* Why Choose Us */
-        .why-choose {
-            background: #f8f9fa;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .benefit {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .benefit h3 {
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .benefit p {
-            color: #666;
-            line-height: 1.7;
-        }
-        
-        /* VIP List CTA */
-        .vip-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 5%;
-        }
-        
-        .vip-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .vip-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .vip-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .vip-form input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-        }
-        
-        .vip-form button {
-            background: #1a1a2e;
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .vip-form button:hover {
-            background: #2a2a3e;
-            transform: translateY(-2px);
-        }
+        /* FAQ */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--white); border-radius: 12px; margin-bottom: 1rem; box-shadow: var(--shadow-soft); overflow: hidden; }
+        .faq-question { padding: 1.5rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--dark-purple); transition: background 0.3s; }
+        .faq-question:hover { background: var(--light-purple); }
+        .faq-icon { font-size: 1.5rem; transition: transform 0.3s; color: var(--primary-purple); }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .faq-answer-inner { padding: 0 2rem 1.5rem; color: var(--text-medium); line-height: 1.8; }
+        .faq-item.active .faq-answer { max-height: 300px; }
         
         /* Footer */
-        footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 40px 5%;
-            text-align: center;
-        }
+        footer { background: var(--dark-bg); color: var(--white); padding: 60px 5% 30px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--primary-green); }
+        .footer-logo img { height: 50px; margin-bottom: 1rem; }
+        .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin: 2rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-        }
-        
-        .contact-info {
-            margin: 2rem 0;
-        }
-        
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-            
-            .vip-form {
-                flex-direction: column;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+            nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .emotional-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .countdown-inner { flex-direction: column; gap: 0.75rem; }
+            .vip-form { flex-direction: column; }
+            .vip-form input, .vip-form button { width: 100%; }
+            .discount-tiers { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Countdown Banner -->
+    <div class="countdown-banner">
+        <div class="countdown-inner">
+            <span class="countdown-text">🎰 <strong id="promo-text">SPIN TO WIN up to $500 OFF!</strong> Book & pay in full before time runs out!</span>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-unit"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hours</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Mins</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Secs</span></div>
+            </div>
+            <a href="#vip-signup" class="countdown-cta">🎰 Spin My Wheel →</a>
+        </div>
+    </div>
+
     <header>
         <div class="header-content">
-            <div class="logo"><img src="logo.jpeg" alt="The Real Vacations"></div>
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="trips.html">Trips</a>
@@ -424,186 +230,388 @@
                 <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Unforgettable Group Travel Experiences</h1>
-            <p>All-inclusive trips to music events, wine country, cultural celebrations, and beyond. Book with a deposit, pay monthly, and let us handle the rest.</p>
-            <a href="#trips" class="cta-button">Explore Our Trips</a>
-        </div>
-    </section>
-
-    <!-- Featured Trips -->
-    <section id="trips">
-        <h2 class="section-title">Upcoming Trips</h2>
-        <div class="trips-grid">
-            <!-- Napa Juneteenth -->
-            <div class="trip-card">
-                <div class="trip-header napa-header">
-                    <h3>Napa Valley Juneteenth 2026</h3>
-                    <p>June 19-22, 2026 • California</p>
-                </div>
-                <div class="trip-body">
-                    <p>Celebrate freedom with wine tastings at Black-owned vineyards, cultural experiences, and the beauty of Napa Valley wine country.</p>
-                    <a href="napa-juneteenth-june-19-22-2026.html" class="trip-link">View Details →</a>
-                </div>
+            <span class="hero-eyebrow">Born from Family. Built for Community.</span>
+            <h1>You Bring Your People.<br>We Handle Everything Else.</h1>
+            <p class="hero-subtitle">Curated all-inclusive group trips to concerts, wine country, and cultural celebrations. No planning stress. No logistics headaches. Just unforgettable experiences with the people who matter most.</p>
+            <div class="hero-cta-group">
+                <a href="trips.html" class="cta-button cta-button-primary">Explore Our Trips →</a>
+                <a href="#vip-signup" class="cta-button cta-button-outline">🎰 Spin for My Discount</a>
             </div>
-
-            <!-- Essence Festival -->
-            <div class="trip-card">
-                <div class="trip-header essence-header">
-                    <h3>Essence Festival 2026</h3>
-                    <p>July 3-5, 2026 • New Orleans</p>
-                </div>
-                <div class="trip-body">
-                    <p>Experience the world's largest celebration of Black culture and music at the iconic Caesars Superdome. 4 nights of unforgettable performances, culture, and NOLA hospitality.</p>
-                    <a href="essence-festival-new-orleans-july-3-5-2026.html" class="trip-link">View Details →</a>
-                </div>
-            </div>
-
-            <!-- Mary J Blige -->
-            <div class="trip-card">
-                <div class="trip-header mary-header">
-                    <h3>Mary J Blige Residency Finale 2026</h3>
-                    <p>July 18, 2026 • Las Vegas</p>
-                </div>
-                <div class="trip-body">
-                    <p>Witness the final show of Mary J's "My Life, My Story" residency at Dolby Live. An intimate, powerful performance you'll never forget.</p>
-                    <a href="mary-j-blige-my-life-my-story-las-vegas-july-18-2026.html" class="trip-link">View Details →</a>
-                </div>
-            </div>
-
-            <!-- Keith Sweat -->
-            <div class="trip-card">
-                <div class="trip-header keith-header">
-                    <h3>Keith Sweat R&B Lovers Tour 2026</h3>
-                    <p>August 29, 2026 • Atlanta</p>
-                </div>
-                <div class="trip-body">
-                    <p>An epic night of classic R&B with Keith Sweat, Joe, Dru Hill, Ginuwine, and Kut Klose at State Farm Arena. VIP packages with exclusive perks available.</p>
-                    <a href="keith-sweat-r-and-b-tour-atlanta-august-29-2026.html" class="trip-link">View Details →</a>
-                </div>
+            <div class="trust-items">
+                <span>✓ 20+ Years of Group Travel</span>
+                <span>✓ Flexible Payment Plans</span>
+                <span>✓ 24/7 Trip Support</span>
             </div>
         </div>
     </section>
 
-    <!-- Trip Types -->
-    <section class="trip-types">
-        <h2 class="section-title">Types of Trips We Offer</h2>
-        <div class="types-grid">
-            <div class="type-item">
-                <div class="type-icon">🎵</div>
-                <h3>Music Events</h3>
-                <p>Concerts, festivals & residencies</p>
+    <!-- VIP Subscribe Section -->
+    <section class="vip-section" id="vip-signup">
+        <div class="vip-content">
+            <span class="vip-badge">🎰 Spin to Win</span>
+            <h2>Your Discount is ONE Spin Away</h2>
+            <p>Join our VIP list, spin the wheel, and lock in your savings. But hurry — the bigger discounts disappear first!</p>
+            
+            <div class="discount-tiers">
+                <div class="discount-tier urgent" id="tier1">
+                    <div class="discount-amount">Up to $500 OFF</div>
+                    <div class="discount-condition">Book & pay in full by March 5, 8am</div>
+                    <div class="discount-note">🎰 Spin the wheel for your discount!</div>
+                </div>
+                <div class="discount-tier" id="tier2">
+                    <div class="discount-amount">Up to $250 OFF</div>
+                    <div class="discount-condition">Book & pay in full by March 8, 8am</div>
+                    <div class="discount-note">🎰 Spin the wheel for your discount!</div>
+                </div>
             </div>
-            <div class="type-item">
-                <div class="type-icon">🍷</div>
-                <h3>Wine Country</h3>
-                <p>Vineyard tours & tastings</p>
+            
+            <div class="vip-perks">
+                <span class="vip-perk">Spin the wheel for your discount</span>
+                <span class="vip-perk">Pay in full to lock it in</span>
+                <span class="vip-perk">VIP early access</span>
             </div>
-            <div class="type-item">
-                <div class="type-icon">🎭</div>
-                <h3>Cultural Celebrations</h3>
-                <p>Heritage & community events</p>
+            
+            <!-- ===== SUBSCRIBE FORM: Connect to your email service ===== -->
+            <form class="vip-form" action="#" method="POST">
+                <input type="email" placeholder="Enter your email to spin the wheel" required>
+                <button type="submit">🎰 Let Me Spin!</button>
+            </form>
+            
+            <p class="vip-note"><strong>Must pay in full at booking</strong> to receive your spin discount. Code expires at deadline!</p>
+        </div>
+    </section>
+
+    <!-- Emotional Hook -->
+    <section class="emotional-section">
+        <div class="section-inner">
+            <div class="emotional-grid">
+                <div class="emotional-content">
+                    <h2>Planning Group Travel Shouldn't Feel Like a Second Job</h2>
+                    <p>The endless group chats. The comparing prices. The "who's booking what" confusion. The spreadsheets. The stress of hoping everyone actually pays on time...</p>
+                    <p>We've been there. For over 20 years, our family has gathered every December 26th — we call it "Cates 26." As our family grew, coordinating trips became overwhelming. So we built something better.</p>
+                    <div class="emotional-highlight">
+                        <strong>You bring your people. We handle literally everything else.</strong> Hotels, tickets, transportation, experiences — all coordinated. Everyone pays on their own schedule. You just show up and make memories.
+                    </div>
+                </div>
+                <div class="emotional-image">📸 Your Next Memory Starts Here</div>
             </div>
-            <div class="type-item">
-                <div class="type-icon">🏔️</div>
-                <h3>Adventure</h3>
-                <p>Outdoor & exploration trips</p>
+        </div>
+    </section>
+
+    <!-- Upcoming Trips -->
+    <section class="section-alt">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Upcoming Group Experiences</h2>
+                <p>Curated trips for families, friend groups, and anyone ready to travel together</p>
             </div>
-            <div class="type-item">
-                <div class="type-icon">👨‍👩‍👧‍👦</div>
-                <h3>Family Reunions</h3>
-                <p>Multi-generational getaways</p>
+            
+            <div class="trips-grid">
+                <!-- Napa -->
+                <div class="trip-card">
+                    <span class="trip-badge early-bird">Early Bird</span>
+                    <div class="trip-header napa">
+                        <h3>Napa Valley Juneteenth 2026</h3>
+                        <p>June 19-22, 2026 • California</p>
+                        <span class="trip-venue">🍷 Napa Valley Wine Country</span>
+                    </div>
+                    <div class="trip-body">
+                        <p>Four days of world-class wines, stunning vineyards, and the kind of relaxation you've been craving.</p>
+                        <div class="trip-pricing">
+                            <div class="trip-deposit">$600</div>
+                            <div class="trip-deposit-label">deposit to secure your spot</div>
+                            <div class="trip-full-price">From $2,595/pp (quad) to $2,895/pp (single)</div>
+                        </div>
+                        <a href="napa-juneteenth-june-19-22-2026.html" class="trip-link">Gather Your Group →</a>
+                    </div>
+                </div>
+
+                <!-- Essence -->
+                <div class="trip-card">
+                    <span class="trip-badge selling-fast">Selling Fast</span>
+                    <div class="trip-header essence">
+                        <h3>Essence Festival 2026</h3>
+                        <p>July 3-5, 2026 • New Orleans</p>
+                        <span class="trip-venue">🎵 Caesars Superdome</span>
+                    </div>
+                    <div class="trip-body">
+                        <p>The world's largest celebration of culture and music. Four nights of legendary performances and NOLA hospitality.</p>
+                        <div class="trip-pricing">
+                            <div class="trip-deposit">$500</div>
+                            <div class="trip-deposit-label">deposit to secure your spot</div>
+                            <div class="trip-full-price">From $2,195/pp (quad) to $2,495/pp (single)</div>
+                        </div>
+                        <a href="essence-festival-new-orleans-july-3-5-2026.html" class="trip-link">Join the Party →</a>
+                    </div>
+                </div>
+
+                <!-- Mary J -->
+                <div class="trip-card">
+                    <span class="trip-badge limited">Limited Seats</span>
+                    <div class="trip-header maryj">
+                        <h3>Mary J Blige Residency Finale</h3>
+                        <p>July 18, 2026 • Las Vegas</p>
+                        <span class="trip-venue">🎤 Dolby Live at Park MGM</span>
+                    </div>
+                    <div class="trip-body">
+                        <p>The Queen of Hip-Hop Soul. The final night of "My Life, My Story." An intimate performance you'll never forget.</p>
+                        <div class="trip-pricing">
+                            <div class="trip-deposit">$450</div>
+                            <div class="trip-deposit-label">deposit to secure your spot</div>
+                            <div class="trip-full-price">From $1,695/pp (quad) to $1,995/pp (single)</div>
+                        </div>
+                        <a href="mary-j-blige-my-life-my-story-las-vegas-july-18-2026.html" class="trip-link">Get Your Crew Together →</a>
+                    </div>
+                </div>
+
+                <!-- Keith Sweat -->
+                <div class="trip-card">
+                    <div class="trip-header keithsweat">
+                        <h3>Keith Sweat R&B Lovers Tour</h3>
+                        <p>August 29, 2026 • Atlanta</p>
+                        <span class="trip-venue">🎷 State Farm Arena</span>
+                    </div>
+                    <div class="trip-body">
+                        <p>An epic night of classic R&B. Keith Sweat, Joe, Dru Hill, Ginuwine, and Kut Klose — all on one stage.</p>
+                        <div class="trip-pricing">
+                            <div class="trip-deposit">$300</div>
+                            <div class="trip-deposit-label">deposit to secure your spot</div>
+                            <div class="trip-full-price">From $995/pp (quad) to $1,295/pp (single)</div>
+                        </div>
+                        <a href="keith-sweat-r-and-b-tour-atlanta-august-29-2026.html" class="trip-link">Save My Spot →</a>
+                    </div>
+                </div>
             </div>
-            <div class="type-item">
-                <div class="type-icon">💼</div>
-                <h3>Corporate Retreats</h3>
-                <p>Team building & events</p>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="trips.html" class="cta-button cta-button-primary">View All Trips →</a>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps-grid">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Choose Your Trip</h3>
-                <p>Browse our curated experiences and select the perfect getaway for you and your group.</p>
+    <section>
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Group Travel Without the Group Headache</h2>
+                <p>Three simple steps to your next unforgettable experience</p>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Book with a Deposit</h3>
-                <p>Secure your spot with a deposit and choose a flexible payment plan that works for you.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Pack Your Bags</h3>
-                <p>We handle all the details—accommodations, transportation, event tickets. You just show up and enjoy.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <h2 class="section-title">Why Choose The Real Vacations</h2>
-        <div class="benefits-grid">
-            <div class="benefit">
-                <h3>20+ Years of Expertise</h3>
-                <p>Born from the "Cates 26" family tradition, we've been creating unforgettable group experiences for over two decades.</p>
-            </div>
-            <div class="benefit">
-                <h3>Flexible Payment Plans</h3>
-                <p>Book with a deposit and pay monthly. Travel shouldn't wait for your budget to catch up.</p>
-            </div>
-            <div class="benefit">
-                <h3>All-Inclusive Packages</h3>
-                <p>We handle accommodations, transportation, event tickets, and curated experiences. You just enjoy the journey.</p>
-            </div>
-            <div class="benefit">
-                <h3>Ticketmaster Affiliate</h3>
-                <p>Direct access to premium event tickets and VIP experiences at top venues nationwide.</p>
-            </div>
-            <div class="benefit">
-                <h3>Group Rewards</h3>
-                <p>Bring 10+ travelers and earn credits toward future trips or upgrades.</p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pick Your Trip</h3>
+                    <p>Browse our curated experiences. Each one is designed for groups who want quality, connection, and zero stress.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Lock In Your Spots</h3>
+                    <p>Secure your group with a deposit. Everyone pays on their own schedule with flexible payment plans.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Show Up & Enjoy</h3>
+                    <p>We handle the hotels, tickets, transportation — everything. You just bring your people and make memories.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- See Where We've Been CTA -->
-    <section class="see-stories-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 5%; text-align: center; margin: 4rem 0;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🎉 See Where We've Been</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">Don't just take our word for it—see the memories we've made and hear from travelers who've experienced The Real difference.</p>
-            <a href="real-stories.html" style="display: inline-block; background: white; color: #667eea; padding: 18px 40px; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s;">View Real Stories →</a>
+    <!-- Testimonials -->
+    <section class="section-alt">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>Don't Take Our Word For It</h2>
+                <p>Hear from travelers who've experienced The Real difference</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">This was my first time traveling with The Real Vacations and it won't be my last. Everything was handled — I just had to show up and enjoy myself. The vibes were immaculate!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TJ</div>
+                        <div class="author-info"><h4>Tamika J.</h4><p>Essence Festival 2025</p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">The Napa trip exceeded every expectation. The wineries, the people, the food — I came home refreshed and already planning my next trip with them.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info"><h4>Marcus R.</h4><p>Napa Valley 2024</p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">I've done group trips before but nothing like this. The payment plan made it possible, and I met people who feel like family now. Can't wait for the next one!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KW</div>
+                        <div class="author-info"><h4>Karen W.</h4><p>Vegas Concert Trip 2025</p></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- VIP List CTA -->
-    <section class="vip-cta">
-        <h2>Join Our VIP List</h2>
-        <p>Be the first to know about new trips, exclusive deals, and early-bird pricing.</p>
-        <form class="vip-form">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit">Join Now</button>
-        </form>
+    <!-- What We Stand For -->
+    <section>
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>What We Stand For</h2>
+                <p>More than a travel company — a commitment to how group travel should feel</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card"><h3>Connection First</h3><p>Travel is about more than destinations — it's about the people you experience them with.</p></div>
+                <div class="feature-card"><h3>Intentional Experiences</h3><p>Every detail is chosen with purpose. We craft experiences that honor your time.</p></div>
+                <div class="feature-card"><h3>Flexibility & Accessibility</h3><p>Payment plans and deposit options make unforgettable experiences accessible to everyone.</p></div>
+                <div class="feature-card"><h3>Quality, Always</h3><p>From hotels to experiences, we never cut corners. You deserve excellence.</p></div>
+                <div class="feature-card"><h3>Peace of Mind</h3><p>We handle every detail so you don't have to. 24/7 support from booking to return.</p></div>
+                <div class="feature-card"><h3>20+ Years of "Cates 26"</h3><p>Born from our family's tradition of gathering together. Group travel is in our DNA.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-alt">
+        <div class="section-inner">
+            <div class="section-header"><h2>Questions? We've Got Answers</h2></div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question"><span>How do payment plans work?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Secure your spot with a deposit, then pay the remaining balance in installments. Final payment is due 45-60 days before travel. No credit checks, no interest.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>What's included in the trip packages?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Most packages include accommodations, transportation, event tickets, and planned activities. Each trip page lists exactly what's included.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>How does the spin-to-win discount work?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Sign up for our VIP list, and you'll get to spin our discount wheel! Book and pay in full by March 5th 8am for a chance at up to $500 off, or by March 8th 8am for up to $250 off. Your discount is applied when you pay in full at booking.</div></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Can I travel solo or do I need a group?</span><span class="faq-icon">+</span></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Come solo! That's the beauty of group travel — you'll meet amazing people who become friends.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="vip-section">
+        <div class="vip-content">
+            <h2>Ready to Spin for Your Discount?</h2>
+            <p>Join our VIP list. Spin the wheel. Book your dream trip and save up to $500 when you pay in full!</p>
+            <form class="vip-form" action="#" method="POST">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">🎰 Let Me Spin!</button>
+            </form>
+            <p class="vip-note"><strong>Must pay in full at booking</strong> to receive your spin discount.</p>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo"><img src="logo.jpeg" alt="The Real Vacations"></div>
-            <div class="footer-links">
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col footer-logo">
+                    <img src="logo.jpeg" alt="The Real Vacations">
+                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="trips.html">Upcoming Trips</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="real-stories.html">Real Stories</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="resources.html">Travel Tips</a>
+                    <a href="how-it-works.html#faq">FAQ</a>
+                    <a href="contact.html">Group Leader Program</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+                    <a href="tel:4049230017">404-923-0017</a>
+                    <a href="contact.html">Send a Message</a>
+                </div>
             </div>
-            <div class="contact-info">
-                <p>Email: <a href="/cdn-cgi/l/email-protection#a3c0cccdd7c2c0d7e3d7cbc6d1c6c2cfd5c2c0c2d7cacccdd08dc0ccce"><span class="__cf_email__" data-c
+            <div class="footer-bottom"><p>© 2026 The Real Vacations. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer - Two stages
+        // Stage 1: Until March 5, 2026 8:00 AM EST = Up to $500 off
+        // Stage 2: Until March 8, 2026 8:00 AM EST = Up to $250 off
+        
+        const stage1End = new Date('2026-03-05T08:00:00-05:00'); // March 5, 2026 8am EST
+        const stage2End = new Date('2026-03-08T08:00:00-05:00'); // March 8, 2026 8am EST
+        
+        function updateCountdown() {
+            const now = new Date();
+            let targetDate;
+            let promoText;
+            
+            if (now < stage1End) {
+                // Stage 1 active - $500 off
+                targetDate = stage1End;
+                promoText = 'SPIN TO WIN up to $500 OFF!';
+                document.getElementById('tier1').classList.add('urgent');
+                document.getElementById('tier2').classList.remove('urgent');
+            } else if (now < stage2End) {
+                // Stage 2 active - $250 off
+                targetDate = stage2End;
+                promoText = 'SPIN TO WIN up to $250 OFF!';
+                document.getElementById('tier1').style.opacity = '0.5';
+                document.getElementById('tier1').style.textDecoration = 'line-through';
+                document.getElementById('tier2').classList.add('urgent');
+            } else {
+                // Both expired
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('promo-text').textContent = 'Promo ended — contact us for current offers!';
+                return;
+            }
+            
+            document.getElementById('promo-text').innerHTML = '<strong>' + promoText + '</strong> Book & pay in full before time runs out!';
+            
+            const diff = targetDate - now;
+            
+            if (diff <= 0) {
+                updateCountdown(); // Recheck which stage
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

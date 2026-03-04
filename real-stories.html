@@ -4,348 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Stories | The Real Vacations</title>
-    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
+    <meta name="description" content="See real photos and testimonials from travelers who've experienced The Real Vacations difference. Group trips, lasting memories.">
+    <link rel="icon" type="image/png" href="favicon.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-purple: #6B2D8B;
+            --primary-green: #2E8B57;
+            --dark-purple: #4A1D6A;
+            --light-purple: #F5F0F8;
+            --accent-gold: #D4AF37;
+            --dark-bg: #1a1a2e;
+            --text-dark: #2D2D2D;
+            --text-medium: #555;
+            --text-light: #777;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
+            --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #4A1D6A 50%, #2E8B57 100%);
+            --shadow-soft: 0 4px 20px rgba(107, 45, 139, 0.15);
+            --shadow-hover: 0 8px 30px rgba(107, 45, 139, 0.25);
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.3; }
         
-        /* Header */
-        header {
-            background: #1a1a2e;
-            color: white;
-            padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        header { background: var(--dark-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 60px; width: auto; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-green); }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--white); }
         
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .hero { background: var(--gradient-hero); color: var(--white); padding: 80px 5%; text-align: center; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 70%, rgba(46, 139, 87, 0.3) 0%, transparent 50%); }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.3rem; opacity: 0.95; }
         
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            color: #667eea;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 5%;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Main Content */
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 5%;
-        }
-        
-        .section {
-            margin-bottom: 5rem;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-        }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .content { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+        .section { margin-bottom: 5rem; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; color: var(--dark-purple); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.15rem; color: var(--text-medium); max-width: 700px; margin: 0 auto; }
         
         /* Photo Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; transition: all 0.3s; cursor: pointer; }
+        .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-placeholder { text-align: center; padding: 2rem; }
+        .gallery-placeholder span { display: block; font-size: 3rem; margin-bottom: 0.5rem; }
         
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            aspect-ratio: 4/3;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1rem;
-        }
+        /* Reviews */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .review-card { background: var(--white); padding: 2.5rem; border-radius: 24px; box-shadow: var(--shadow-soft); position: relative; transition: all 0.3s; }
+        .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .review-card::before { content: '"'; position: absolute; top: 20px; left: 25px; font-size: 5rem; color: var(--primary-purple); opacity: 0.15; font-family: 'Playfair Display', serif; line-height: 1; }
+        .review-stars { color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1rem; }
+        .review-text { font-size: 1.1rem; color: var(--text-medium); font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; line-height: 1.8; }
+        .review-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 55px; height: 55px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 1.3rem; }
+        .author-info h4 { font-size: 1.05rem; color: var(--dark-purple); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        .author-info p { font-size: 0.85rem; color: var(--text-light); }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--white); padding: 2.5rem 2rem; border-radius: 20px; text-align: center; box-shadow: var(--shadow-soft); transition: all 0.3s; border-bottom: 4px solid transparent; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-bottom-color: var(--primary-purple); }
+        .service-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .service-card h3 { color: var(--dark-purple); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .service-card p { color: var(--text-medium); font-size: 0.95rem; }
         
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        /* CTA */
+        .book-story-section { background: var(--gradient-primary); color: var(--white); padding: 80px 5%; border-radius: 24px; text-align: center; margin: 0 5% 4rem; }
+        .book-story-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--white); }
+        .book-story-section > p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .cta-button { display: inline-block; background: var(--white); color: var(--primary-purple); padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .cta-button.secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
+        .cta-button.secondary:hover { background: var(--white); color: var(--primary-purple); }
         
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+        footer { background: var(--dark-bg); color: var(--white); padding: 60px 5% 30px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--primary-green); }
+        .footer-logo img { height: 50px; margin-bottom: 1rem; }
+        .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
         
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        
-        .review-stars {
-            color: #ffc107;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .review-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-        
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .review-author-avatar {
-            width: 50px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .review-author-info h4 {
-            color: #1a1a2e;
-            margin-bottom: 0.25rem;
-        }
-        
-        .review-author-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Book Your Story Section */
-        .book-story-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 5%;
-            border-radius: 20px;
-            text-align: center;
-        }
-        
-        .book-story-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .book-story-section p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button.secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .cta-button.secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-        
-        /* Featured Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card h3 {
-            color: #1a1a2e;
-            margin-bottom: 0.5rem;
-        }
-        
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 40px 5%;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin: 2rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-        }
-        
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-            }
+            nav { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .hero h1 { font-size: 2rem; }
+            .section-header h2 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-button { width: 100%; max-width: 300px; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
@@ -358,104 +125,72 @@
                 <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact</a>
             </nav>
+            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
-        <h1>Real Stories from Real Travelers</h1>
-        <p>See the memories we've made and hear from travelers who've experienced The Real difference</p>
+        <div class="hero-content">
+            <h1>Real Stories from Real Travelers</h1>
+            <p>See the memories we've made and hear from travelers who've experienced The Real difference</p>
+        </div>
     </section>
 
-    <!-- Main Content -->
     <div class="content">
-        <!-- Photo Gallery Section -->
+        <!-- Photo Gallery -->
         <section class="section">
             <div class="section-header">
                 <h2>📸 See Where We've Been</h2>
                 <p>Real moments from real trips. This is what The Real Vacations experience looks like.</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <!-- Upload your trip photos here -->
-                    <span>Photo 1</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 2</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 3</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 4</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 5</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 6</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 7</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 8</span>
-                </div>
-                <div class="gallery-item">
-                    <span>Photo 9</span>
-                </div>
+                <!-- PHOTO PLACEHOLDERS: Replace with actual trip photos -->
+                <div class="gallery-item"><div class="gallery-placeholder"><span>🍷</span>Napa Valley</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder"><span>🎵</span>Essence Festival</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder"><span>🏝️</span>SweatFest Cancun</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder"><span>🗼</span>Tokyo Adventure</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder"><span>🎤</span>Vegas Concert</div></div>
+                <div class="gallery-item"><div class="gallery-placeholder"><span>✈️</span>Group Travel</div></div>
             </div>
         </section>
 
-        <!-- Reviews Section — EDITED: Updated all 3 reviews to match actual trips -->
+        <!-- Reviews -->
         <section class="section">
             <div class="section-header">
                 <h2>💬 What Travelers Are Saying</h2>
                 <p>Don't just take our word for it—hear from people who've traveled with us</p>
             </div>
             <div class="reviews-grid">
-                <!-- EDITED: Changed from Essence Festival 2025 → Tokyo, Japan March 2025 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Tokyo was absolutely magical! From the incredible food to exploring Disney Tokyo, every single detail was planned perfectly. We never had to worry about a thing—transportation, reservations, park tickets—it was all handled. The group energy made it even better. Already counting down to the next trip with The Real Vacations!"</p>
                     <div class="review-author">
-                        <div class="review-author-avatar">JM</div>
-                        <div class="review-author-info">
-                            <h4>Jessica M.</h4>
-                            <p>Tokyo, Japan – March 2025</p>
-                        </div>
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info"><h4>Jessica M.</h4><p>Tokyo, Japan – March 2025</p></div>
                     </div>
                 </div>
                 
-                <!-- EDITED: Changed from Napa Juneteenth 2025 → Sweatfest Cancun October 2024 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"Sweatfest in Cancun was the time of my life! The resort was beautiful, the concerts were incredible, and the whole group had such amazing vibes. I didn't have to plan a single thing—just showed up and had the best weekend. This was the stress-free vacation I needed!"</p>
                     <div class="review-author">
-                        <div class="review-author-avatar">TB</div>
-                        <div class="review-author-info">
-                            <h4>Terrence B.</h4>
-                            <p>Sweatfest Cancun – October 2024</p>
-                        </div>
+                        <div class="author-avatar">TB</div>
+                        <div class="author-info"><h4>Terrence B.</h4><p>Sweatfest Cancun – October 2024</p></div>
                     </div>
                 </div>
                 
-                <!-- EDITED: Changed from Mary J Blige Vegas 2025 → Napa Valley Relaxation Winery Tour June 2025 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-text">"The Napa Valley winery tour was pure relaxation from start to finish. The wineries were beautiful, the wine was amazing, and the whole experience felt so personal and intimate. I came back feeling completely refreshed. Can't wait for the next one!"</p>
                     <div class="review-author">
-                        <div class="review-author-avatar">AM</div>
-                        <div class="review-author-info">
-                            <h4>Angela M.</h4>
-                            <p>Napa Valley Relaxation Winery Tour – June 2025</p>
-                        </div>
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info"><h4>Angela M.</h4><p>Napa Valley Winery Tour – June 2025</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Services -->
+        <!-- Services -->
         <section class="section">
             <div class="section-header">
                 <h2>✨ How We Can Help You Travel</h2>
@@ -467,62 +202,62 @@
                     <h3>Group Getaways</h3>
                     <p>Join our curated group trips to concerts, festivals, and cultural celebrations</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">🎤</div>
                     <h3>Destination Events</h3>
                     <p>Experience music festivals, concerts, and special events with all-inclusive packages</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">👨‍👩‍👧‍👦</div>
                     <h3>Family Vacations</h3>
                     <p>Create lasting memories with custom family trips tailored to your needs</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">💼</div>
                     <h3>Corporate Retreats</h3>
                     <p>Team building and corporate travel experiences designed for your organization</p>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">⭐</div>
                     <h3>VIP Packages</h3>
-                    <p>Upgrade your experience with premium accommodations, exclusive access, and more</p>
+                    <p>Upgrade your experience with premium accommodations and exclusive access</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Book Your Story Section -->
-    <section class="book-story-section" style="margin: 0 5% 4rem;">
+    <!-- CTA -->
+    <section class="book-story-section">
         <h2>Ready to Book Your Own Story?</h2>
         <p>Join hundreds of travelers who've created unforgettable memories with The Real Vacations</p>
         <div class="cta-buttons">
-            <a href="trips.html" class="cta-button">Browse Our Group Trips</a>
-            <a href="custom-trip-form.html" class="cta-button secondary">Request a Custom Trip</a>
+            <!-- ===== PAYMENT LINK: Browse Trips CTA ===== -->
+            <a href="trips.html" class="cta-button">Browse Our Group Trips →</a>
+            <!-- ===== PAYMENT LINK: Custom Trip CTA ===== -->
+            <a href="contact.html" class="cta-button secondary">Request a Custom Trip</a>
         </div>
-        <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Have questions? <a href="contact.html" style="color: white; text-decoration: underline;">Contact us</a> and we'll help you plan the perfect getaway.</p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="logo.jpeg" alt="The Real Vacations" style="height: 70px; margin-bottom: 1rem;">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="trips.html">Trips</a>
-                <a href="real-stories.html">Real Stories</a>
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-col footer-logo">
+                    <img src="logo.jpeg" alt="The Real Vacations">
+                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="trips.html">Upcoming Trips</a>
+                    <a href="about.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+                    <a href="tel:4049230017">404-923-0017</a>
+                </div>
             </div>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
-                <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 The Real Vacations. All rights reserved.</p></div>
         </div>
     </footer>
 </body>
