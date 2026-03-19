@@ -101,24 +101,33 @@
             .step { padding: 100px 2rem 2rem; }
             .step-number { left: 50%; top: 30px; transform: translateX(-50%); }
         }
-    </style>
+    
+  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
+  nav a img { height: 52px; }
+  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+  .nav-links a:hover { color: #c084fc; }
+  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+  .footer-col a:hover { color: #c084fc; }
+  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+</style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="trips.html">Trips</a>
-                <a href="real-stories.html">Real Stories</a>
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
-        </div>
-    </header>
+    <nav>
+  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="trips.html">Trips</a>
+    <a href="real-stories.html">Real Stories</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -229,34 +238,26 @@
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col footer-logo">
-                    <img src="logo.jpeg" alt="The Real Vacations">
-                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="trips.html">Upcoming Trips</a>
-                    <a href="about.html">About Us</a>
-                    <a href="how-it-works.html">How It Works</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
-                    <a href="tel:4049230017">404-923-0017</a>
-                </div>
-            </div>
-            <div class="footer-bottom"><p>© 2026 The Real Vacations. All rights reserved.</p></div>
-        </div>
-    </footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
+      <p>Creating unforgettable group travel experiences for over 20 years.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="trips.html">Upcoming Trips</a>
+      <a href="about.html">About Us</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="real-stories.html">Real Stories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+      <a href="tel:4049230017">404-923-0017</a>
+      <a href="contact.html">Send a Message</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+</footer>
 
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                question.parentElement.classList.toggle('active');
-            });
-        });
-    </script>
-</body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><

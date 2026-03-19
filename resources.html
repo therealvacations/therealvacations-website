@@ -102,24 +102,33 @@
             .hero h1 { font-size: 2rem; }
             .resource-grid { grid-template-columns: 1fr; }
         }
-    </style>
+    
+  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
+  nav a img { height: 52px; }
+  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+  .nav-links a:hover { color: #c084fc; }
+  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+  .footer-col a:hover { color: #c084fc; }
+  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+</style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="trips.html">Trips</a>
-                <a href="real-stories.html">Real Stories</a>
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
-        </div>
-    </header>
+    <nav>
+  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="trips.html">Trips</a>
+    <a href="real-stories.html">Real Stories</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -174,6 +183,7 @@
                 <h3>Search Flights</h3>
                 <p>Find and compare flight prices to your destination</p>
                 <!-- AFFILIATE LINK: Replace # with your flight affiliate link -->
+                <!-- ✏️ TODO: Replace # with your flight affiliate link -->
                 <a href="#" class="affiliate-link">Search Flights →</a>
                 <p class="note">Affiliate links help support our business at no extra cost to you</p>
             </div>
@@ -186,6 +196,7 @@
                 <h3>Search Hotels</h3>
                 <p>Find accommodations for your trip</p>
                 <!-- AFFILIATE LINK: Replace # with your hotel affiliate link -->
+                <!-- ✏️ TODO: Replace # with your hotel affiliate link -->
                 <a href="#" class="affiliate-link">Search Hotels →</a>
             </div>
         </div>
@@ -198,12 +209,14 @@
                     <h3>Ticketmaster</h3>
                     <p>Find tickets to concerts, festivals, and events. Browse upcoming shows and secure your seats.</p>
                     <!-- AFFILIATE LINK: Replace # with your Ticketmaster affiliate link -->
+                    <!-- ✏️ TODO: Replace # with your Ticketmaster affiliate link -->
                     <a href="#" class="affiliate-link secondary">Browse Events →</a>
                 </div>
                 <div class="resource-card">
                     <h3>StubHub</h3>
                     <p>Marketplace for verified event tickets. Great for sold-out shows and last-minute seats.</p>
                     <!-- AFFILIATE LINK: Replace # with your StubHub affiliate link -->
+                    <!-- ✏️ TODO: Replace # with your StubHub affiliate link -->
                     <a href="#" class="affiliate-link secondary">Find Tickets →</a>
                 </div>
             </div>
@@ -217,12 +230,14 @@
                     <h3>Travel Insurance Recommended</h3>
                     <p>Protect your investment! We highly recommend travel insurance for all trips. Coverage includes trip cancellation, medical emergencies, and more.</p>
                     <!-- AFFILIATE LINK: Replace # with your insurance affiliate link -->
+                    <!-- ✏️ TODO: Replace # with your travel insurance affiliate link -->
                     <a href="#" class="affiliate-link secondary">Get a Quote →</a>
                 </div>
                 <div class="resource-card">
                     <h3>Why You Need It</h3>
                     <p>Life happens. Flight cancellations, medical emergencies, weather delays—insurance gives you peace of mind and financial protection.</p>
                     <!-- AFFILIATE LINK: Replace # with your insurance comparison affiliate link -->
+                    <!-- ✏️ TODO: Replace # with your insurance comparison affiliate link -->
                     <a href="#" class="affiliate-link secondary">Compare Plans →</a>
                 </div>
             </div>
@@ -235,9 +250,54 @@
                 <h3>Rent a Car</h3>
                 <p>Need wheels at your destination? Compare rental car prices.</p>
                 <!-- AFFILIATE LINK: Replace # with your car rental affiliate link -->
+                <!-- ✏️ TODO: Replace # with your car rental affiliate link -->
                 <a href="#" class="affiliate-link">Search Car Rentals →</a>
             </div>
         </div>
+
+        
+        <!-- TripAdvisor Venues -->
+        <div class="section">
+            <h2>⭐ TripAdvisor — Venues & Attractions</h2>
+            <p>Read real reviews, see photos, and plan your visit to the key venues and attractions on our upcoming trips. Click any venue below to go directly to their TripAdvisor page.</p>
+            <div class="resource-grid">
+
+                <div class="resource-card">
+                    <img src="trinitas-cellars.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="Trinitas Cellars">
+                    <h3>Trinitas Cellars</h3>
+                    <p>Estate Cave & Spa Terra tasting room in Napa Valley. Reviews, photos, and visitor tips.</p>
+                    <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for Trinitas Cellars -->
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d6496836-Reviews-Trinitas_Cellars-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">View on TripAdvisor →</a>
+                </div>
+
+                <div class="resource-card">
+                    <img src="truchard-vineyards.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="Truchard Vineyards">
+                    <h3>Truchard Vineyards</h3>
+                    <p>Family-owned estate vineyard in Carneros, Napa. See photos, reviews, and visitor tips.</p>
+                    <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for Truchard Vineyards -->
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d3184263-Reviews-Truchard_Vineyards-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">View on TripAdvisor →</a>
+                </div>
+
+                <div class="resource-card">
+                    <img src="jam-cellars.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="JaM Cellars">
+                    <h3>JaM Cellars</h3>
+                    <p>Music-inspired tasting lounge in downtown Napa. Great vibes and world-class wine.</p>
+                    <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for JaM Cellars -->
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d10326660-Reviews-JaM_Cellars-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">View on TripAdvisor →</a>
+                </div>
+
+                <div class="resource-card">
+                    <img src="meritage-resort.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="The Meritage Resort & Spa">
+                    <h3>The Meritage Resort & Spa</h3>
+                    <p>Stunning Napa Valley resort overlooking the vineyards. See guest reviews and photos.</p>
+                    <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for The Meritage Resort -->
+                    <a href="https://www.tripadvisor.com/Hotel_Review-g32766-d587487-Reviews-The_Meritage_Resort_And_Spa-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">View on TripAdvisor →</a>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
 
         <!-- Travel Tips -->
         <div class="section">
@@ -253,7 +313,9 @@
                 </div>
                 <div class="resource-card">
                     <h3>Destination Guides</h3>
-                    <p>Learn about your destination—best restaurants, attractions, local customs, and insider tips.</p>
+                    <p>Learn about your destination—best restaurants, attractions, local customs, and insider tips from real travelers.</p>
+                    <!-- ✏️ TODO: Update with your TripAdvisor affiliate home link -->
+                    <a href="https://www.tripadvisor.com" target="_blank" class="affiliate-link secondary" style="margin-top:1rem;">Explore on TripAdvisor →</a>
                 </div>
             </div>
         </div>
@@ -284,9 +346,4 @@
                     <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
                     <a href="tel:4049230017">404-923-0017</a>
                 </div>
-            </div>
-            <div class="footer-bottom"><p>© 2026 The Real Vacations. All rights reserved.</p></div>
-        </div>
-    </footer>
-</body>
-</html>
+            

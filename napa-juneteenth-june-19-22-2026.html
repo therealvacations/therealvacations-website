@@ -61,6 +61,28 @@
             color: #667eea;
         }
         
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(90deg, #D4AF37, #F4D03F, #D4AF37);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+            color: #1a1a2e;
+            padding: 12px 5%;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .promo-banner a {
+            color: #330867;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
         /* Hero */
         .hero {
             background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
@@ -204,54 +226,274 @@
             line-height: 1.7;
         }
         
-        /* Pricing */
-        .pricing-section {
-            background: white;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .pricing-card {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 15px;
+        /* Spin Wheel Section */
+        .spin-section {
+            background: linear-gradient(135deg, #330867 0%, #30cfd0 100%);
+            color: white;
+            padding: 60px 5%;
             text-align: center;
-            border: 3px solid transparent;
-            transition: all 0.3s;
         }
         
-        .pricing-card:hover {
-            border-color: #30cfd0;
-            transform: translateY(-5px);
+        .spin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
         }
         
-        .pricing-card h3 {
+        .spin-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .spin-content h2 {
             font-size: 2rem;
-            color: #1a1a2e;
             margin-bottom: 1rem;
         }
         
-        .price {
-            font-size: 3rem;
-            color: #30cfd0;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-        
-        .price-note {
-            color: #666;
-            font-size: 0.9rem;
+        .spin-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
             margin-bottom: 1.5rem;
         }
         
-        .book-button {
+        .spin-tiers {
+            margin-bottom: 2rem;
+        }
+        
+        .spin-tier {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .spin-tier.active {
+            background: rgba(212, 175, 55, 0.3);
+            border: 1px solid #D4AF37;
+        }
+        
+        .spin-tier .amount {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        
+        .spin-form {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .spin-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+        
+        .spin-btn {
+            background: #D4AF37;
+            color: #1a1a2e;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .spin-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .wheel-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+        }
+        
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #D4AF37 0deg 45deg,
+                #30cfd0 45deg 90deg,
+                #667eea 90deg 135deg,
+                #330867 135deg 180deg,
+                #D4AF37 180deg 225deg,
+                #30cfd0 225deg 270deg,
+                #667eea 270deg 315deg,
+                #330867 315deg 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+        }
+        
+        .wheel-center {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #330867;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 20px solid white;
+        }
+        
+        /* Occupancy Pricing */
+        .pricing-section {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 5%;
+        }
+        
+        .pricing-section .section-title {
+            color: white;
+        }
+        
+        .pricing-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .occupancy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+        
+        .occupancy-card {
+            background: linear-gradient(180deg, #30cfd0 0%, #30cfd0 50%, #1d7a7c 50%, #1d7a7c 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .occupancy-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .occupancy-card.featured {
+            border: 3px solid #D4AF37;
+        }
+        
+        .occupancy-header {
+            padding: 1.5rem 1rem;
+        }
+        
+        .occupancy-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .occupancy-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .occupancy-price {
+            padding: 1.5rem 1rem;
+        }
+        
+        .occupancy-price .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .occupancy-price .per-person {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .occupancy-price .savings {
+            font-size: 0.85rem;
+            color: #D4AF37;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        
+        /* VIP Card */
+        .vip-card {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8962E 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            color: #1a1a2e;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        
+        .vip-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vip-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        .vip-card .price-note {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .vip-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+        
+        .vip-card li {
+            padding: 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        .vip-card li::before {
+            content: '★ ';
+            color: #330867;
+        }
+        
+        .vip-book-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            background: #1a1a2e;
             color: white;
             padding: 15px 40px;
             text-decoration: none;
@@ -260,9 +502,15 @@
             transition: all 0.3s;
         }
         
-        .book-button:hover {
+        .vip-book-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .pricing-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.7);
         }
         
         /* Why This Trip */
@@ -391,6 +639,12 @@
         }
         
         /* Responsive */
+        @media (max-width: 900px) {
+            .occupancy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -403,31 +657,65 @@
             nav {
                 display: none;
             }
+            
+            .spin-container {
+                flex-direction: column;
+            }
+            
+            .spin-content {
+                text-align: center;
+            }
         }
-    </style>
+        
+        @media (max-width: 500px) {
+            .occupancy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
+  nav a img { height: 52px; }
+  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+  .nav-links a:hover { color: #c084fc; }
+  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+  .footer-col a:hover { color: #c084fc; }
+  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+
+  .winery-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px 10px 0 0; margin-bottom: 0; display: block; }
+  .winery-card { overflow: hidden; padding: 0; }
+  .winery-card-body { padding: 1.5rem 2rem 2rem; }
+</style>
 </head>
 <body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        🎰 <strong>SPIN TO WIN!</strong> Up to $500 off when you pay in full. <a href="#spin-wheel">Spin Now →</a>
+    </div>
+
     <!-- Header -->
-    <header>
-        <div class="header-content">
-            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="trips.html">Trips</a>
-                <a href="real-stories.html">Real Stories</a>
-                <a href="about.html">About</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav>
+  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="trips.html">Trips</a>
+    <a href="real-stories.html">Real Stories</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Napa Valley Juneteenth</h1>
             <p class="hero-subtitle">Celebrate Freedom in Wine Country</p>
-            <p class="hero-details">June 19-22, 2026 • Napa Valley, California</p>
+            <p class="hero-details">June 18-21, 2026 • Napa Valley, California</p>
         </div>
     </section>
 
@@ -438,21 +726,21 @@
             <p>This Juneteenth, we're celebrating freedom in wine country. Every tasting, every vineyard, every experience on this trip has been handpicked to give you an unforgettable Napa Valley experience.</p>
         </div>
         <div class="wineries-grid">
-            <div class="winery-card">
-                <h3>Brown Estate</h3>
+            <div class="winery-card"><div class="winery-card-body"><h3>Brown Estate</h3>
                 <p><strong>A Napa Valley estate winery since 1996.</strong> Known for award-winning Zinfandels and bold reds. Tasting room in downtown Napa, walking distance from your hotel. This is where the story begins.</p>
-                <a href="https://www.brownestate.com/" class="winery-link" target="_blank">Learn More →</a>
-            </div>
-            <div class="winery-card">
-                <h3>J. Moss Wines</h3>
+                <a href="https://www.brownestate.com/" class="winery-link" target="_blank">Visit Website →</a>
+                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for Brown Estate -->
+                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d2432082-Reviews-Brown_Estate_Winery-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
+            <div class="winery-card"><img src="trinitas-cellars.jpg" class="winery-img" alt="Napa Valley Winery"><div class="winery-card-body"><h3>J. Moss Wines</h3>
                 <p>Boutique winery specializing in handcrafted Cabernet and Merlot. Intimate, appointment-only tastings just 10 minutes from downtown Napa. Owners James and Janet Moss share their love story with every glass.</p>
-                <a href="http://www.jmosswines.com/" class="winery-link" target="_blank">Learn More →</a>
-            </div>
-            <div class="winery-card">
-                <h3>Okapi Wines</h3>
+                <a href="http://www.jmosswines.com/" class="winery-link" target="_blank">Book Tasting →</a>
+                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for J. Moss Wines -->
+                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d4512280-Reviews-J_Moss_Wines-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
+            <div class="winery-card"><img src="truchard-vineyards.jpg" class="winery-img" alt="Napa Valley Vineyard"><div class="winery-card-body"><h3>Okapi Wines</h3>
                 <p>Small-batch artisanal Cabernet Sauvignon with a mission. Tastings at The Caves at Soda Canyon, and a portion of proceeds supports okapi conservation in the Congo. Wine with purpose.</p>
                 <a href="https://www.okapiwines.com/" class="winery-link" target="_blank">Learn More →</a>
-            </div>
+                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for Okapi Wines -->
+                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d23345678-Reviews-Okapi_Wines-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
             <div class="winery-card">
                 <h3>Housley</h3>
                 <p>Owned by Tamera Mowry-Housley (Sister, Sister) and her husband Adam. Family-friendly tasting room with indoor and outdoor seating, great music, and affordable $25 tastings with chocolate pairing. Pure joy in a glass.</p>
@@ -462,6 +750,19 @@
     </section>
 
     <!-- Package Details -->
+    
+    <!-- Hotel Venue -->
+    <section style="padding:40px 5%; max-width:1200px; margin:0 auto;">
+      <div class="venue-highlight" style="background:#f8f9fa; padding:36px; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <h3 style="font-size:1.8rem; color:#1a1a2e; margin-bottom:1rem;">River Terrace Inn</h3>
+        <p style="color:#666; max-width:640px; margin:0 auto 1.5rem; line-height:1.7;">Downtown Napa's premier riverfront hotel — your home base for the Juneteenth trip. Walking distance to the Brown Estate tasting room and Napa's best restaurants.</p>
+        <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for River Terrace Inn -->
+        <a href="https://www.tripadvisor.com/Hotel_Review-g32766-d593918-Reviews-River_Terrace_Inn-Napa_Napa_Valley_California.html" target="_blank" class="winery-link">View on TripAdvisor →</a>
+        &nbsp;
+        <a href="https://www.riverterraceinn.com" target="_blank" class="winery-link">Official Site →</a>
+      </div>
+    </section>
+
     <section class="section-alt">
         <h2 class="section-title">What's Included</h2>
         <div class="package-grid">
@@ -488,38 +789,118 @@
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="pricing-section">
-        <h2 class="section-title">Choose Your Package</h2>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>General Package</h3>
-                <div class="price">$2,195</div>
-                <p class="price-note">per person (double occupancy)</p>
-                <ul style="text-align: left; margin-bottom: 2rem;">
-                    <li style="padding: 0.5rem 0;">✓ 3 nights River Terrace Inn (standard room)</li>
-                    <li style="padding: 0.5rem 0;">✓ 4 curated winery tastings</li>
-                    <li style="padding: 0.5rem 0;">✓ Daily wine tour transportation</li>
-                    <li style="padding: 0.5rem 0;">✓ Juneteenth celebration dinner</li>
-                    <li style="padding: 0.5rem 0;">✓ Welcome wine reception</li>
-                </ul>
-                <a href="#" class="book-button">Book Now - Pay $450 Deposit</a>
+    <!-- Spin Wheel Section -->
+    <section class="spin-section" id="spin-wheel">
+        <div class="spin-container">
+            <div class="spin-content">
+                <h2>🎰 Spin to Win Your Discount</h2>
+                <p>Subscribe to spin the wheel and win up to $500 off when you pay in full at booking!</p>
+                
+                <div class="spin-tiers">
+                    <div class="spin-tier active">
+                        <div>
+                            <strong>Book by March 5, 8am</strong>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div>
+                        </div>
+                        <div class="amount">Up to $500 OFF</div>
+                    </div>
+                    <div class="spin-tier">
+                        <div>
+                            <strong>Book by March 8, 8am</strong>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div>
+                        </div>
+                        <div class="amount">Up to $250 OFF</div>
+                    </div>
+                </div>
+                
+                <form class="spin-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="spin-btn">🎰 Let Me Spin!</button>
+                </form>
             </div>
-            <div class="pricing-card">
-                <h3>VIP Package</h3>
-                <div class="price">$3,495</div>
-                <p class="price-note">per person (double occupancy)</p>
-                <ul style="text-align: left; margin-bottom: 2rem;">
-                    <li style="padding: 0.5rem 0;">✓ 3 nights premium riverfront suite</li>
-                    <li style="padding: 0.5rem 0;">✓ Private winery tours & barrel tastings</li>
-                    <li style="padding: 0.5rem 0;">✓ Premium transportation service</li>
-                    <li style="padding: 0.5rem 0;">✓ Private chef dinner experience</li>
-                    <li style="padding: 0.5rem 0;">✓ Spa treatment at hotel</li>
-                </ul>
-                <a href="#" class="book-button">Book VIP - Pay $650 Deposit</a>
+            
+            <div class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <div class="wheel" id="wheel">
+                    <div class="wheel-center">SPIN<br>TO WIN</div>
+                </div>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 2rem; color: #666;">Flexible payment plans available. Deposit required to secure your spot. Final payment due 60 days before travel.</p>
+    </section>
+
+    <!-- Occupancy Pricing -->
+    <div style="max-width:1200px; margin: 0 auto; padding: 0 5% 20px;">
+  <img src="meritage-resort.jpg" style="width:100%; max-height:400px; object-fit:cover; border-radius:16px;" alt="Napa Valley Wine Country">
+</div>
+<section class="pricing-section">
+        <h2 class="section-title">Choose Your Package</h2>
+        <p class="pricing-subtitle">More roommates = more savings. Everyone pays on their own schedule.</p>
+        
+        <div class="occupancy-grid">
+            <div class="occupancy-card">
+                <div class="occupancy-header">
+                    <h3>QUAD</h3>
+                    <p>[ 4 people to a room ]</p>
+                </div>
+                <div class="occupancy-price">
+                    <div class="price">$2,595</div>
+                    <div class="per-person">/per person</div>
+                    <div class="savings">Save $300/person</div>
+                </div>
+            </div>
+            
+            <div class="occupancy-card">
+                <div class="occupancy-header">
+                    <h3>TRIPLE</h3>
+                    <p>[ 3 people to a room ]</p>
+                </div>
+                <div class="occupancy-price">
+                    <div class="price">$2,695</div>
+                    <div class="per-person">/per person</div>
+                    <div class="savings">Save $200/person</div>
+                </div>
+            </div>
+            
+            <div class="occupancy-card featured">
+                <div class="occupancy-header">
+                    <h3>DOUBLE</h3>
+                    <p>[ 2 people to a room ]</p>
+                </div>
+                <div class="occupancy-price">
+                    <div class="price">$2,795</div>
+                    <div class="per-person">/per person</div>
+                    <div class="savings">Save $100/person</div>
+                </div>
+            </div>
+            
+            <div class="occupancy-card">
+                <div class="occupancy-header">
+                    <h3>SINGLE</h3>
+                    <p>[ 1 person to a room ]</p>
+                </div>
+                <div class="occupancy-price">
+                    <div class="price">$2,895</div>
+                    <div class="per-person">/per person</div>
+                    <div class="savings">Private room</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="vip-card">
+            <h3>⭐ VIP EXPERIENCE</h3>
+            <div class="price">$3,995</div>
+            <p class="price-note">/per person (double occupancy)</p>
+            <ul>
+                <li>3 nights premium riverfront suite</li>
+                <li>Private winery tours & barrel tastings</li>
+                <li>Premium transportation service</li>
+                <li>Private chef dinner experience</li>
+                <li>Spa treatment at hotel</li>
+            </ul>
+            <a href="contact.html" class="vip-book-btn">Book VIP - $650 Deposit</a>
+        </div>
+        
+        <p class="pricing-note">General packages require $600 deposit. Flexible payment plans available. Final payment due May 5, 2026.</p>
     </section>
 
     <!-- Why This Trip -->
@@ -568,25 +949,43 @@
     <!-- CTA Footer -->
     <section class="cta-footer">
         <h2>Ready to Celebrate Freedom in Wine Country?</h2>
-        <p>Book now with a deposit and pay monthly. Celebrate freedom while making memories!</p>
-        <a href="contact.html" class="cta-button">Contact Us to Book</a>
+        <p>Book now with a $600 deposit and pay monthly. Celebrate freedom while making memories!</p>
+        <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="cta-button">🍷 Book Now — Deposits Required</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="logo"><img src="logo.jpeg" alt="The Real Vacations"></div>
-            <div class="footer-links">
-                <a href="about.html">About</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="resources.html">Resources</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
-                <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
+      <p>Creating unforgettable group travel experiences for over 20 years.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="trips.html">Upcoming Trips</a>
+      <a href="about.html">About Us</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="real-stories.html">Real Stories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+      <a href="tel:4049230017">404-923-0017</a>
+      <a href="contact.html">Send a Message</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+</footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Spin wheel animation
+        const wheel = document.getElementById('wheel');
+        let isSpinning = false;
+        
+        document.querySelector('.spin-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isSpinning) return;
+            
+            isSpinning = true;
+            const randomDegrees = 1440 + Math.floor(Math.random() * 360);
+            wheel.style.transform = `rotate(${rando
