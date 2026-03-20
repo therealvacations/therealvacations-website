@@ -673,21 +673,23 @@
             }
         }
     
-  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
-  nav a img { height: 52px; }
-  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
-  .nav-links a:hover { color: #c084fc; }
-  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
-  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
-  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
-  .footer-col a:hover { color: #c084fc; }
-  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
-
-  .winery-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px 10px 0 0; margin-bottom: 0; display: block; }
-  .winery-card { overflow: hidden; padding: 0; }
-  .winery-card-body { padding: 1.5rem 2rem 2rem; }
+  .packages { padding: 56px 24px; }
+  .packages h2 { text-align: center; font-size: 28px; font-weight: 800; color: #1a0533; margin-bottom: 36px; }
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 740px; margin: 0 auto; }
+  .pkg { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .pkg-header { background: linear-gradient(135deg, #1a0533, #6b21a8); color: #fff; padding: 28px 24px; text-align: center; }
+  .pkg-header h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+  .pkg-price { font-size: 36px; font-weight: 900; color: #c084fc; }
+  .pkg-price span { font-size: 14px; color: #e9d5ff; font-weight: 400; }
+  .pkg-body { background: #fff; padding: 24px; }
+  .pkg-body ul { list-style: none; margin-bottom: 24px; }
+  .pkg-body ul li { font-size: 14px; color: #444; padding: 6px 0; border-bottom: 1px solid #f3e8ff; display: flex; align-items: center; gap: 8px; }
+  .pkg-body ul li::before { content: "✓"; color: #7c3aed; font-weight: 700; }
+  .pkg-btn { display: block; text-align: center; background: #7c3aed; color: #fff; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: background 0.2s; text-decoration: none; }
+  .pkg-btn:hover { background: #6d28d9; }
+  .pkg-btn.outline { background: transparent; border: 2px solid #7c3aed; color: #7c3aed; }
+  .pkg-btn.outline:hover { background: #7c3aed; color: #fff; }
+  .pkg-note { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -697,18 +699,19 @@
     </div>
 
     <!-- Header -->
-    <nav>
-  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="trips.html">Trips</a>
-    <a href="real-stories.html">Real Stories</a>
-    <a href="about.html">About</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="The Real Vacations"></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="trips.html">Trips</a>
+                <a href="real-stories.html">Real Stories</a>
+                <a href="about.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero -->
     <section class="hero">
@@ -726,55 +729,42 @@
             <p>This Juneteenth, we're celebrating freedom in wine country. Every tasting, every vineyard, every experience on this trip has been handpicked to give you an unforgettable Napa Valley experience.</p>
         </div>
         <div class="wineries-grid">
-            <div class="winery-card"><div class="winery-card-body"><h3>Brown Estate</h3>
-                <p><strong>A Napa Valley estate winery since 1996.</strong> Known for award-winning Zinfandels and bold reds. Tasting room in downtown Napa, walking distance from your hotel. This is where the story begins.</p>
-                <a href="https://www.brownestate.com/" class="winery-link" target="_blank">Visit Website →</a>
-                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for Brown Estate -->
-                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d2432082-Reviews-Brown_Estate_Winery-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
-            <div class="winery-card"><img src="trinitas-cellars.jpg" class="winery-img" alt="Napa Valley Winery"><div class="winery-card-body"><h3>J. Moss Wines</h3>
-                <p>Boutique winery specializing in handcrafted Cabernet and Merlot. Intimate, appointment-only tastings just 10 minutes from downtown Napa. Owners James and Janet Moss share their love story with every glass.</p>
-                <a href="http://www.jmosswines.com/" class="winery-link" target="_blank">Book Tasting →</a>
-                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for J. Moss Wines -->
-                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d4512280-Reviews-J_Moss_Wines-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
-            <div class="winery-card"><img src="truchard-vineyards.jpg" class="winery-img" alt="Napa Valley Vineyard"><div class="winery-card-body"><h3>Okapi Wines</h3>
-                <p>Small-batch artisanal Cabernet Sauvignon with a mission. Tastings at The Caves at Soda Canyon, and a portion of proceeds supports okapi conservation in the Congo. Wine with purpose.</p>
-                <a href="https://www.okapiwines.com/" class="winery-link" target="_blank">Learn More →</a>
-                <!-- ✏️ TODO: Add your TripAdvisor affiliate link for Okapi Wines -->
-                <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d23345678-Reviews-Okapi_Wines-Napa_Napa_Valley_California.html" class="winery-link" target="_blank" style="margin-left:8px;">TripAdvisor →</a></div></div>
             <div class="winery-card">
-                <h3>Housley</h3>
-                <p>Owned by Tamera Mowry-Housley (Sister, Sister) and her husband Adam. Family-friendly tasting room with indoor and outdoor seating, great music, and affordable $25 tastings with chocolate pairing. Pure joy in a glass.</p>
-                <a href="https://www.housleynapavalley.com/" class="winery-link" target="_blank">Learn More →</a>
+                <h3>Trinitas Cellars</h3>
+                <p>An extraordinary underground estate cave tasting room in Napa Valley — intimate, stunning, and unlike anything else in wine country. Your Thursday evening welcome experience begins here.</p>
+                <a href="https://www.trinitascellars.com" class="winery-link" target="_blank">Step Inside →</a>
+            </div>
+            <div class="winery-card">
+                <h3>Black Stallion Estate Winery</h3>
+                <p>One of Napa's most breathtaking estate wineries — striking architecture, world-class Cabernet, and a setting you have to see to believe. Your Juneteenth morning wine experience.</p>
+                <a href="https://www.blackstallionwinery.com" class="winery-link" target="_blank">Picture Yourself Here →</a>
+            </div>
+            <div class="winery-card">
+                <h3>JaM Cellars</h3>
+                <p>Napa's most iconic music-inspired tasting lounge in the heart of downtown. Great wine, great music, great energy — your Saturday night finale in wine country.</p>
+                <a href="https://www.jamcellars.com" class="winery-link" target="_blank">Get a Taste →</a>
+            </div>
+            <div class="winery-card">
+                <h3>The Meritage Resort and Spa</h3>
+                <p>Your home base for the weekend — nestled among rolling Napa vineyards with a cave spa, multiple pools, and wine caves right on property. Luxury and relaxation await.</p>
+                <a href="https://www.meritagecollection.com/meritage-resort" class="winery-link" target="_blank">Discover What Awaits →</a>
             </div>
         </div>
     </section>
 
     <!-- Package Details -->
-    
-    <!-- Hotel Venue -->
-    <section style="padding:40px 5%; max-width:1200px; margin:0 auto;">
-      <div class="venue-highlight" style="background:#f8f9fa; padding:36px; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <h3 style="font-size:1.8rem; color:#1a1a2e; margin-bottom:1rem;">River Terrace Inn</h3>
-        <p style="color:#666; max-width:640px; margin:0 auto 1.5rem; line-height:1.7;">Downtown Napa's premier riverfront hotel — your home base for the Juneteenth trip. Walking distance to the Brown Estate tasting room and Napa's best restaurants.</p>
-        <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for River Terrace Inn -->
-        <a href="https://www.tripadvisor.com/Hotel_Review-g32766-d593918-Reviews-River_Terrace_Inn-Napa_Napa_Valley_California.html" target="_blank" class="winery-link">View on TripAdvisor →</a>
-        &nbsp;
-        <a href="https://www.riverterraceinn.com" target="_blank" class="winery-link">Official Site →</a>
-      </div>
-    </section>
-
     <section class="section-alt">
         <h2 class="section-title">What's Included</h2>
         <div class="package-grid">
             <div class="package-card">
                 <div class="package-icon">🍷</div>
                 <h3>Wine Experiences</h3>
-                <p>Curated tastings at 4 handpicked wineries, guided vineyard tours, and cultural context about Napa's rich wine history. All reservations handled for you.</p>
+                <p>Curated tastings at Trinitas Cellars, Black Stallion Estate Winery, and JaM Cellars. All reservations handled for you.</p>
             </div>
             <div class="package-card">
                 <div class="package-icon">🏨</div>
                 <h3>Accommodations</h3>
-                <p><strong>3 nights at River Terrace Inn</strong> in downtown Napa on the riverfront. General package: Standard rooms. VIP package: Premium riverfront suites with upgraded amenities. Walking distance to Brown Estate tasting room.</p>
+                <p><strong>3 nights at The Meritage Resort and Spa</strong> nestled among Napa Valley's rolling vineyards. General package: Standard rooms. VIP package: Premium vineyard-view suites with resort access including the cave spa and pools.</p>
             </div>
             <div class="package-card">
                 <div class="package-icon">🚐</div>
@@ -829,79 +819,52 @@
     </section>
 
     <!-- Occupancy Pricing -->
-    <div style="max-width:1200px; margin: 0 auto; padding: 0 5% 20px;">
-  <img src="meritage-resort.jpg" style="width:100%; max-height:400px; object-fit:cover; border-radius:16px;" alt="Napa Valley Wine Country">
-</div>
-<section class="pricing-section">
-        <h2 class="section-title">Choose Your Package</h2>
-        <p class="pricing-subtitle">More roommates = more savings. Everyone pays on their own schedule.</p>
-        
-        <div class="occupancy-grid">
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>QUAD</h3>
-                    <p>[ 4 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$2,595</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $300/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>TRIPLE</h3>
-                    <p>[ 3 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$2,695</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $200/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card featured">
-                <div class="occupancy-header">
-                    <h3>DOUBLE</h3>
-                    <p>[ 2 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$2,795</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $100/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>SINGLE</h3>
-                    <p>[ 1 person to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$2,895</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Private room</div>
-                </div>
-            </div>
+    
+<section class="packages">
+  <div class="container">
+    <h2>Choose Your Package</h2>
+    <div class="packages-grid">
+      <div class="pkg">
+        <div class="pkg-header">
+          <h3>General Package</h3>
+          <div class="pkg-price">$2,895 <span>per person (double occupancy)</span></div>
         </div>
-        
-        <div class="vip-card">
-            <h3>⭐ VIP EXPERIENCE</h3>
-            <div class="price">$3,995</div>
-            <p class="price-note">/per person (double occupancy)</p>
-            <ul>
-                <li>3 nights premium riverfront suite</li>
-                <li>Private winery tours & barrel tastings</li>
-                <li>Premium transportation service</li>
-                <li>Private chef dinner experience</li>
-                <li>Spa treatment at hotel</li>
-            </ul>
-            <a href="contact.html" class="vip-book-btn">Book VIP - $650 Deposit</a>
+        <div class="pkg-body">
+          <ul>
+            <li>3 nights at The Meritage Resort and Spa</li>
+            <li>Curated winery tastings (Trinitas, Black Stallion, JaM Cellars)</li>
+            <li>Daily wine tour transportation</li>
+            <li>Round-trip airport transfers</li>
+            <li>Juneteenth celebration dinner</li>
+            <li>Welcome wine reception</li>
+          </ul>
+          <!-- ✏️ TODO: Replace # with your custom deposit payment link -->
+          <a href="#" class="pkg-btn outline">Secure My Napa Spot — Pay $500 Deposit</a>
+          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
         </div>
-        
-        <p class="pricing-note">General packages require $600 deposit. Flexible payment plans available. Final payment due May 5, 2026.</p>
-    </section>
+      </div>
+      <div class="pkg">
+        <div class="pkg-header">
+          <h3>VIP Package</h3>
+          <div class="pkg-price">$3,995 <span>per person (double occupancy)</span></div>
+        </div>
+        <div class="pkg-body">
+          <ul>
+            <li>3 nights premium vineyard-view suite</li>
+            <li>Private winery tours & barrel tastings</li>
+            <li>Premium transportation service</li>
+            <li>Private chef dinner experience</li>
+            <li>Cave spa treatment at The Meritage</li>
+          </ul>
+          <!-- ✏️ TODO: Replace # with your custom VIP deposit payment link -->
+          <a href="#" class="pkg-btn">Secure My Napa VIP Spot — Pay $500 Deposit</a>
+          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-size:13px; color:#888;">Only a few spots left — secure yours now with a $500 deposit. Flexible payment plans available after deposit.</p>
+  </div>
+</section>
 
     <!-- Why This Trip -->
     <section class="why-trip">
@@ -920,8 +883,8 @@
             <div class="details-column">
                 <h3>What's Included</h3>
                 <ul>
-                    <li>3 nights at River Terrace Inn</li>
-                    <li>4 curated winery tastings with reservations</li>
+                    <li>3 nights at The Meritage Resort and Spa</li>
+                    <li>Trinitas Cellars, Black Stallion Estate &amp; JaM Cellars tastings</li>
                     <li>Daily wine tour transportation</li>
                     <li>Round-trip airport transfers</li>
                     <li>Juneteenth celebration dinner</li>
@@ -950,32 +913,26 @@
     <section class="cta-footer">
         <h2>Ready to Celebrate Freedom in Wine Country?</h2>
         <p>Book now with a $600 deposit and pay monthly. Celebrate freedom while making memories!</p>
-        <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="cta-button">🍷 Book Now — Deposits Required</a>
+        <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="cta-button">🍷 Book Now — Secure Your Spot</a>
     </section>
 
     <!-- Footer -->
     <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
-      <p>Creating unforgettable group travel experiences for over 20 years.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="trips.html">Upcoming Trips</a>
-      <a href="about.html">About Us</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="real-stories.html">Real Stories</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
-      <a href="tel:4049230017">404-923-0017</a>
-      <a href="contact.html">Send a Message</a>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
-</footer>
+        <div class="footer-content">
+            <div class="logo"><img src="logo.jpeg" alt="The Real Vacations"></div>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="/cdn-cgi/l/email-protection#12717d7c6673716652667a776077737e64737173667b7d7c613c717d7f"><span class="__cf_email__" data-cfemail="50333f3e24313324102438352235313c2631333124393f3e237e333f3d">[email&#160;protected]</span></a></p>
+                <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2026 The Real Vacations. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Spin wheel animation

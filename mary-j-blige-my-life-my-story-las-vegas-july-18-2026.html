@@ -648,6 +648,24 @@
   .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
   .footer-col a:hover { color: #c084fc; }
   .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+
+  .packages { padding: 56px 24px; }
+  .packages h2 { text-align: center; font-size: 28px; font-weight: 800; color: #1a0533; margin-bottom: 36px; }
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 740px; margin: 0 auto; }
+  .pkg { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .pkg-header { background: linear-gradient(135deg, #1a0533, #6b21a8); color: #fff; padding: 28px 24px; text-align: center; }
+  .pkg-header h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+  .pkg-price { font-size: 36px; font-weight: 900; color: #c084fc; }
+  .pkg-price span { font-size: 14px; color: #e9d5ff; font-weight: 400; }
+  .pkg-body { background: #fff; padding: 24px; }
+  .pkg-body ul { list-style: none; margin-bottom: 24px; }
+  .pkg-body ul li { font-size: 14px; color: #444; padding: 6px 0; border-bottom: 1px solid #f3e8ff; display: flex; align-items: center; gap: 8px; }
+  .pkg-body ul li::before { content: "✓"; color: #7c3aed; font-weight: 700; }
+  .pkg-btn { display: block; text-align: center; background: #7c3aed; color: #fff; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: background 0.2s; text-decoration: none; }
+  .pkg-btn:hover { background: #6d28d9; }
+  .pkg-btn.outline { background: transparent; border: 2px solid #7c3aed; color: #7c3aed; }
+  .pkg-btn.outline:hover { background: #7c3aed; color: #fff; }
+  .pkg-note { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -669,6 +687,11 @@
     <a href="contact.html">Contact</a>
   </div>
 </nav>
+    <!-- Urgency Banner -->
+    <div style="background: linear-gradient(90deg, #7c3aed, #a855f7); color: #fff; text-align: center; padding: 14px 24px; font-size: 14px; font-weight: 600; line-height: 1.6;">
+      ⚡ Only a few spots remaining — this trip opens very soon!<br>
+      <span style="font-size:13px; opacity:0.9;">Confirm your deposit before the countdown ends & <strong>save $100 automatically</strong> on your booking.</span>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
@@ -684,11 +707,7 @@
         <div class="venue-highlight">
             <h3>Dolby Live at Park MGM</h3>
             <p>Experience the final, intimate performance of Mary J's groundbreaking residency in one of Las Vegas's most technologically advanced venues. With 5,300 seats, cutting-edge Dolby Atmos sound, and a design that brings you closer to the Queen of Hip-Hop Soul, this is the ultimate way to witness music history.</p>
-            <!-- ✏️ TODO: Update with your Ticketmaster affiliate link for Dolby Live at Park MGM -->
-            <a href="https://www.ticketmaster.com/dolby-live-at-park-mgm-tickets-las-vegas/venue/416721" class="venue-button" target="_blank">Get Tickets via Ticketmaster →</a>
             &nbsp;&nbsp;
-            <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for Dolby Live at Park MGM -->
-            <a href="https://www.tripadvisor.com/Attraction_Review-g45963-d10079100-Reviews-Dolby_Live_at_Park_MGM-Las_Vegas_Nevada.html" class="venue-button" target="_blank" style="background:white; color:#fa709a; border:2px solid #fa709a; margin-top:12px; display:inline-block;">View on TripAdvisor →</a>
         </div>
     </section>
 
@@ -699,10 +718,8 @@
       <div style="background:#f8f9fa; padding:36px; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
         <h3 style="font-size:1.8rem; color:#1a1a2e; margin-bottom:1rem;">Park MGM Las Vegas</h3>
         <p style="color:#666; max-width:640px; margin:0 auto 1.5rem; line-height:1.7;">Your hotel is literally connected to the venue — step out of your room and you're there. See guest reviews and what to expect before you arrive.</p>
-        <!-- ✏️ TODO: Update with your TripAdvisor affiliate link for Park MGM Las Vegas -->
-        <a href="https://www.tripadvisor.com/Hotel_Review-g45963-d113677-Reviews-Park_MGM_Las_Vegas-Las_Vegas_Nevada.html" target="_blank" class="venue-button" style="display:inline-block;">View on TripAdvisor →</a>
         &nbsp;
-        <a href="https://www.parkmgm.com" target="_blank" class="venue-button" style="background:white; color:#fa709a; border:2px solid #fa709a; display:inline-block;">Official Site →</a>
+        <a href="https://www.parkmgm.com" target="_blank" class="venue-button" style="background:white; color:#fa709a; border:2px solid #fa709a; display:inline-block;">Preview Your Stay →</a>
       </div>
     </section>
 
@@ -772,77 +789,68 @@
     </section>
 
     <!-- Occupancy Pricing -->
-    <section class="pricing-section">
-        <h2 class="section-title">Choose Your Package</h2>
-        <p class="pricing-subtitle">More roommates = more savings. Everyone pays on their own schedule.</p>
-        
-        <div class="occupancy-grid">
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>QUAD</h3>
-                    <p>[ 4 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$1,695</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $300/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>TRIPLE</h3>
-                    <p>[ 3 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$1,795</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $200/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card featured">
-                <div class="occupancy-header">
-                    <h3>DOUBLE</h3>
-                    <p>[ 2 people to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$1,895</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Save $100/person</div>
-                </div>
-            </div>
-            
-            <div class="occupancy-card">
-                <div class="occupancy-header">
-                    <h3>SINGLE</h3>
-                    <p>[ 1 person to a room ]</p>
-                </div>
-                <div class="occupancy-price">
-                    <div class="price">$1,995</div>
-                    <div class="per-person">/per person</div>
-                    <div class="savings">Private room</div>
-                </div>
-            </div>
+    
+<section style="background: linear-gradient(135deg, #1a0533, #3b0764); color: #fff; padding: 48px 5%; text-align: center;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">⚡ Spots Are Going Fast</h2>
+    <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 1.5rem;">This residency finale is a once-in-a-lifetime event — spots are extremely limited and booking opens very soon. Confirm before April 19 and automatically receive a <strong>$100 discount</strong> applied to your booking.</p>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">Countdown coincides with the Napa Valley Juneteenth deposit deadline — April 19, 2026.</p>
+    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <!-- ✏️ TODO: Replace # with your custom deposit payment link -->
+      <a href="https://book.stripe.com/aFacN44Lkd272Fp1fZ0Fi04" style="background: #c084fc; color: #1a0533; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none;">Claim My Spot — $500 Deposit →</a>
+      <!-- ✏️ TODO: Replace # with your custom VIP deposit payment link -->
+      <a href="https://book.stripe.com/aFacN44Lkd272Fp1fZ0Fi04" style="background: transparent; border: 2px solid #c084fc; color: #c084fc; padding: 13px 28px; border-radius: 50px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none;">Secure My VIP Experience — $500 Deposit →</a>
+    </div>
+    <p style="font-size: 12px; opacity: 0.6; margin-top: 16px;">$100 discount automatically applied when you confirm before April 19, 2026 · Flexible payment plan available after deposit</p>
+  </div>
+</section>
+
+    
+<section class="packages">
+  <div class="container">
+    <h2>Choose Your Package</h2>
+    <div class="packages-grid">
+      <div class="pkg">
+        <div class="pkg-header">
+          <h3>General Package</h3>
+          <div class="pkg-price">$1,995 <span>per person (double occupancy)</span></div>
         </div>
-        
-        <div class="vip-card">
-            <h3>⭐ VIP EXPERIENCE</h3>
-            <div class="price">$2,995</div>
-            <p class="price-note">/per person (double occupancy)</p>
-            <ul>
-                <li>3 nights at The Reserve (luxury boutique)</li>
-                <li>Premium seating (first 15 rows)</li>
-                <li>Private car service</li>
-                <li>Exclusive lounge access</li>
-                <li>$100 resort credit</li>
-                <li>VIP pre-show champagne reception</li>
-            </ul>
-            <a href="contact.html" class="vip-book-btn">Book VIP - $600 Deposit</a>
+        <div class="pkg-body">
+          <ul>
+            <li>3 nights at Park MGM Las Vegas</li>
+            <li>Reserved concert seating at Dolby Live</li>
+            <li>Airport shuttle transfers</li>
+            <li>$50 gaming credit</li>
+            <li>Welcome group reception</li>
+          </ul>
+          <!-- ✏️ TODO: Replace # with your custom deposit payment link -->
+          <a href="https://book.stripe.com/aFacN44Lkd272Fp1fZ0Fi04" class="pkg-btn outline">Claim My Spot — $500 Deposit →</a>
+          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
         </div>
-        
-        <p class="pricing-note">General packages require $450 deposit. Flexible payment plans available. Final payment due June 3, 2026.</p>
-    </section>
+      </div>
+      <div class="pkg">
+        <div class="pkg-header">
+          <h3>VIP Package</h3>
+          <div class="pkg-price">$2,995 <span>per person (double occupancy)</span></div>
+        </div>
+        <div class="pkg-body">
+          <ul>
+            <li>3 nights at The Reserve (luxury boutique)</li>
+            <li>Premium seating — first 15 rows</li>
+            <li>Private car service</li>
+            <li>Exclusive lounge access</li>
+            <li>$100 resort credit</li>
+            <li>VIP pre-show champagne reception</li>
+          </ul>
+          <!-- ✏️ TODO: Replace # with your custom VIP deposit payment link -->
+          <a href="https://book.stripe.com/aFacN44Lkd272Fp1fZ0Fi04" class="pkg-btn">Secure My VIP Experience — $500 Deposit →</a>
+          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-size:13px; color:#888;">Only a few spots left — secure yours now with a $500 deposit. Flexible payment plans available after deposit.</p>
+  </div>
+</section>
 
     <!-- Why This Trip -->
     <section class="why-trip">
@@ -889,8 +897,8 @@
     <!-- CTA Footer -->
     <section class="cta-footer">
         <h2>Ready to Witness the Finale?</h2>
-        <p>This is Mary J's last show. Book now with a $450 deposit and pay monthly!</p>
-        <a href="contact.html?trip=maryjblige" class="cta-button">✉️ Join the Interest List</a>
+        <p>This is Mary J's last show. Book now with a $500 deposit and pay monthly!</p>
+        <a href="contact.html?trip=maryjblige" class="cta-button">✉️ Save My Spot — Join the List →</a>
     </section>
 
     <!-- Footer -->
@@ -909,7 +917,7 @@
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+      <a href="/cdn-cgi/l/email-protection#9efdf1f0eafffdeadeeaf6fbecfbfff2e8fffdffeaf7f1f0edb0fdf1f3"><span class="__cf_email__" data-cfemail="e5868a8b91848691a5918d809780848993848684918c8a8b96cb868a88">[email&#160;protected]</span></a>
       <a href="tel:4049230017">404-923-0017</a>
       <a href="contact.html">Send a Message</a>
     </div>
@@ -917,14 +925,8 @@
   <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
 </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const wheel = document.getElementById('wheel');
         let isSpinning = false;
         
-        document.querySelector('.spin-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            if (isSpinning) return;
-            
-            isSpinning = true;
-            const randomDegrees = 1440 + Math.floor(Math.random() * 360);
-            wheel.style.transform = `rotate(${rando
+        document.querySelector('.spin-btn').addEventListener

@@ -78,7 +78,10 @@
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="trips.html">Trips</a>
+    <a href="real-stories.html">Real Stories</a>
     <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="resources.html">Resources</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -135,7 +138,7 @@
         </div>
         <p style="font-size:14px; color:#555; line-height:1.7; margin-bottom:20px;">Once you click <strong>"Verify Email"</strong> in that email, you'll be brought back here to log in and enter your verification code to release your prize promo code.</p>
         <button class="btn-main" onclick="showPanel('panelLogin')">I verified — Login here →</button>
-        <p class="form-note">Didn't get the email? Check your spam folder or <a href="mailto:contact@therealvacations.com" style="color:#7c3aed;">contact us</a>.</p>
+        <p class="form-note">Didn't get the email? Check your spam folder or <a href="/cdn-cgi/l/email-protection#c2a1adacb6a3a1b682b6aaa7b0a7a3aeb4a3a1a3b6abadacb1eca1adaf" style="color:#7c3aed;">contact us</a>.</p>
       </div>
     </div>
 
@@ -220,11 +223,11 @@
 
 <footer>
   © 2026 The Real Vacations &nbsp;·&nbsp;
-  <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a> &nbsp;·&nbsp;
+  <a href="/cdn-cgi/l/email-protection#274448495346445367534f425542464b51464446534e4849540944484a"><span class="__cf_email__" data-cfemail="f89b97968c999b8cb88c909d8a9d99948e999b998c9197968bd69b9795">[email&#160;protected]</span></a> &nbsp;·&nbsp;
   <a href="tel:4049230017">404-923-0017</a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Check URL param — if ?view=login, show login panel directly
 // If ?verify=1, show login panel (coming from email verify button)
 (function() {
@@ -277,12 +280,4 @@ function handleVerifyCode() {
 }
 
 function handleForgot() {
-  var email = document.getElementById('forgotEmail').value.trim();
-  if (!email || !email.includes('@')) { alert('Please enter your email address.'); return; }
-  // TODO: Trigger Brevo password reset email
-  alert('Password reset link sent! Check your email.');
-  showPanel('panelLogin');
-}
-</script>
-</body>
-</html>
+  var

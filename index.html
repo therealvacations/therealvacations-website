@@ -56,13 +56,13 @@
   .trip-card-header .date-loc { font-size: 13px; color: #e9d5ff; }
   .trip-card-body { padding: 22px; }
   .trip-card-body p { color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
-  .trip-deposit { font-size: 13px; color: #7c3aed; font-weight: 700; margin-bottom: 2px; }
-  .trip-deposit-note { font-size: 11px; color: #9ca3af; margin-bottom: 16px; line-height: 1.5; }
+  .trip-deposit { font-size: 14px; color: #7c3aed; font-weight: 700; margin-bottom: 4px; font-family: 'Segoe UI', Arial, sans-serif; }
+  .trip-deposit-note { font-size: 13px; color: #555; margin-bottom: 16px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif; }
   .trip-btn { display: block; text-align: center; background: #7c3aed; color: #fff; padding: 12px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: background 0.2s, transform 0.15s; }
   .trip-btn:hover { background: #6d28d9; transform: translateY(-2px); }
   .trip-btn.ghost { background: #e5e7eb; color: #6b7280; }
   .trip-btn.ghost:hover { background: #d1d5db; transform: none; }
-  .interest-note { font-size: 12px; color: #9ca3af; text-align: center; margin-top: 8px; }
+  .interest-note { font-size: 13px; color: #7c3aed; font-weight: 600; text-align: center; margin-top: 8px; font-family: 'Segoe UI', Arial, sans-serif; }
 
   .how { padding: 70px 24px; max-width: 960px; margin: 0 auto; text-align: center; }
   .how h2 { font-size: clamp(24px, 4vw, 38px); font-weight: 800; color: #1a0533; margin-bottom: 48px; }
@@ -128,6 +128,26 @@
   .result-note { font-size: 12px; color: #9ca3af; line-height: 1.6; margin-bottom: 20px; }
   .result-book-btn { background: #22c55e; color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 15px; display: inline-block; transition: background 0.2s, transform 0.15s; }
   .result-book-btn:hover { background: #16a34a; transform: translateY(-2px); }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12px; }
+    .hero { padding: 50px 20px 40px; }
+    .trips-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .steps { grid-template-columns: 1fr; }
+    .faq-list { padding: 0 10px; }
+    .countdown-wrap { gap: 10px; }
+    .countdown-box { min-width: 55px; padding: 8px 12px; }
+    .countdown-box .num { font-size: 22px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    .trip-card-header h3 { font-size: 16px; }
+  }
+
 </style>
 </head>
 <body>
@@ -248,47 +268,47 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
 
     <div class="trip-card">
       <div class="trip-card-header">
-        <span class="trip-badge yellow">Opening Soon</span>
+        <span class="trip-badge yellow">⚡ Opening Very Soon</span>
         <h3>Essence Festival 2026</h3>
         <div class="date-loc">July 3–5, 2026 · New Orleans 🎵</div>
       </div>
       <div class="trip-card-body">
         <p>The world's largest celebration of culture and music. Legendary performances and NOLA hospitality.</p>
         <div class="trip-deposit">Book with a deposit to secure your spot</div>
-        <div class="trip-deposit-note">Booking opens soon · Flexible payment plan available · Spin the wheel now to lock in your discount</div>
-        <a href="contact.html?trip=essence" class="trip-btn ghost">✉️ Join the Interest List</a>
-        <p class="interest-note">Get notified first when booking opens</p>
+        <div class="trip-deposit-note">Opening very soon — only a few spots left · Confirm your deposit before time runs out & save $100</div>
+        <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" class="trip-btn" style="background:#a855f7;">🎟️ Claim My Spot — $500 Deposit</a>
+        <p class="interest-note">⏰ Book within the countdown & save $100 on your trip automatically</p>
       </div>
     </div>
 
     <div class="trip-card">
       <div class="trip-card-header">
-        <span class="trip-badge orange">Limited Seats</span>
+        <span class="trip-badge orange">🔥 Very Few Spots Left</span>
         <h3>Mary J Blige Residency Finale</h3>
         <div class="date-loc">July 18, 2026 · Las Vegas 🎤</div>
       </div>
       <div class="trip-card-body">
         <p>The final night of "My Life, My Story" at Dolby Live at Park MGM. An intimate performance you'll never forget.</p>
         <div class="trip-deposit">Book with a deposit to secure your spot</div>
-        <div class="trip-deposit-note">Booking opens soon · Flexible payment plan available · Spin the wheel now to lock in your discount</div>
-        <a href="contact.html?trip=maryjblige" class="trip-btn ghost">✉️ Join the Interest List</a>
-        <p class="interest-note">Get notified first when booking opens</p>
+        <div class="trip-deposit-note">Opening very soon — only a few spots left · Confirm your deposit before time runs out & save $100</div>
+        <a href="https://book.stripe.com/aFacN44Lkd272Fp1fZ0Fi04" class="trip-btn" style="background:#a855f7;">🎟️ Claim My Spot — $500 Deposit</a>
+        <p class="interest-note">⏰ Book within the countdown & save $100 on your trip automatically</p>
       </div>
     </div>
 
     <div class="trip-card">
       <div class="trip-card-header">
-        <span class="trip-badge">New Trip</span>
+        <span class="trip-badge">🔥 Limited Availability</span>
         <h3>Keith Sweat R&B Lovers Tour</h3>
         <div class="date-loc">August 29, 2026 · Atlanta 🎷</div>
       </div>
       <div class="trip-card-body">
         <p>Keith Sweat, Joe, Dru Hill, Ginuwine & Kut Klose — all on one stage. VIP Meet & Greet available exclusively through us.</p>
         <div class="trip-deposit">Book with a deposit to secure your spot</div>
-        <div class="trip-deposit-note">Booking opens soon · Flexible payment plan available · Spin the wheel now to lock in your discount</div>
-        <a href="contact.html?trip=keithsweat" class="trip-btn ghost">✉️ Join the Interest List</a>
+        <div class="trip-deposit-note">Opening very soon — only a few spots left · Confirm your deposit before time runs out & save $100</div>
+        <a href="https://book.stripe.com/eVq9AS91A2nta7R2k30Fi05" class="trip-btn" style="background:#a855f7;">🎟️ Reserve My ATL Spot — $500 Deposit</a>
         <a href="keith-sweat-r-and-b-tour-atlanta-august-29-2026.html" style="display:block; text-align:center; margin-top:8px; font-size:13px; color:#7c3aed; font-weight:600;">View Full Trip Details →</a>
-        <p class="interest-note">Get notified first when booking opens</p>
+        <p class="interest-note">⏰ Book within the countdown & save $100 on your trip automatically</p>
       </div>
     </div>
 
@@ -356,14 +376,8 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <a href="real-stories.html">Real Stories</a>
     </div>
     <div class="footer-col">
-      <h4>Resources</h4>
-      <a href="resources.html">Travel Tips</a>
-      <a href="contact.html">Group Leader Program</a>
-      <a href="how-it-works.html">FAQ</a>
-    </div>
-    <div class="footer-col">
       <h4>Contact Us</h4>
-      <a href="/cdn-cgi/l/email-protection#bcdfd3d2c8dddfc8fcc8d4d9ced9ddd0cadddfddc8d5d3d2cf92dfd3d1"><span class="__cf_email__" data-cfemail="95f6fafbe1f4f6e1d5e1fdf0e7f0f4f9e3f4f6f4e1fcfafbe6bbf6faf8">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#c2a1adacb6a3a1b682b6aaa7b0a7a3aeb4a3a1a3b6abadacb1eca1adaf"><span class="__cf_email__" data-cfemail="8eede1e0faefedfacefae6ebfcebefe2f8efedeffae7e1e0fda0ede1e3">[email&#160;protected]</span></a>
       <a href="tel:4049230017">404-923-0017</a>
       <a href="contact.html">Send a Message</a>
     </div>
@@ -590,9 +604,75 @@ function spinWheel() {
 function showResult() {
   document.getElementById('stepSpin').classList.remove('active');
   document.getElementById('stepResult').classList.add('active');
-  document.getElementById('resultPrize').textContent = wonPrize.label;
+ 
+  var wonLabel = allSegments[winIndex].label;
+  document.getElementById('resultPrize').textContent = wonLabel;
   document.getElementById('resultEmailConfirm').textContent = '✅ Code being sent to: ' + userEmail;
 
   emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
     to_name:  userName,
-    to
+    to_email: userEmail,
+    prize:    wonLabel,
+    code:     allSegments[winIndex].code
+  }).then(function() {
+    console.log('Email sent!');
+  }, function(err) {
+    console.log('Email error:', JSON.stringify(err));
+  });
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('wheelOverlay')) closeWheel();
+}
+
+// Mobile nav toggle
+var navToggle = document.getElementById('navToggle');
+if (navToggle) {
+  navToggle.addEventListener('click', function() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  });
+}
+
+// Countdown timer
+(function() {
+  var deadline = new Date(COUNTDOWN_DEADLINE).getTime();
+  var bookBtn  = document.getElementById('bannerBookBtn');
+  var bannerH3 = document.querySelector('.urgent-banner h3');
+  var bannerP  = document.querySelector('.urgent-banner p');
+
+  if (bookBtn) bookBtn.href = COUNTDOWN_BOOK_URL;
+  if (bookBtn) bookBtn.textContent = COUNTDOWN_BOOK_LABEL;
+
+  function updateCountdown() {
+    var now  = new Date().getTime();
+    var diff = deadline - now;
+    var banner = document.querySelector('.urgent-banner');
+
+    if (diff <= 0 && diff > -86400000) {
+      // Today is the deadline
+      if (banner) banner.style.background = 'linear-gradient(90deg,#dc2626,#ef4444)';
+      if (bannerH3) bannerH3.textContent = '⚡ ' + COUNTDOWN_TRIP_NAME + ' — TODAY IS THE LAST DAY!';
+      if (bannerP) bannerP.textContent = COUNTDOWN_DEADLINE_MSG;
+      ['days','hours','mins','secs'].forEach(function(u) {
+        var el = document.getElementById('cd-' + u);
+        if (el) el.textContent = '00';
+      });
+    } else if (diff < 0) {
+      // Past deadline
+      if (banner) banner.style.background = '#6b7280';
+      if (bannerH3) bannerH3.textContent = COUNTDOWN_TRIP_NAME + ' — Booking Closed';
+      if (bannerP) bannerP.textContent = COUNTDOWN_CLOSED_MSG;
+    } else {
+      if (bannerH3) bannerH3.textContent = '⚡ ' + COUNTDOWN_TRIP_NAME + ' — Book Before ' + new Date(COUNTDOWN_DEADLINE).toLocaleDateString('en-US',{month:'long',day:'numeric'}) + '!';
+      if (bannerP) bannerP.textContent = COUNTDOWN_ACTIVE_MSG;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var cd = document.getElementById('cd-days');
+      var ch = document.getElementById('cd-hours');
+      var cm = document.getElementById('cd-mins');
+      var cs = document.getElementById('cd-secs');
+      if (cd) cd.textContent = String(d).padStart(2,'0');
+      if (ch) c
