@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Stories | The Real Vacations</title>
     <meta name="description" content="See real photos and testimonials from travelers who've experienced The Real Vacations difference. Group trips, lasting memories.">
-    <link rel="icon" type="image/png" href="favicon.jpeg">
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,15 +31,13 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.3; }
-        
-        header { background: var(--dark-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 60px; width: auto; }
-        nav { display: flex; align-items: center; gap: 2rem; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
-        nav a:hover { color: var(--primary-green); }
-        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--white); }
+
+        /* Nav */
+        nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
+        nav a img { height: 52px; }
+        .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+        .nav-links a:hover { color: #c084fc; }
         
         .hero { background: var(--gradient-hero); color: var(--white); padding: 80px 5%; text-align: center; position: relative; }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 70%, rgba(46, 139, 87, 0.3) 0%, transparent 50%); }
@@ -53,23 +51,18 @@
         .section-header h2 { font-size: 2.5rem; color: var(--dark-purple); margin-bottom: 1rem; }
         .section-header p { font-size: 1.15rem; color: var(--text-medium); max-width: 700px; margin: 0 auto; }
         
-        /* Photo Gallery */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .gallery-item { position: relative; overflow: hidden; border-radius: 16px; background: #fff; box-shadow: 0 4px 16px rgba(107,45,139,0.1); transition: all 0.3s; cursor: pointer; }
         .gallery-item-inner { aspect-ratio: 4/3; overflow: hidden; }
         .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
         .gallery-item-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
         .gallery-item:hover .gallery-item-inner img { transform: scale(1.05); }
-        .gallery-placeholder { text-align: center; padding: 2rem; }
-        /* ✏️ CAPTION STYLES — edit .gallery-caption to change font, size, color */
         .gallery-caption { padding: 10px 14px 12px; font-size: 13px; color: #555; font-weight: 500; text-align: center; font-family: 'Montserrat', sans-serif; line-height: 1.4; }
-        .gallery-placeholder span { display: block; font-size: 3rem; margin-bottom: 0.5rem; }
         
-        /* Reviews */
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
         .review-card { background: var(--white); padding: 2.5rem; border-radius: 24px; box-shadow: var(--shadow-soft); position: relative; transition: all 0.3s; }
         .review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-        .review-card::before { content: '"'; position: absolute; top: 20px; left: 25px; font-size: 5rem; color: var(--primary-purple); opacity: 0.15; font-family: 'Playfair Display', serif; line-height: 1; }
+        .review-card::before { content: '\201C'; position: absolute; top: 20px; left: 25px; font-size: 5rem; color: var(--primary-purple); opacity: 0.15; font-family: 'Playfair Display', serif; line-height: 1; }
         .review-stars { color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1rem; }
         .review-text { font-size: 1.1rem; color: var(--text-medium); font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; line-height: 1.8; }
         .review-author { display: flex; align-items: center; gap: 1rem; }
@@ -77,7 +70,6 @@
         .author-info h4 { font-size: 1.05rem; color: var(--dark-purple); font-family: 'Montserrat', sans-serif; font-weight: 600; }
         .author-info p { font-size: 0.85rem; color: var(--text-light); }
         
-        /* Services */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
         .service-card { background: var(--white); padding: 2.5rem 2rem; border-radius: 20px; text-align: center; box-shadow: var(--shadow-soft); transition: all 0.3s; border-bottom: 4px solid transparent; }
         .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-bottom-color: var(--primary-purple); }
@@ -85,7 +77,6 @@
         .service-card h3 { color: var(--dark-purple); margin-bottom: 0.5rem; font-size: 1.3rem; }
         .service-card p { color: var(--text-medium); font-size: 0.95rem; }
         
-        /* CTA */
         .book-story-section { background: var(--gradient-primary); color: var(--white); padding: 80px 5%; border-radius: 24px; text-align: center; margin: 0 5% 4rem; }
         .book-story-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--white); }
         .book-story-section > p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto; }
@@ -94,51 +85,39 @@
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .cta-button.secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
         .cta-button.secondary:hover { background: var(--white); color: var(--primary-purple); }
-        
-        footer { background: var(--dark-bg); color: var(--white); padding: 60px 5% 30px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--primary-green); }
-        .footer-logo img { height: 50px; margin-bottom: 1rem; }
-        .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        
+        .cta-help { font-size: 0.95rem; color: rgba(255,255,255,0.9); margin-top: 1.5rem; }
+        .cta-help a { color: #fff; text-decoration: underline; }
+
+        /* Footer */
+        footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+        .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+        .footer-col a:hover { color: #c084fc; }
+        .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+
         @media (max-width: 768px) {
-            nav { display: none; }
-            .mobile-menu-btn { display: flex; }
+            .nav-links { display: none; }
             .hero h1 { font-size: 2rem; }
             .section-header h2 { font-size: 2rem; }
             .cta-buttons { flex-direction: column; align-items: center; }
             .cta-button { width: 100%; max-width: 300px; text-align: center; }
         }
-    
-  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
-  nav a img { height: 52px; }
-  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
-  .nav-links a:hover { color: #c084fc; }
-  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
-  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
-  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
-  .footer-col a:hover { color: #c084fc; }
-  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
-</style>
+    </style>
 </head>
 <body>
     <nav>
-  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="trips.html">Trips</a>
-    <a href="real-stories.html">Real Stories</a>
-    <a href="about.html">About</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+        <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="trips.html">Trips</a>
+            <a href="real-stories.html">Real Stories</a>
+            <a href="about.html">About</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -156,12 +135,6 @@
             </div>
             <!-- ✏️ HOW TO UPDATE PHOTOS:
                  CHANGE a photo: replace the filename in src="" with your new image filename.
-                 ADD a photo: copy one gallery-item div block and paste it after the last one.
-                 REMOVE a photo: delete the entire <div class="gallery-item">...</div> block.
-                 Make sure any new image file is uploaded to GitHub in the same folder as the HTML files.
-            -->
-            <!-- ✏️ HOW TO UPDATE PHOTOS:
-                 CHANGE a photo: replace the filename in src="" with your new image filename.
                  CHANGE a caption: edit the text inside <p class="gallery-caption">...</p>
                  ADD a photo: copy one full gallery-item div block and paste it after the last one.
                  REMOVE a photo: delete the entire <div class="gallery-item">...</div> block.
@@ -169,39 +142,39 @@
             -->
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="trv_collage_820x1000.png" alt="Creating Real Moments"></div>
+                    <div class="gallery-item-inner"><img src="trv_collage_820x1000.png" alt="Creating Real Moments — The Real Vacations group travel collage"></div>
                     <p class="gallery-caption">Creating Real Moments ✨</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_8691.JPG" alt="Group dining"></div>
+                    <div class="gallery-item-inner"><img src="IMG_8691.JPG" alt="Group dining experience during a Real Vacations trip"></div>
                     <p class="gallery-caption">Good food, great company 🍽️</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_9990.JPG" alt="Live event fun"></div>
+                    <div class="gallery-item-inner"><img src="IMG_9990.JPG" alt="Travelers enjoying a live concert event"></div>
                     <p class="gallery-caption">Living it up at a live event 🎤</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_1885.JPG" alt="Tokyo streets"></div>
+                    <div class="gallery-item-inner"><img src="IMG_1885.JPG" alt="Exploring the streets of Tokyo, Japan"></div>
                     <p class="gallery-caption">Tokyo streets 🗼</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_7103.jpeg" alt="Tokyo adventure"></div>
+                    <div class="gallery-item-inner"><img src="IMG_7103.jpeg" alt="Tokyo adventure with The Real Vacations group"></div>
                     <p class="gallery-caption">Tokyo adventure 🇯🇵</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="kaci_japan_starbucks.jpeg" alt="Japan Starbucks"></div>
+                    <div class="gallery-item-inner"><img src="kaci_japan_starbucks.jpeg" alt="Unique Japan Starbucks experience"></div>
                     <p class="gallery-caption">Only in Japan ☕</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_0964.jpg" alt="SweatFest vibes"></div>
+                    <div class="gallery-item-inner"><img src="IMG_0964.jpg" alt="SweatFest music festival vibes"></div>
                     <p class="gallery-caption">SweatFest vibes 🏝️</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_4260.JPEG" alt="Napa Valley"></div>
+                    <div class="gallery-item-inner"><img src="IMG_4260.JPEG" alt="Napa Valley wine country group trip"></div>
                     <p class="gallery-caption">Napa Valley wine country 🍷</p>
                 </div>
                 <div class="gallery-item">
-                    <div class="gallery-item-inner"><img src="IMG_3417.jpeg" alt="Family memories"></div>
+                    <div class="gallery-item-inner"><img src="IMG_3417.jpeg" alt="Family memories on a Real Vacations trip"></div>
                     <p class="gallery-caption">Family first, always 💜</p>
                 </div>
             </div>
@@ -284,26 +257,36 @@
         <h2>Ready to Book Your Own Story?</h2>
         <p>Join hundreds of travelers who've created unforgettable memories with The Real Vacations</p>
         <div class="cta-buttons">
-            <!-- ===== PAYMENT LINK: Browse Trips CTA ===== -->
             <a href="trips.html" class="cta-button">Browse Our Group Trips →</a>
-            <!-- ===== PAYMENT LINK: Custom Trip CTA ===== -->
-            <a href="contact.html" class="cta-button secondary">Request a Custom Trip</a>
+            <!-- ✅ FIX: Changed from contact.html to custom-trip-form.html -->
+            <a href="custom-trip-form.html" class="cta-button secondary">Request a Custom Trip</a>
         </div>
+        <p class="cta-help">Have questions? <a href="contact.html">Contact us</a> and we'll help you plan the perfect getaway.</p>
     </section>
 
+    <!-- Footer -->
+    <!-- ✅ FIX: Complete footer with clean email, all links, and consistent structure -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col footer-logo">
-                    <img src="logo.jpeg" alt="The Real Vacations">
-                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="trips.html">Upcoming Trips</a>
-                    <a href="about.html">About Us</a>
-                    <a href="how-it-works.html">How It Works</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <a href="/cdn-cgi/l/email-protection#d7b4b8b9a3b6b4a397a3bfb2a5b2b6bba1b6b4b6a3beb8b9a4f9b4b8ba"><span class="__cf_email__" data-cfemail="c8aba7a6bca9abbc88bca0adbaada9a4bea9ab
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
+                <p>Creating unforgettable group travel experiences for over 20 years.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="trips.html">Upcoming Trips</a>
+                <a href="about.html">About Us</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="real-stories.html">Real Stories</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+                <a href="tel:4049230017">404-923-0017</a>
+                <a href="contact.html">Send a Message</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+    </footer>
+</body>
+</html>
