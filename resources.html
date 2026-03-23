@@ -1,124 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Resources | The Real Vacations</title>
-    <meta name="description" content="Helpful travel resources, custom trip planning, and independent booking tools from The Real Vacations.">
-    <link rel="icon" type="image/png" href="favicon.jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-purple: #6B2D8B;
-            --primary-green: #2E8B57;
-            --dark-purple: #4A1D6A;
-            --light-purple: #F5F0F8;
-            --accent-gold: #D4AF37;
-            --dark-bg: #1a1a2e;
-            --text-dark: #2D2D2D;
-            --text-medium: #555;
-            --text-light: #777;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-green) 100%);
-            --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #4A1D6A 50%, #2E8B57 100%);
-            --shadow-soft: 0 4px 20px rgba(107, 45, 139, 0.15);
-            --shadow-hover: 0 8px 30px rgba(107, 45, 139, 0.25);
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; line-height: 1.7; color: var(--text-dark); background: var(--white); }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.3; }
-        
-        header { background: var(--dark-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 60px; width: auto; }
-        nav { display: flex; align-items: center; gap: 2rem; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
-        nav a:hover { color: var(--primary-green); }
-        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
-        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--white); }
-        
-        .hero { background: var(--gradient-hero); color: var(--white); padding: 60px 5%; text-align: center; position: relative; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 70%, rgba(46, 139, 87, 0.3) 0%, transparent 50%); }
-        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; }
-        .hero p { font-size: 1.2rem; opacity: 0.95; }
-        
-        .content { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
-        
-        .section { margin-bottom: 4rem; }
-        .section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--dark-purple); border-left: 4px solid var(--primary-purple); padding-left: 1rem; }
-        .section > p { color: var(--text-medium); margin-bottom: 2rem; font-size: 1.1rem; }
-        
-        /* Resource Grid */
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .resource-card { background: var(--white); border: 1px solid #e0e0e0; border-radius: 20px; padding: 2rem; transition: all 0.3s; }
-        .resource-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary-purple); }
-        .resource-card h3 { color: var(--primary-purple); margin-bottom: 1rem; font-size: 1.4rem; }
-        .resource-card p { color: var(--text-medium); margin-bottom: 1.5rem; line-height: 1.7; }
-        
-        .affiliate-link { display: inline-block; background: var(--gradient-primary); color: var(--white); padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s; }
-        .affiliate-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
-        .affiliate-link.secondary { background: var(--white); color: var(--primary-purple); border: 2px solid var(--primary-purple); }
-        .affiliate-link.secondary:hover { background: var(--primary-purple); color: var(--white); }
-        
-        /* Search Widget */
-        .search-widget { background: var(--light-purple); padding: 2.5rem; border-radius: 20px; margin-bottom: 2rem; text-align: center; }
-        .search-widget h3 { color: var(--dark-purple); margin-bottom: 0.5rem; font-size: 1.5rem; }
-        .search-widget > p { color: var(--text-medium); margin-bottom: 1.5rem; }
-        .search-widget .note { margin-top: 1rem; font-size: 0.85rem; color: var(--text-light); font-style: italic; }
-        
-        /* Intro Box */
-        .intro-box { text-align: center; margin-bottom: 3rem; padding: 2.5rem; background: var(--light-purple); border-radius: 20px; }
-        .intro-box h2 { color: var(--primary-purple); margin-bottom: 1rem; }
-        .intro-box p { color: var(--text-medium); max-width: 700px; margin: 0 auto; }
-        .intro-box .tip { margin-top: 1rem; font-weight: 600; color: var(--dark-purple); }
-        
-        /* CTA Section */
-        .cta-box { background: var(--gradient-primary); color: var(--white); padding: 3rem; border-radius: 24px; text-align: center; margin-top: 4rem; }
-        .cta-box h2 { color: var(--white); margin-bottom: 1rem; font-size: 2rem; }
-        .cta-box p { opacity: 0.95; margin-bottom: 2rem; font-size: 1.1rem; }
-        .cta-box .cta-button { display: inline-block; background: var(--white); color: var(--primary-purple); padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; transition: all 0.3s; }
-        .cta-box .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        
-        hr { border: none; border-top: 2px solid #e0e0e0; margin: 4rem 0; }
-        
-        footer { background: var(--dark-bg); color: var(--white); padding: 60px 5% 30px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-col h4 { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--primary-green); }
-        .footer-logo img { height: 50px; margin-bottom: 1rem; }
-        .footer-logo p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .hero h1 { font-size: 2rem; }
-            .resource-grid { grid-template-columns: 1fr; }
-        }
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Resources | The Real Vacations</title>
+<link rel="icon" type="image/jpeg" href="favicon.jpeg">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #222; background: #fff; line-height: 1.7; }
+  a { text-decoration: none; color: inherit; }
+
   nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
   nav a img { height: 52px; }
   .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: #c084fc; }
+
+  .hero { background: linear-gradient(135deg, #1a0533 0%, #3b0764 60%, #6b21a8 100%); color: #fff; text-align: center; padding: 70px 24px 60px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; margin-bottom: 12px; }
+  .hero p { font-size: 18px; color: #e9d5ff; max-width: 620px; margin: 0 auto; }
+
+  .section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  .section-header { text-align: center; margin-bottom: 36px; }
+  .section-header h2 { font-size: clamp(22px, 4vw, 34px); font-weight: 800; color: #1a0533; margin-bottom: 10px; }
+  .section-header p { font-size: 16px; color: #555; max-width: 600px; margin: 0 auto; }
+
+  .section-alt { background: #faf5ff; }
+  .section-dark { background: linear-gradient(135deg, #1a0533, #3b0764); color: #fff; }
+  .section-dark .section-header h2 { color: #fff; }
+  .section-dark .section-header p { color: #e9d5ff; }
+
+  /* Service Cards */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .svc-card { background: #fff; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+  .svc-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .svc-card h3 { font-size: 18px; font-weight: 700; color: #1a0533; margin-bottom: 8px; }
+  .svc-card p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+  .svc-btn { display: inline-block; background: #7c3aed; color: #fff; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 13px; transition: background 0.2s, transform 0.15s; }
+  .svc-btn:hover { background: #6d28d9; transform: translateY(-2px); }
+
+  /* Widget Sections */
+  .widget-row { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .widget-box { margin-bottom: 48px; }
+  .widget-box h3 { font-size: 22px; font-weight: 800; color: #1a0533; margin-bottom: 6px; text-align: center; }
+  .widget-box .widget-sub { font-size: 14px; color: #555; text-align: center; margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .widget-embed { margin: 0 auto; max-width: 800px; min-height: 100px; }
+
+  /* Destination Tabs */
+  .dest-tabs { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .dest-tab { padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 2px solid #e0d0f0; color: #6b21a8; background: #fff; }
+  .dest-tab:hover, .dest-tab.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+  .dest-content { display: none; }
+  .dest-content.active { display: block; }
+
+  /* Resource cards for guides */
+  .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .guide-card { background: #fff; border-radius: 16px; padding: 28px 24px; box-shadow: 0 3px 16px rgba(0,0,0,0.07); transition: transform 0.2s; text-align: center; }
+  .guide-card:hover { transform: translateY(-4px); }
+  .guide-icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .guide-card h3 { font-size: 17px; font-weight: 700; color: #1a0533; margin-bottom: 8px; }
+  .guide-card p { font-size: 13px; color: #555; margin-bottom: 16px; line-height: 1.6; }
+  .guide-link { color: #7c3aed; font-weight: 700; font-size: 14px; transition: color 0.2s; }
+  .guide-link:hover { color: #6d28d9; }
+
+  /* Expedia placeholder */
+  .expedia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .exp-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 28px 24px; text-align: center; }
+  .exp-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .exp-card p { font-size: 14px; opacity: 0.85; margin-bottom: 16px; }
+  .exp-btn { display: inline-block; background: #fff; color: #7c3aed; padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+  .exp-btn:hover { transform: translateY(-2px); }
+
+  /* Tip box */
+  .tip-box { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 16px 20px; max-width: 700px; margin: 32px auto; font-size: 14px; color: #92400e; }
+  .tip-box strong { color: #d97706; }
+
+  /* CTA */
+  .cta { background: linear-gradient(135deg, #1a0533, #6b21a8); color: #fff; text-align: center; padding: 60px 24px; }
+  .cta h2 { font-size: clamp(22px, 4vw, 36px); font-weight: 800; margin-bottom: 12px; }
+  .cta p { font-size: 16px; color: #e9d5ff; max-width: 500px; margin: 0 auto 28px; }
+  .cta-btn { background: #22c55e; color: #fff; padding: 14px 32px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .cta-btn:hover { background: #16a34a; transform: translateY(-2px); }
+
   footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
   .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
   .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; }
   .footer-col a:hover { color: #c084fc; }
   .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 50px 20px 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .dest-tabs { gap: 8px; }
+    .dest-tab { padding: 8px 16px; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
-    <nav>
-  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations"></a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="trips.html">Trips</a>
@@ -126,216 +111,361 @@
     <a href="about.html">About</a>
     <a href="how-it-works.html">How It Works</a>
     <a href="resources.html">Resources</a>
+    <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Travel Resources</h1>
-            <p>Helpful tools and services for planning your perfect trip</p>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero">
+  <h1>Your Travel Toolkit</h1>
+  <p>Everything you need to make your trip unforgettable — from tours and tickets to travel protection and destination guides</p>
+</section>
 
-    <div class="content">
-        <!-- Custom Services -->
-        <div class="section">
-            <h2>Beyond Group Trips</h2>
-            <p>While we're known for our all-inclusive group experiences, we also offer personalized travel services for every occasion.</p>
-            
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <h3>🎯 Custom & Private Trips</h3>
-                    <p>Tailored experiences for individuals, families, or small groups. We design trips that match your interests, budget, and travel style—from weekend getaways to bucket-list adventures.</p>
-                    <a href="custom-trip-form.html" class="affiliate-link secondary">Start My Dream Trip →</a>
-                </div>
-                <div class="resource-card">
-                    <h3>💼 Corporate Travel Planning</h3>
-                    <p>Team retreats, conferences, and corporate events. We handle all logistics—transportation, accommodations, activities, and meals—so you can focus on your business objectives.</p>
-                    <a href="custom-trip-form.html" class="affiliate-link secondary">Unite Your Team →</a>
-                </div>
-                <div class="resource-card">
-                    <h3>💍 Destination Weddings & Honeymoons</h3>
-                    <p>From intimate ceremonies to romantic getaways, we create unforgettable celebrations in stunning locations. Let us handle every detail of your special day.</p>
-                    <a href="custom-trip-form.html" class="affiliate-link secondary">Make It Unforgettable →</a>
-                </div>
-                <div class="resource-card">
-                    <h3>✈️ Travel Consulting</h3>
-                    <p>Expert advice and planning services for any trip. Whether you're planning independently or need guidance, our travel experts help you navigate your options.</p>
-                    <a href="custom-trip-form.html" class="affiliate-link secondary">Let's Talk →</a>
-                </div>
-            </div>
-        </div>
+<!-- ===== BEYOND GROUP TRIPS ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2>Beyond Group Trips</h2>
+    <p>We're more than curated group experiences — we're your full-service travel partner</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon">🎯</div>
+      <h3>Custom & Private Trips</h3>
+      <p>Tailored experiences for individuals, families, or small groups — designed around your dreams, your budget, your timeline.</p>
+      <a href="custom-trip-form.html" class="svc-btn">Start Dreaming →</a>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💼</div>
+      <h3>Corporate Travel</h3>
+      <p>Team retreats, conferences, and events where every detail is handled — so you can focus on building your team.</p>
+      <a href="contact.html" class="svc-btn">Plan Your Retreat →</a>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💍</div>
+      <h3>Destination Weddings</h3>
+      <p>From intimate ceremonies to romantic getaways, we create celebrations in stunning locations that match your love story.</p>
+      <a href="contact.html" class="svc-btn">Start Planning →</a>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">✈️</div>
+      <h3>Travel Consulting</h3>
+      <p>Expert advice for any trip — whether you're planning independently or just need guidance from someone who's been there.</p>
+      <a href="contact.html" class="svc-btn">Get Expert Help →</a>
+    </div>
+  </div>
+</div>
 
-        <hr>
+<!-- ===== TICKET SEARCH ===== -->
+<div class="section section-alt">
+  <div class="section-header">
+    <h2>🎟️ Find Your Next Live Experience</h2>
+    <p>Search verified tickets to any concert, show, or game — your night out starts here</p>
+  </div>
+  <div class="widget-row">
+    <div class="widget-embed">
+      <!-- ✏️ WIDGET: TicketNetwork Tickets Search -->
+      <script async src="https://tpwdg.com/content?trs=509638&shmarker=533951.resources-ticketnetwork-search&bg_color=%231a0533&title=Find%20Your%20Night%20%E2%80%94%20Search%20Any%20Event&title_color=%23ffffff&icon_color=%23c084fc&search_text=Search%20by%20artist%2C%20concert%2C%20event...&footer_color=%23ffffff&powered_by=true&campaign_id=72&promo_id=8505" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
 
-        <!-- Independent Booking Resources -->
-        <div class="intro-box">
-            <h2>Booking Travel Independently?</h2>
-            <p>While our all-inclusive packages offer the best value and stress-free experience, we understand some travelers prefer to book components separately. Use these resources to plan your trip.</p>
-            <p class="tip">💡 Tip: Compare prices! Our packages often save you money vs. booking everything individually.</p>
-        </div>
+<!-- ===== UPCOMING EVENTS ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2>🎵 What's Coming Up</h2>
+    <p>Browse upcoming concerts and events — filter by date, performer, or city to find your perfect night</p>
+  </div>
+  <div class="widget-row">
+    <div class="widget-embed">
+      <!-- ✏️ WIDGET: TicketNetwork Events Schedule -->
+      <script async src="https://tpwdg.com/content?trs=509638&shmarker=533951.resources-ticketnetwork-events&keyword=concerts&results=10&powered_by=true&campaign_id=72&promo_id=6086" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
 
-        <!-- Flights -->
-        <div class="section">
-            <h2>✈️ Flight Search</h2>
-            <div class="search-widget">
-                <h3>Search Flights</h3>
-                <p>Find and compare flight prices to your destination</p>
-                <!-- AFFILIATE LINK: Replace # with your flight affiliate link -->
-                <!-- ✏️ TODO: Replace # with your flight affiliate link -->
-                <a href="https://expedia.com/affiliates/therealvacations/therealvacationsflights" class="affiliate-link">Find My Flight →</a>
-                <p class="note">Affiliate links help support our business at no extra cost to you</p>
-            </div>
-        </div>
+<!-- ===== DESTINATION ACTIVITIES ===== -->
+<div class="section section-alt">
+  <div class="section-header">
+    <h2>🗺️ Discover Your Destination</h2>
+    <p>Explore tours, tastings, and experiences waiting for you at each of our trip destinations</p>
+  </div>
 
-        <!-- Hotels -->
-        <div class="section">
-            <h2>🏨 Hotel Search</h2>
-            <div class="search-widget">
-                <h3>Search Hotels</h3>
-                <p>Find accommodations for your trip</p>
-                <!-- AFFILIATE LINK: Replace # with your hotel affiliate link -->
-                <!-- ✏️ TODO: Replace # with your hotel affiliate link -->
-                <a href="https://expedia.com/affiliates/therealvacations/therealvacationshotels" class="affiliate-link">Find My Stay →</a>
-            </div>
-        </div>
+  <!-- Destination Tabs -->
+  <div class="dest-tabs">
+    <span class="dest-tab active" onclick="showDest('napa')">🍷 Napa Valley</span>
+    <span class="dest-tab" onclick="showDest('nola')">🎵 New Orleans</span>
+    <span class="dest-tab" onclick="showDest('vegas')">🎰 Las Vegas</span>
+    <span class="dest-tab" onclick="showDest('atlanta')">🎷 Atlanta</span>
+  </div>
 
-        <!-- Event Tickets -->
-        <div class="section">
-            <h2>🎫 Event Tickets</h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <h3>Ticketmaster</h3>
-                    <p>Find tickets to concerts, festivals, and events. Browse upcoming shows and secure your seats.</p>
-                    <!-- AFFILIATE LINK: Replace # with your Ticketmaster affiliate link -->
-                    <!-- ✏️ TODO: Replace # with your Ticketmaster affiliate link -->
-                    <a href="https://www.ticketmaster.com/?landing=c&awtrc=true&c=SEM_TMBRAND_bng_72920552_1229254248168708_ticketmaster%20event%20tickets&GCID=0&gclid=ee262793676313d95c2e4e2e45460164&gclsrc=3p.ds&&msclkid=ee262793676313d95c2e4e2e45460164&utm_source=bing&utm_medium=cpc&utm_campaign=Ticketmaster___US_SEM%7C%20%7C%20%7C%20%7CBrand%20%7C%20%7C&utm_term=ticketmaster%20event%20tickets&utm_content=Ticketmaster%20(semi%2Fall)" class="affiliate-link secondary">See What's Playing →</a>
-                </div>
-                <div class="resource-card">
-                    <h3>StubHub</h3>
-                    <p>Marketplace for verified event tickets. Great for sold-out shows and last-minute seats.</p>
-                    <!-- AFFILIATE LINK: Replace # with your StubHub affiliate link -->
-                    <!-- ✏️ TODO: Replace # with your StubHub affiliate link -->
-                    <a href="https://www.stubhub.com/" class="affiliate-link secondary">Score My Seats →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Travel Insurance -->
-        <div class="section">
-            <h2>🛡️ Travel Insurance</h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <h3>Travel Insurance Recommended</h3>
-                    <p>Protect your investment! We highly recommend travel insurance for all trips. Coverage includes trip cancellation, medical emergencies, and more.</p>
-                    <!-- AFFILIATE LINK: Replace # with your insurance affiliate link -->
-                    <!-- ✏️ TODO: Replace # with your travel insurance affiliate link -->
-                    <a href="https://klook.tpm.li/QCrHYAw3" class="affiliate-link secondary">Protect My Trip →</a>
-                </div>
-                <div class="resource-card">
-                    <h3>Why You Need It</h3>
-                    <p>Life happens. Flight cancellations, medical emergencies, weather delays—insurance gives you peace of mind and financial protection.</p>
-                    <!-- AFFILIATE LINK: Replace # with your insurance comparison affiliate link -->
-                    <!-- ✏️ TODO: Replace # with your insurance comparison affiliate link -->
-                    <a href="https://klook.tpm.li/QCrHYAw3" class="affiliate-link secondary">See My Options →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Car Rentals -->
-        <div class="section">
-            <h2>🚗 Car Rentals</h2>
-            <div class="search-widget">
-                <h3>Rent a Car</h3>
-                <p>Need wheels at your destination? Compare rental car prices.</p>
-                <!-- AFFILIATE LINK: Replace # with your car rental affiliate link -->
-                <!-- ✏️ TODO: Replace # with your car rental affiliate link -->
-                <a href="https://expedia.com/affiliates/therealvacations/therealvacationsrentalcars" class="affiliate-link">Find My Ride →</a>
-            </div>
-        </div>
-
-        
-        <!-- TripAdvisor Venues -->
-        <div class="section">
-            <h2>⭐ TripAdvisor — Venues & Attractions</h2>
-            <p>Read real reviews, see photos, and plan your visit to the key venues and attractions on our upcoming trips. Click any venue below to go directly to their TripAdvisor page.</p>
-            <div class="resource-grid">
-
-                <div class="resource-card">
-                    <img src="trinitas-cellars.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="Trinitas Cellars">
-                    <h3>Trinitas Cellars</h3>
-                    <p>Estate Cave & Spa Terra tasting room in Napa Valley. Reviews, photos, and visitor tips.</p>
-                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d6496836-Reviews-Trinitas_Cellars-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">Step Inside →</a>
-                </div>
-
-                <div class="resource-card">
-                    <img src="truchard-vineyards.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="Truchard Vineyards">
-                    <h3>Truchard Vineyards</h3>
-                    <p>Family-owned estate vineyard in Carneros, Napa. See photos, reviews, and visitor tips.</p>
-                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d3184263-Reviews-Truchard_Vineyards-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">Discover the Vineyard →</a>
-                </div>
-
-                <div class="resource-card">
-                    <img src="jam-cellars.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="JaM Cellars">
-                    <h3>JaM Cellars</h3>
-                    <p>Music-inspired tasting lounge in downtown Napa. Great vibes and world-class wine.</p>
-                    <a href="https://www.tripadvisor.com/Attraction_Review-g32766-d10326660-Reviews-JaM_Cellars-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">Get a Taste →</a>
-                </div>
-
-                <div class="resource-card">
-                    <img src="meritage-resort.jpg" style="width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:1rem;" alt="The Meritage Resort & Spa">
-                    <h3>The Meritage Resort & Spa</h3>
-                    <p>Stunning Napa Valley resort overlooking the vineyards. See guest reviews and photos.</p>
-                    <a href="https://www.tripadvisor.com/Hotel_Review-g32766-d587487-Reviews-The_Meritage_Resort_And_Spa-Napa_Napa_Valley_California.html" target="_blank" class="affiliate-link secondary">Picture Yourself Here →</a>
-                </div>
-
-            </div>
-        </div>
-
-        <hr>
-
-        <!-- Travel Tips -->
-        <div class="section">
-            <h2>📚 Helpful Travel Tips</h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <h3>Packing Lists</h3>
-                    <p>Don't forget anything! Check out our destination-specific packing guides.</p>
-                </div>
-                <div class="resource-card">
-                    <h3>Travel Documents</h3>
-                    <p>Passport, ID requirements, and what you need to bring for domestic and international travel.</p>
-                </div>
-                <div class="resource-card">
-                    <h3>Destination Guides</h3>
-                    <p>Learn about your destination—best restaurants, attractions, local customs, and insider tips from real travelers.</p>
-                    <a href="https://www.tripadvisor.com/ShowTopic-g1-i12105-k12441879-How_to_search_for_a_destination_Travel_Guide-Tripadvisor_Support.html" target="_blank" class="affiliate-link secondary" style="margin-top:1rem;">Explore Destinations →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="cta-box">
-            <h2>Ready for Stress-Free Travel?</h2>
-            <p>Let us handle all the details! Our all-inclusive packages include hotels, event tickets, transportation, and experiences—all at a better price than booking separately.</p>
-            <a href="trips.html" class="cta-button">See Where We're Going →</a>
-        </div>
+  <div class="widget-row">
+    <!-- Napa -->
+    <div class="dest-content active" id="dest-napa">
+      <div class="widget-embed">
+        <!-- ✏️ WIDGET: Klook Napa/San Francisco -->
+        <script async src="https://tpwdg.com/content?currency=USD&trs=509638&shmarker=533951.resources-klook-napa&locale=en&city_id=129&category=4&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Traveling with us?</strong> Our Napa Juneteenth trip includes curated tastings, transportation, and cultural experiences — all handled for you. <a href="napa-juneteenth-june-18-21-2026.html" style="color:#7c3aed; font-weight:700;">View the full trip →</a>
+      </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col footer-logo">
-                    <img src="logo.jpeg" alt="The Real Vacations">
-                    <p>Creating unforgettable group travel experiences for over 20 years.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="trips.html">Upcoming Trips</a>
-                    <a href="about.html">About Us</a>
-                    <a href="how-it-works.html">How It Works</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <a href="/cdn-cgi/l/email-protection#e2818d8c96838196a2968a879087838e94838183968b8d8c91cc818d8f"><span class="__cf_email__" data-cfemail="b6d5d9d8c2d7d5c2f6c2ded3c4d3d7dac0d7d5
+    <!-- New Orleans -->
+    <div class="dest-content" id="dest-nola">
+      <div class="widget-embed">
+        <!-- ✏️ WIDGET: Klook New Orleans -->
+        <script async src="https://tpwdg.com/content?currency=USD&trs=509638&shmarker=533951.resources-klook-nola&locale=en&city_id=557&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Heading to Essence Fest?</strong> Our all-inclusive package includes hotel, festival tickets, and NOLA experiences. <a href="essence-festival-new-orleans-july-3-5-2026.html" style="color:#7c3aed; font-weight:700;">View the full trip →</a>
+      </div>
+    </div>
+
+    <!-- Las Vegas -->
+    <div class="dest-content" id="dest-vegas">
+      <div class="widget-embed">
+        <!-- ✏️ WIDGET: Klook Las Vegas -->
+        <script async src="https://tpwdg.com/content?currency=USD&trs=509638&shmarker=533951.resources-klook-vegas&locale=en&city_id=136&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Coming for Mary J?</strong> Our group trip includes hotel at Park MGM, concert tickets, and Vegas experiences. <a href="mary-j-blige-my-life-my-story-las-vegas-july-18-2026.html" style="color:#7c3aed; font-weight:700;">View the full trip →</a>
+      </div>
+    </div>
+
+    <!-- Atlanta -->
+    <div class="dest-content" id="dest-atlanta">
+      <div class="widget-embed">
+        <!-- ✏️ WIDGET: Klook Atlanta -->
+        <script async src="https://tpwdg.com/content?currency=USD&trs=509638&shmarker=533951.resources-klook-atlanta&locale=en&city_id=365257&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Ready for R&B night?</strong> Our Keith Sweat trip includes hotel connected to the arena, premium tickets, and VIP options. <a href="keith-sweat-r-and-b-tour-atlanta-august-29-2026.html" style="color:#7c3aed; font-weight:700;">View the full trip →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRAVEL PROTECTION ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2>🛡️ Protect Your Trip</h2>
+    <p>Life happens — travel insurance and flight protection give you peace of mind so you can focus on the experience</p>
+  </div>
+  <div class="services-grid" style="max-width:800px; margin:0 auto;">
+    <div class="svc-card">
+      <div class="svc-icon">🛡️</div>
+      <h3>Travel Insurance</h3>
+      <p>Trip cancellations, medical emergencies, lost luggage — protect your investment and travel worry-free. Plans start at just a few dollars.</p>
+      <a href="https://klook.tpm.li/wG7YCPzF" target="_blank" class="svc-btn" style="background:#22c55e;">🔒 Protect My Trip →</a>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">✈️</div>
+      <h3>Flight Delayed or Cancelled?</h3>
+      <p>You could be owed up to $600 in compensation — check in 30 seconds. No stress, no upfront cost, no hassle.</p>
+    </div>
+  </div>
+  <div class="widget-row" style="margin-top:24px;">
+    <div class="widget-embed" style="max-width:600px;">
+      <!-- ✏️ WIDGET: AirHelp Flight Compensation -->
+      <script async src="https://tpwdg.com/content?trs=509638&shmarker=533951.resources-airhelp&lang=en&powered_by=true&campaign_id=120&promo_id=8679" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FLIGHTS, HOTELS, CARS (Expedia — coming soon) ===== -->
+<!-- ✏️ EXPEDIA AFFILIATE LINKS: Replace # with your Partnerize affiliate links when ready -->
+<div class="section section-dark" style="padding:60px 24px;">
+  <div class="section-header">
+    <h2>✈️ Book Your Travel</h2>
+    <p>Prefer to book flights, hotels, or rental cars separately? We've got you covered</p>
+  </div>
+  <div class="expedia-grid">
+    <div class="exp-card">
+      <h3>✈️ Flights</h3>
+      <p>Compare prices and find the best deals to your destination</p>
+      <!-- ✏️ Replace # with Expedia Flights affiliate link from Partnerize -->
+      <a href="https://www.expedia.com/Flights" target="_blank" class="exp-btn">Search Flights →</a>
+    </div>
+    <div class="exp-card">
+      <h3>🏨 Hotels</h3>
+      <p>Browse accommodations from budget-friendly to luxury — at every destination</p>
+      <!-- ✏️ Replace # with Expedia Hotels affiliate link from Partnerize -->
+      <a href="https://www.expedia.com/Hotels" target="_blank" class="exp-btn">Find Hotels →</a>
+    </div>
+    <div class="exp-card">
+      <h3>🚗 Car Rentals</h3>
+      <p>Need wheels when you land? Compare rental car prices in seconds</p>
+      <!-- ✏️ Replace # with Expedia Car Rentals affiliate link from Partnerize -->
+      <a href="https://www.expedia.com/Car-Rentals" target="_blank" class="exp-btn">Rent a Car →</a>
+    </div>
+  </div>
+  <div class="tip-box" style="background:rgba(255,255,255,0.1); border-color:#c084fc; color:#e9d5ff; margin-top:32px;">
+    <strong style="color:#c084fc;">💡 Compare before you book!</strong> Our all-inclusive packages often save you money vs. booking everything separately — and we handle all the logistics.
+    <a href="trips.html" style="color:#c084fc; font-weight:700;"> Compare our packages →</a>
+  </div>
+</div>
+
+<!-- ===== TRAVEL GUIDES & BLOG ===== -->
+<!-- =============================================
+  ✏️ HOW TO ADD, EDIT, OR REMOVE BLOG POSTS
+  =============================================
+  Each blog post is a <div class="blog-card"> block.
+  
+  TO ADD A NEW POST:
+  1. Copy an existing blog-card block (from <div class="blog-card"> to its closing </div>)
+  2. Paste it inside the <div class="blog-grid"> section
+  3. Update the image, tag, date, title, description, and link
+  
+  TO EDIT A POST: Find the blog-card you want and edit the text, image URL, or link
+  TO REMOVE A POST: Delete the entire <div class="blog-card">...</div> block
+  
+  TAG COLORS: Purple (default) = Destination Guides | Green = Packing Lists | Gold = Travel Documents | Blue = Tips
+  CATEGORY: data-category="packing" or "documents" or "destination" or "tips" (powers the filter tags)
+  ============================================= -->
+<div class="section section-alt" style="padding-bottom:40px;">
+  <div class="section-header">
+    <h2>📚 Travel Guides & Tips</h2>
+    <p>Destination guides, packing tips, travel documents, and everything to get you trip-ready</p>
+  </div>
+
+  <div style="text-align:center; margin-bottom:28px;">
+    <span class="dest-tab active" onclick="filterPosts('all', this)">All Posts</span>
+    <span class="dest-tab" onclick="filterPosts('destination', this)">🎵 Destination Guides</span>
+    <span class="dest-tab" onclick="filterPosts('packing', this)">🧳 Packing Lists</span>
+    <span class="dest-tab" onclick="filterPosts('documents', this)">📄 Travel Documents</span>
+    <span class="dest-tab" onclick="filterPosts('tips', this)">💡 Tips & Advice</span>
+  </div>
+
+  <div class="guides-grid" id="blogGrid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+
+    <!-- POST: Essence Festival Destination Guide -->
+    <div class="blog-card guide-card" data-category="destination" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Destination Guide</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">New Orleans Guide: Essence Festival 2026</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">Everything you need to know — from the French Quarter to where to stay near the Superdome. Experience NOLA like a local.</p>
+        <a href="https://www.ticketmaster.com/2026-essence-festival-of-culture-3-new-orleans-louisiana-07-03-2026/event/1B0063758A1698AB" target="_blank" style="display:block; text-align:center; background:linear-gradient(135deg,#7c3aed,#a855f7); color:#fff; padding:12px; border-radius:50px; font-weight:700; font-size:13px;">🎶 Experience Essence Live<span style="display:block; font-size:11px; font-weight:500; opacity:0.85;">Tickets on Ticketmaster</span></a>
+      </div>
+    </div>
+
+    <!-- POST: Mary J Blige Destination Guide -->
+    <div class="blog-card guide-card" data-category="destination" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Destination Guide</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">Las Vegas Guide: Mary J Blige Residency Finale</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">The best hotels on the Strip, dining near Park MGM, and how to make it a full weekend experience.</p>
+        <a href="https://www.ticketmaster.com/mary-j-blige-my-life-my-las-vegas-nevada-07-18-2026/event/2E006428C7A1422C" target="_blank" style="display:block; text-align:center; background:linear-gradient(135deg,#7c3aed,#a855f7); color:#fff; padding:12px; border-radius:50px; font-weight:700; font-size:13px;">🎤 Be There for the Finale<span style="display:block; font-size:11px; font-weight:500; opacity:0.85;">Tickets on Ticketmaster</span></a>
+      </div>
+    </div>
+
+    <!-- POST: Keith Sweat Destination Guide -->
+    <div class="blog-card guide-card" data-category="destination" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1575444758702-4a6b9222336e?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Destination Guide</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">Atlanta Guide: Keith Sweat R&B Lovers Tour</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">Where to eat, what to do, and how to turn concert night into an unforgettable Atlanta weekend.</p>
+        <a href="https://www.ticketmaster.com/the-rb-lovers-tour-atlanta-georgia-08-29-2026/event/0E006443B2676A3C" target="_blank" style="display:block; text-align:center; background:linear-gradient(135deg,#7c3aed,#a855f7); color:#fff; padding:12px; border-radius:50px; font-weight:700; font-size:13px;">🎷 Feel the Music Live in ATL<span style="display:block; font-size:11px; font-weight:500; opacity:0.85;">Tickets on Ticketmaster</span></a>
+      </div>
+    </div>
+
+    <!-- POST: Napa Destination Guide -->
+    <div class="blog-card guide-card" data-category="destination" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#7c3aed; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Destination Guide</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">Napa Valley Guide: Juneteenth Celebration 2026</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">Discover the wineries, restaurants, and cultural experiences that make our Napa Juneteenth trip unforgettable.</p>
+        <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" style="display:block; text-align:center; background:linear-gradient(135deg,#22c55e,#16a34a); color:#fff; padding:12px; border-radius:50px; font-weight:700; font-size:13px;">🍷 Celebrate Freedom in Wine Country<span style="display:block; font-size:11px; font-weight:500; opacity:0.85;">Book Your Napa Spot</span></a>
+      </div>
+    </div>
+
+    <!-- POST: Packing List -->
+    <div class="blog-card guide-card" data-category="packing" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#22c55e; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Packing List</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">The Ultimate Group Trip Packing List</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">Whether you're headed to wine country, a music festival, or a beach resort — here's exactly what to pack.</p>
+        <span style="display:inline-flex; align-items:center; gap:6px; background:#f0fdf4; border:1px solid #bbf7d0; padding:8px 14px; border-radius:8px; font-size:12px; color:#166534; font-weight:600;">✅ Featured on TripAdvisor</span>
+      </div>
+    </div>
+
+    <!-- POST: Travel Documents -->
+    <div class="blog-card guide-card" data-category="documents" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#d4af37; color:#1a0533; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Travel Documents</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">Travel Documents Checklist: Everything You Need</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">Passport, Real ID, TSA PreCheck, travel insurance — don't get caught at the airport without these.</p>
+        <span style="display:inline-flex; align-items:center; gap:6px; background:#f0fdf4; border:1px solid #bbf7d0; padding:8px 14px; border-radius:8px; font-size:12px; color:#166534; font-weight:600;">✅ Featured on TripAdvisor</span>
+      </div>
+    </div>
+
+    <!-- POST: First Time Group Traveler -->
+    <div class="blog-card guide-card" data-category="tips" style="text-align:left; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="height:180px; background-image:url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=80'); background-size:cover; background-position:center; position:relative;">
+        <span style="position:absolute; top:12px; left:12px; background:#3b82f6; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; text-transform:uppercase; letter-spacing:1px;">Tips & Advice</span>
+      </div>
+      <div style="padding:20px;">
+        <div style="font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">March 2026</div>
+        <h3 style="font-size:18px; font-weight:800; color:#1a0533; margin-bottom:8px; line-height:1.3;">First Time Traveling with a Group?</h3>
+        <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:14px;">What to expect from booking to departure day, and why solo travelers love our groups.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready for Stress-Free Travel?</h2>
+  <p>Let us handle the details. Our all-inclusive packages include hotels, event tickets, transportation, and experiences — all at a better price than booking separately.</p>
+  <a href="trips.html" class="cta-btn">View Our Packages →</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
+      <p>Creating unforgettable group travel experiences for over 20 years.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="trips.html">Upcoming Trips</a>
+      <a href="about.html">About Us</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="real-stories.html">Real Stories</a>
+      <a href="blog.html">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
+      <a href="tel:4049230017">404-923-0017</a>
+      <a href="contact.html">Send a Message</a>
+    </div>
+  </div>
+      <div style="text-align:center; margin-bottom:20px;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Instagram">📷</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Facebook">📘</a></div>
+    <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+</footer>
+
+<!-- Destination Tab Script -->
+<script>
+function showDest(dest) {
+  document.querySelectorAll('.dest-tab').forEach(functio

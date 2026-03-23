@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Real Vacations | All-Inclusive Group Travel</title>
 <link rel="icon" type="image/jpeg" href="favicon.jpeg">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<!-- Spin wheel uses Formspree for prize claims -->
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', Arial, sans-serif; color: #222; background: #fff; }
@@ -196,17 +196,11 @@ var WHEEL_PRIZES = [
 var PRIZE_EXPIRY_HOURS = 48;
 
 // =============================================
-// 📧 EMAILJS SETTINGS — PASTE YOUR 3 VALUES
+// 📧 FORMSPREE SETTINGS — SPIN WHEEL CLAIMS
 // =============================================
-// 1. Go to emailjs.com and create a free account
-// 2. Connect your Gmail under "Email Services" — copy the Service ID
-// 3. Create an Email Template — copy the Template ID
-// 4. Go to Account > API Keys — copy your Public Key
-// Paste all 3 below:
-
-var EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
-var EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-var EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+// Prize claims are submitted to Formspree. You'll receive
+// an email with the person's name, email, prize, and code.
+var FORMSPREE_SPIN_URL = "https://formspree.io/f/xgonjyqa";
 
 // =============================================
 // ⏱️ COUNTDOWN BANNER SETTINGS — EDIT HERE
@@ -234,6 +228,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
     <a href="about.html">About</a>
     <a href="how-it-works.html">How It Works</a>
     <a href="resources.html">Resources</a>
+    <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -283,7 +278,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
         <div class="trip-deposit">Book before April 19 with a deposit</div>
         <div class="trip-deposit-note">Flexible payment plan available — balance due before April 19 · Spin the wheel for a discount!</div>
         <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="trip-btn">🍷 Book Now</a>
-        <a href="napa-juneteenth-june-19-22-2026.html" style="display:block; text-align:center; margin-top:8px; font-size:13px; color:#7c3aed; font-weight:600;">View Full Trip Details →</a>
+        <a href="napa-juneteenth-june-18-21-2026.html" style="display:block; text-align:center; margin-top:8px; font-size:13px; color:#7c3aed; font-weight:600;">View Full Trip Details →</a>
       </div>
     </div>
 
@@ -397,6 +392,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <a href="about.html">About Us</a>
       <a href="how-it-works.html">How It Works</a>
       <a href="real-stories.html">Real Stories</a>
+      <a href="blog.html">Blog</a>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
@@ -405,7 +401,8 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <a href="contact.html">Send a Message</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+      <div style="text-align:center; margin-bottom:20px;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Instagram">📷</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Facebook">📘</a></div>
+    <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
 </footer>
 
 <!-- ===== SPIN WHEEL MODAL ===== -->
@@ -450,20 +447,24 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
     <!-- STEP 3: Success — code sent -->
     <div class="wm-step" id="stepSuccess">
       <div class="result-emoji">🎊</div>
-      <div class="result-won">Your code is on the way!</div>
+      <div class="result-won">You Won!</div>
       <div class="result-prize" id="successPrize"></div>
 
+      <div class="success-wrap" style="margin:16px 0;">
+        <div class="success-label">🎟️ Your Discount Code:</div>
+        <div id="successCode" style="font-size:28px; font-weight:900; color:#c084fc; letter-spacing:3px; background:rgba(192,132,252,0.15); border:2px dashed #c084fc; padding:12px 24px; border-radius:12px; margin:8px auto; display:inline-block;"></div>
+      </div>
+
       <div class="success-wrap">
-        <div class="success-label">✅ Discount code emailed to:</div>
+        <div class="success-label">✅ Claim confirmation sent to:</div>
         <div class="success-msg" id="successEmail"></div>
       </div>
 
-      <div class="expire-timer" style="margin-bottom:14px;">
-        <div class="expire-label">⏰ Code expires in</div>
-        <div class="expire-clock" id="expireClock2">47:59:59</div>
+      <div class="expire-timer" style="margin:14px 0;">
+        <div class="expire-label">⏰ Code expires: <span id="successExpiry" style="color:#c084fc; font-weight:600;"></span></div>
       </div>
 
-      <p class="result-note">Single use only · Valid on any trip · Enter code at checkout<br>Code expires <span id="expiryDateText"></span></p>
+      <p class="result-note">Single use only · Valid on any trip · Enter code at checkout</p>
       <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="result-book-btn">🍷 Book Now — Use My Code →</a>
       <br><br>
       <a href="trips.html" style="color:#c084fc; font-size:13px;">Browse all trips →</a>
@@ -474,7 +475,6 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
 
 <!-- ===== ALL JAVASCRIPT ===== -->
 <script>
-(function(){ emailjs.init(EMAILJS_PUBLIC_KEY); })();
 
 // ── Build flat segment array from WHEEL_PRIZES ──
 var allSegments = [];
@@ -657,35 +657,35 @@ function claimPrize() {
     return;
   }
 
-  // Show success step
+  // Show success step immediately (don't make them wait)
   document.getElementById('successPrize').textContent = wonPrize.label;
+  document.getElementById('successCode').textContent = wonPrize.code;
   document.getElementById('successEmail').textContent = email;
 
   // Show expiry date in human readable
   var expiryDate = new Date(prizeExpireTime);
   var options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-  document.getElementById('expiryDateText').textContent = expiryDate.toLocaleDateString('en-US', options);
+  document.getElementById('successExpiry').textContent = expiryDate.toLocaleDateString('en-US', options);
 
-  // Switch to success step
   document.getElementById('stepClaim').classList.remove('active');
   document.getElementById('stepSuccess').classList.add('active');
 
-  // Continue countdown on success screen
-  startExpireCountdown('expireClock2');
-
-  // Send email via EmailJS
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    to_name:  name,
-    to_email: email,
-    prize:    wonPrize.label,
-    code:     wonPrize.code,
-    expiry:   expiryDate.toLocaleDateString('en-US', options)
-  }).then(function() {
-    console.log('Prize email sent successfully!');
-  }, function(err) {
-    console.log('Email error:', JSON.stringify(err));
-  });
+  // ✅ Submit to Formspree (sends YOU the claim info)
+  fetch('https://formspree.io/f/xgonjyqa', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      prize: wonPrize.label,
+      code: wonPrize.code,
+      source: 'homepage-spin-wheel',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(function(err) { console.log('Formspree submit error:', err); });
 }
+
+drawWheel(currentAngle);
 </script>
 </body>
 </html>

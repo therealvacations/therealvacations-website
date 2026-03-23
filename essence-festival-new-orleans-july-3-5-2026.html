@@ -6,694 +6,116 @@
     <title>Essence Festival 2026 | New Orleans | The Real Vacations</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpeg">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        /* Header */
-        header {
-            background: #1a1a2e;
-            color: white;
-            padding: 1rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            color: #667eea;
-        }
-        
-        /* Promo Banner */
-        .promo-banner {
-            background: linear-gradient(90deg, #D4AF37, #F4D03F, #D4AF37);
-            background-size: 200% auto;
-            animation: shimmer 3s linear infinite;
-            color: #1a1a2e;
-            padding: 12px 5%;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .promo-banner a {
-            color: #330867;
-            text-decoration: underline;
-            font-weight: 700;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-        
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 80px 5%;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-details {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 60px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-alt {
-            background: #f8f9fa;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #1a1a2e;
-            text-align: center;
-        }
-        
-        /* Venue Section */
-        .venue-highlight {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .venue-highlight h3 {
-            font-size: 2rem;
-            color: #f5576c;
-            margin-bottom: 1rem;
-        }
-        
-        .venue-highlight p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-        
-        .venue-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .venue-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        /* Package Details */
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .package-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-        
-        .package-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .package-card h3 {
-            font-size: 1.5rem;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-        }
-        
-        .package-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-        
-        /* Spin Wheel Section */
-        .spin-section {
-            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
-            color: white;
-            padding: 60px 5%;
-            text-align: center;
-        }
-        
-        .spin-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
-        
-        .spin-content {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-        }
-        
-        .spin-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .spin-content p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            margin-bottom: 1.5rem;
-        }
-        
-        .spin-tiers {
-            margin-bottom: 2rem;
-        }
-        
-        .spin-tier {
-            background: rgba(255,255,255,0.15);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 0.75rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .spin-tier.active {
-            background: rgba(212, 175, 55, 0.3);
-            border: 1px solid #D4AF37;
-        }
-        
-        .spin-tier .amount {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #D4AF37;
-        }
-        
-        .spin-form {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .spin-form input {
-            flex: 1;
-            min-width: 200px;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-        }
-        
-        .spin-btn {
-            background: #D4AF37;
-            color: #1a1a2e;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .spin-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .wheel-container {
-            position: relative;
-            width: 250px;
-            height: 250px;
-        }
-        
-        .wheel {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(
-                #D4AF37 0deg 45deg,
-                #f5576c 45deg 90deg,
-                #f093fb 90deg 135deg,
-                #667eea 135deg 180deg,
-                #D4AF37 180deg 225deg,
-                #f5576c 225deg 270deg,
-                #f093fb 270deg 315deg,
-                #667eea 315deg 360deg
-            );
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
-        }
-        
-        .wheel-center {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: #f5576c;
-            font-size: 0.85rem;
-            text-align: center;
-        }
-        
-        .wheel-pointer {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 20px solid white;
-        }
-        
-        /* Occupancy Pricing */
-        .pricing-section {
-            background: #1a1a2e;
-            color: white;
-            padding: 60px 5%;
-        }
-        
-        .pricing-section .section-title {
-            color: white;
-        }
-        
-        .pricing-subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-        
-        .occupancy-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto 3rem;
-        }
-        
-        .occupancy-card {
-            background: linear-gradient(180deg, #f5576c 0%, #f5576c 50%, #c44455 50%, #c44455 100%);
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .occupancy-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .occupancy-card.featured {
-            border: 3px solid #D4AF37;
-        }
-        
-        .occupancy-header {
-            padding: 1.5rem 1rem;
-        }
-        
-        .occupancy-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .occupancy-header p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-        
-        .occupancy-price {
-            padding: 1.5rem 1rem;
-        }
-        
-        .occupancy-price .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .occupancy-price .per-person {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .occupancy-price .savings {
-            font-size: 0.85rem;
-            color: #D4AF37;
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-        
-        /* VIP Card */
-        .vip-card {
-            background: linear-gradient(135deg, #D4AF37 0%, #B8962E 100%);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            color: #1a1a2e;
-            max-width: 500px;
-            margin: 2rem auto 0;
-        }
-        
-        .vip-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .vip-card .price {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        
-        .vip-card .price-note {
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
-        
-        .vip-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 1.5rem 0;
-        }
-        
-        .vip-card li {
-            padding: 0.5rem 0;
-            font-weight: 500;
-        }
-        
-        .vip-card li::before {
-            content: '★ ';
-            color: #f5576c;
-        }
-        
-        .vip-book-btn {
-            display: inline-block;
-            background: #1a1a2e;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .vip-book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        .pricing-note {
-            text-align: center;
-            margin-top: 2rem;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        /* Why This Trip */
-        .why-trip {
-            background: #f8f9fa;
-        }
-        
-        .why-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .why-content p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Included/Excluded */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .details-column h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a2e;
-        }
-        
-        .details-column ul {
-            list-style: none;
-        }
-        
-        .details-column li {
-            padding: 0.7rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #666;
-        }
-        
-        .details-column li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #f5576c;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .excluded li:before {
-            content: "✗";
-            color: #999;
-        }
-        
-        /* CTA Footer */
-        .cta-footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 5%;
-        }
-        
-        .cta-footer h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-footer p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a2e;
-            color: white;
-            padding: 40px 5%;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin: 2rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-        }
-        
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        /* Responsive */
-        @media (max-width: 900px) {
-            .occupancy-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .spin-container {
-                flex-direction: column;
-            }
-            
-            .spin-content {
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 500px) {
-            .occupancy-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    
-  nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
-  nav a img { height: 52px; }
-  .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
-  .nav-links a:hover { color: #c084fc; }
-  footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
-  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
-  .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-  .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
-  .footer-col a:hover { color: #c084fc; }
-  .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
-
-  .packages { padding: 56px 24px; }
-  .packages h2 { text-align: center; font-size: 28px; font-weight: 800; color: #1a0533; margin-bottom: 36px; }
-  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 740px; margin: 0 auto; }
-  .pkg { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  .pkg-header { background: linear-gradient(135deg, #1a0533, #6b21a8); color: #fff; padding: 28px 24px; text-align: center; }
-  .pkg-header h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-  .pkg-price { font-size: 36px; font-weight: 900; color: #c084fc; }
-  .pkg-price span { font-size: 14px; color: #e9d5ff; font-weight: 400; }
-  .pkg-body { background: #fff; padding: 24px; }
-  .pkg-body ul { list-style: none; margin-bottom: 24px; }
-  .pkg-body ul li { font-size: 14px; color: #444; padding: 6px 0; border-bottom: 1px solid #f3e8ff; display: flex; align-items: center; gap: 8px; }
-  .pkg-body ul li::before { content: "✓"; color: #7c3aed; font-weight: 700; }
-  .pkg-btn { display: block; text-align: center; background: #7c3aed; color: #fff; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: background 0.2s; text-decoration: none; }
-  .pkg-btn:hover { background: #6d28d9; }
-  .pkg-btn.outline { background: transparent; border: 2px solid #7c3aed; color: #7c3aed; }
-  .pkg-btn.outline:hover { background: #7c3aed; color: #fff; }
-  .pkg-note { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
-</style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        nav { background: #1a0533; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100; }
+        nav a img { height: 52px; }
+        .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .nav-links a { color: #fff; font-size: 14px; font-weight: 500; transition: color 0.2s; text-decoration: none; }
+        .nav-links a:hover { color: #c084fc; }
+        .promo-banner { background: linear-gradient(90deg, #D4AF37, #F4D03F, #D4AF37); background-size: 200% auto; animation: shimmer 3s linear infinite; color: #1a1a2e; padding: 12px 5%; text-align: center; font-weight: 600; }
+        .promo-banner a { color: #330867; text-decoration: underline; font-weight: 700; }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        .hero { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 80px 5%; text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero-subtitle { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .hero-details { font-size: 1.2rem; opacity: 0.95; }
+        section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-alt { background: #f8f9fa; }
+        .section-title { font-size: 2.5rem; margin-bottom: 2rem; color: #1a1a2e; text-align: center; }
+        .venue-highlight { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; }
+        .venue-highlight h3 { font-size: 2rem; color: #f5576c; margin-bottom: 1rem; }
+        .venue-highlight p { font-size: 1.1rem; color: #666; margin-bottom: 2rem; line-height: 1.7; }
+        .venue-button { display: inline-block; background: white; color: #f5576c; border: 2px solid #f5576c; padding: 15px 40px; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; }
+        .venue-button:hover { background: #f5576c; color: white; }
+        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .package-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
+        .package-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .package-card h3 { font-size: 1.5rem; color: #1a1a2e; margin-bottom: 1rem; }
+        .package-card p { color: #666; line-height: 1.7; }
+        .spin-section { background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); color: white; padding: 60px 5%; text-align: center; }
+        .spin-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .spin-content { flex: 1; min-width: 300px; text-align: left; }
+        .spin-content h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .spin-content p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1.5rem; }
+        .spin-tiers { margin-bottom: 2rem; }
+        .spin-tier { background: rgba(255,255,255,0.15); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
+        .spin-tier.active { background: rgba(212, 175, 55, 0.3); border: 1px solid #D4AF37; }
+        .spin-tier .amount { font-size: 1.3rem; font-weight: 700; color: #D4AF37; }
+        .spin-form { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .spin-form input { flex: 1; min-width: 200px; padding: 14px 20px; border: none; border-radius: 30px; font-size: 1rem; }
+        .spin-btn { background: #D4AF37; color: #1a1a2e; padding: 14px 30px; border: none; border-radius: 30px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .spin-btn:hover { transform: scale(1.05); }
+        .wheel-container { position: relative; width: 250px; height: 250px; }
+        .wheel { width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(#D4AF37 0deg 45deg, #f5576c 45deg 90deg, #f093fb 90deg 135deg, #667eea 135deg 180deg, #D4AF37 180deg 225deg, #f5576c 225deg 270deg, #f093fb 270deg 315deg, #667eea 315deg 360deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(0,0,0,0.3); transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); }
+        .wheel-center { width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #f5576c; font-size: 0.85rem; text-align: center; }
+        .wheel-pointer { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-top: 20px solid white; }
+        .why-trip { background: #f8f9fa; }
+        .why-content { max-width: 800px; margin: 0 auto; }
+        .why-content p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .details-column h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: #1a1a2e; }
+        .details-column ul { list-style: none; }
+        .details-column li { padding: 0.7rem 0; padding-left: 2rem; position: relative; color: #666; }
+        .details-column li:before { content: "✓"; position: absolute; left: 0; color: #f5576c; font-weight: bold; font-size: 1.2rem; }
+        .excluded li:before { content: "✗"; color: #999; }
+        .cta-footer { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 60px 5%; }
+        .cta-footer h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-footer p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; }
+        .cta-button { display: inline-block; background: white; color: #667eea; padding: 15px 40px; text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        footer { background: #0f0620; color: #ccc; padding: 50px 40px 28px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px; max-width: 1100px; margin: 0 auto 36px; }
+        .footer-col h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col a, .footer-col p { color: #aaa; font-size: 13px; line-height: 2; display: block; transition: color 0.2s; text-decoration: none; }
+        .footer-col a:hover { color: #c084fc; }
+        .footer-bottom { border-top: 1px solid #2d1b4e; padding-top: 20px; text-align: center; font-size: 12px; color: #666; max-width: 1100px; margin: 0 auto; }
+        .packages { padding: 56px 24px; }
+        .packages h2 { text-align: center; font-size: 28px; font-weight: 800; color: #1a0533; margin-bottom: 36px; }
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 740px; margin: 0 auto; }
+        .pkg { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .pkg-header { background: linear-gradient(135deg, #1a0533, #6b21a8); color: #fff; padding: 28px 24px; text-align: center; }
+        .pkg-header h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+        .pkg-price { font-size: 36px; font-weight: 900; color: #c084fc; }
+        .pkg-price span { font-size: 14px; color: #e9d5ff; font-weight: 400; }
+        .pkg-body { background: #fff; padding: 24px; }
+        .pkg-body ul { list-style: none; margin-bottom: 24px; }
+        .pkg-body ul li { font-size: 14px; color: #444; padding: 6px 0; border-bottom: 1px solid #f3e8ff; display: flex; align-items: center; gap: 8px; }
+        .pkg-body ul li::before { content: "✓"; color: #7c3aed; font-weight: 700; }
+        .pkg-btn { display: block; text-align: center; background: #7c3aed; color: #fff; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 14px; transition: background 0.2s; text-decoration: none; }
+        .pkg-btn:hover { background: #6d28d9; }
+        .pkg-btn.outline { background: transparent; border: 2px solid #7c3aed; color: #7c3aed; }
+        .pkg-btn.outline:hover { background: #7c3aed; color: #fff; }
+        .pkg-note { font-size: 12px; color: #888; text-align: center; margin-top: 10px; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } .spin-container { flex-direction: column; } .spin-content { text-align: center; } }
+    </style>
 </head>
 <body>
-    <!-- Promo Banner -->
     <div class="promo-banner">
         🎰 <strong>SPIN TO WIN!</strong> Up to $500 off when you pay in full. <a href="#spin-wheel">Spin Now →</a>
     </div>
 
-    <!-- Header -->
+    <!-- ✅ FIX: Blog added to nav -->
     <nav>
-  <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="trips.html">Trips</a>
-    <a href="real-stories.html">Real Stories</a>
-    <a href="about.html">About</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
-    <!-- Urgency Banner -->
+        <a href="index.html"><img src="logo.jpeg" alt="The Real Vacations" style="height:52px;"></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="trips.html">Trips</a>
+            <a href="real-stories.html">Real Stories</a>
+            <a href="about.html">About</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="resources.html">Resources</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
     <div style="background: linear-gradient(90deg, #7c3aed, #a855f7); color: #fff; text-align: center; padding: 14px 24px; font-size: 14px; font-weight: 600; line-height: 1.6;">
       ⚡ Only a few spots remaining — this trip opens very soon!<br>
       <span style="font-size:13px; opacity:0.9;">Confirm your deposit before the countdown ends & <strong>save $100 automatically</strong> on your booking.</span>
     </div>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Essence Festival 2026</h1>
@@ -702,156 +124,97 @@
         </div>
     </section>
 
-    <!-- Venue Highlight -->
     <section>
         <div class="venue-highlight">
             <h3>Caesars Superdome</h3>
             <p>Home to the iconic Essence Festival for over 30 years, the Caesars Superdome hosts 3 days of world-class performances, empowerment seminars, and cultural celebration. This 73,000-seat venue in the heart of New Orleans brings together 400,000+ attendees annually for an unforgettable experience.</p>
-            &nbsp;&nbsp;
         </div>
     </section>
 
-    <!-- Package Details -->
-    
-    <!-- Hotel Venue -->
     <section style="padding:0 5% 40px; max-width:1200px; margin:0 auto;">
       <div style="background:#f8f9fa; padding:36px; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
         <h3 style="font-size:1.8rem; color:#1a1a2e; margin-bottom:1rem;">Hyatt Regency New Orleans</h3>
         <p style="color:#666; max-width:640px; margin:0 auto 1.5rem; line-height:1.7;">Your home base — just a 5-minute walk from the Caesars Superdome. See guest reviews and photos before you go.</p>
-        &nbsp;
-        <a href="https://www.hyatt.com/hyatt-regency/en-US/msyrn-hyatt-regency-new-orleans" target="_blank" class="venue-button" style="background:white; color:#f5576c; border:2px solid #f5576c; display:inline-block;">Preview Your Stay →</a>
+        <a href="https://www.hyatt.com/hyatt-regency/en-US/msyrn-hyatt-regency-new-orleans" target="_blank" class="venue-button">Preview Your Stay →</a>
       </div>
     </section>
 
     <section class="section-alt">
         <h2 class="section-title">What's Included</h2>
         <div class="package-grid">
-            <div class="package-card">
-                <div class="package-icon">🎫</div>
-                <h3>Event Access</h3>
-                <p>3-day Essence Festival tickets with access to all mainstage performances, empowerment experiences, and cultural programming at the Caesars Superdome.</p>
-            </div>
-            <div class="package-card">
-                <div class="package-icon">🏨</div>
-                <h3>Accommodations</h3>
-                <p><strong>4 nights at Hyatt Regency New Orleans</strong> (5-minute walk to venue). General package: Standard rooms. VIP package: Club Level rooms with lounge access and upgraded amenities.</p>
-            </div>
-            <div class="package-card">
-                <div class="package-icon">🚐</div>
-                <h3>Transportation</h3>
-                <p>Round-trip airport transfers and daily shuttle service between hotel and Superdome. VIP package includes private car service upgrades available.</p>
-            </div>
-            <div class="package-card">
-                <div class="package-icon">🎭</div>
-                <h3>NOLA Experiences</h3>
-                <p>Guided French Quarter walking tour, beignets at Café Du Monde, and optional add-ons: Jazz brunch, swamp tour, Garden District exploration, and more.</p>
-            </div>
+            <div class="package-card"><div class="package-icon">🎫</div><h3>Event Access</h3><p>3-day Essence Festival tickets with access to all mainstage performances, empowerment experiences, and cultural programming at the Caesars Superdome.</p></div>
+            <div class="package-card"><div class="package-icon">🏨</div><h3>Accommodations</h3><p><strong>4 nights at Hyatt Regency New Orleans</strong> (5-minute walk to venue). General package: Standard rooms. VIP package: Club Level rooms with lounge access and upgraded amenities.</p></div>
+            <div class="package-card"><div class="package-icon">🚐</div><h3>Transportation</h3><p>Round-trip airport transfers and daily shuttle service between hotel and Superdome. VIP package includes private car service upgrades available.</p></div>
+            <div class="package-card"><div class="package-icon">🎭</div><h3>NOLA Experiences</h3><p>Guided French Quarter walking tour, beignets at Café Du Monde, and optional add-ons: Jazz brunch, swamp tour, Garden District exploration, and more.</p></div>
         </div>
     </section>
 
-    <!-- Spin Wheel Section -->
+    <!-- ✅ FIX: Spin wheel dates updated from March 5/8 to April 19 -->
     <section class="spin-section" id="spin-wheel">
         <div class="spin-container">
             <div class="spin-content">
                 <h2>🎰 Spin to Win Your Discount</h2>
                 <p>Subscribe to spin the wheel and win up to $500 off when you pay in full at booking!</p>
-                
                 <div class="spin-tiers">
                     <div class="spin-tier active">
-                        <div>
-                            <strong>Book by March 5, 8am</strong>
-                            <div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div>
-                        </div>
+                        <div><strong>Book before April 19</strong><div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div></div>
                         <div class="amount">Up to $500 OFF</div>
                     </div>
                     <div class="spin-tier">
-                        <div>
-                            <strong>Book by March 8, 8am</strong>
-                            <div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div>
-                        </div>
+                        <div><strong>Book after April 19</strong><div style="font-size: 0.85rem; opacity: 0.9;">Pay in full to receive discount</div></div>
                         <div class="amount">Up to $250 OFF</div>
                     </div>
                 </div>
-                
                 <form class="spin-form">
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit" class="spin-btn">🎰 Let Me Spin!</button>
                 </form>
             </div>
-            
             <div class="wheel-container">
                 <div class="wheel-pointer"></div>
-                <div class="wheel" id="wheel">
-                    <div class="wheel-center">SPIN<br>TO WIN</div>
-                </div>
+                <div class="wheel" id="wheel"><div class="wheel-center">SPIN<br>TO WIN</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Occupancy Pricing -->
-    
-<section style="background: linear-gradient(135deg, #1a0533, #3b0764); color: #fff; padding: 48px 5%; text-align: center;">
-  <div style="max-width: 700px; margin: 0 auto;">
-    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">⚡ Spots Are Going Fast</h2>
-    <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 1.5rem;">Essence Festival opens for booking very soon — and spots are extremely limited. Confirm your spot now with a deposit before April 19 and automatically receive a <strong>$100 discount</strong> applied to your booking.</p>
-    <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">Countdown coincides with the Napa Valley Juneteenth deposit deadline — April 19, 2026.</p>
-    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <!-- ✏️ TODO: Replace # with your custom deposit payment link -->
-      <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" style="background: #c084fc; color: #1a0533; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none;">Claim My Spot — $500 Deposit →</a>
-      <!-- ✏️ TODO: Replace # with your custom VIP deposit payment link -->
-      <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" style="background: transparent; border: 2px solid #c084fc; color: #c084fc; padding: 13px 28px; border-radius: 50px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none;">Secure My VIP Experience — $500 Deposit →</a>
-    </div>
-    <p style="font-size: 12px; opacity: 0.6; margin-top: 16px;">$100 discount automatically applied when you confirm before April 19, 2026 · Flexible payment plan available after deposit</p>
-  </div>
-</section>
-
-    
-<section class="packages">
-  <div class="container">
-    <h2>Choose Your Package</h2>
-    <div class="packages-grid">
-      <div class="pkg">
-        <div class="pkg-header">
-          <h3>General Package</h3>
-          <div class="pkg-price">$2,495 <span>per person (double occupancy)</span></div>
+    <section style="background: linear-gradient(135deg, #1a0533, #3b0764); color: #fff; padding: 48px 5%; text-align: center;">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">⚡ Spots Are Going Fast</h2>
+        <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9; margin-bottom: 1.5rem;">Essence Festival opens for booking very soon — and spots are extremely limited. Confirm your spot now with a deposit before April 19 and automatically receive a <strong>$100 discount</strong> applied to your booking.</p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">Countdown coincides with the Napa Valley Juneteenth deposit deadline — April 19, 2026.</p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" target="_blank" style="background: #c084fc; color: #1a0533; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 15px; display: inline-block; text-decoration: none;">Claim My Spot — $500 Deposit →</a>
+          <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" target="_blank" style="background: transparent; border: 2px solid #c084fc; color: #c084fc; padding: 13px 28px; border-radius: 50px; font-weight: 600; font-size: 15px; display: inline-block; text-decoration: none;">Secure My VIP Experience — $500 Deposit →</a>
         </div>
-        <div class="pkg-body">
-          <ul>
-            <li>4 nights at Hyatt Regency New Orleans</li>
-            <li>3-day Essence Festival tickets</li>
-            <li>Group shuttle service</li>
-            <li>Guided French Quarter tour</li>
-            <li>Welcome reception</li>
-          </ul>
-          <!-- ✏️ TODO: Replace # with your custom deposit payment link -->
-          <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" class="pkg-btn outline">Claim My Spot — $500 Deposit →</a>
-          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
-        </div>
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 16px;">$100 discount automatically applied when you confirm before April 19, 2026 · Flexible payment plan available after deposit</p>
       </div>
-      <div class="pkg">
-        <div class="pkg-header">
-          <h3>VIP Package</h3>
-          <div class="pkg-price">$3,695 <span>per person (double occupancy)</span></div>
-        </div>
-        <div class="pkg-body">
-          <ul>
-            <li>Club Level room + lounge access</li>
-            <li>Premium festival seating</li>
-            <li>Private car service</li>
-            <li>VIP welcome dinner</li>
-            <li>Exclusive meet & greet opportunity</li>
-          </ul>
-          <!-- ✏️ TODO: Replace # with your custom VIP deposit payment link -->
-          <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" class="pkg-btn">Secure My VIP Experience — $500 Deposit →</a>
-          <p class="pkg-note">Book within the countdown clock & save $100 automatically · Flexible payment plans available</p>
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center; margin-top:20px; font-size:13px; color:#888;">Only a few spots left — secure yours now with a $500 deposit. Flexible payment plans available after deposit.</p>
-  </div>
-</section>
+    </section>
 
-    <!-- Why This Trip -->
+    <section class="packages">
+      <div class="container">
+        <h2>Choose Your Package</h2>
+        <div class="packages-grid">
+          <div class="pkg">
+            <div class="pkg-header"><h3>General Package</h3><div class="pkg-price">$2,495 <span>per person (double occupancy)</span></div></div>
+            <div class="pkg-body">
+              <ul><li>4 nights at Hyatt Regency New Orleans</li><li>3-day Essence Festival tickets</li><li>Group shuttle service</li><li>Guided French Quarter tour</li><li>Welcome reception</li></ul>
+              <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" target="_blank" class="pkg-btn outline">Claim My Spot — $500 Deposit →</a>
+              <p class="pkg-note">Book before April 19 & save $100 automatically · Flexible payment plans available</p>
+            </div>
+          </div>
+          <div class="pkg">
+            <div class="pkg-header"><h3>VIP Package</h3><div class="pkg-price">$3,695 <span>per person (double occupancy)</span></div></div>
+            <div class="pkg-body">
+              <ul><li>Club Level room + lounge access</li><li>Premium festival seating</li><li>Private car service</li><li>VIP welcome dinner</li><li>Exclusive meet & greet opportunity</li></ul>
+              <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" target="_blank" class="pkg-btn">Secure My VIP Experience — $500 Deposit →</a>
+              <p class="pkg-note">Book before April 19 & save $100 automatically · Flexible payment plans available</p>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center; margin-top:20px; font-size:13px; color:#888;">Only a few spots left — secure yours now with a $500 deposit. Flexible payment plans available after deposit.</p>
+      </div>
+    </section>
+
     <section class="why-trip">
         <div class="why-content">
             <h2 class="section-title">Why This Trip is Unforgettable</h2>
@@ -861,71 +224,38 @@
         </div>
     </section>
 
-    <!-- What's Included/Excluded -->
     <section>
         <h2 class="section-title">Trip Details</h2>
         <div class="details-grid">
             <div class="details-column">
                 <h3>What's Included</h3>
-                <ul>
-                    <li>4 nights accommodation at Hyatt Regency New Orleans</li>
-                    <li>3-day Essence Festival tickets</li>
-                    <li>Round-trip airport transfers</li>
-                    <li>Daily shuttle to/from Superdome</li>
-                    <li>Guided French Quarter walking tour</li>
-                    <li>Beignets at Café Du Monde</li>
-                    <li>Welcome reception with group</li>
-                    <li>24/7 trip coordinator support</li>
-                    <li>Travel insurance option</li>
-                </ul>
+                <ul><li>4 nights accommodation at Hyatt Regency New Orleans</li><li>3-day Essence Festival tickets</li><li>Round-trip airport transfers</li><li>Daily shuttle to/from Superdome</li><li>Guided French Quarter walking tour</li><li>Beignets at Café Du Monde</li><li>Welcome reception with group</li><li>24/7 trip coordinator support</li><li>Travel insurance option</li></ul>
             </div>
             <div class="details-column excluded">
                 <h3>What's Not Included</h3>
-                <ul>
-                    <li>Airfare (available as optional add-on)</li>
-                    <li>Meals (beyond welcome reception)</li>
-                    <li>Personal expenses & souvenirs</li>
-                    <li>Optional add-on experiences</li>
-                    <li>Gratuities for local guides</li>
-                </ul>
+                <ul><li>Airfare (available as optional add-on)</li><li>Meals (beyond welcome reception)</li><li>Personal expenses & souvenirs</li><li>Optional add-on experiences</li><li>Gratuities for local guides</li></ul>
             </div>
         </div>
         <p style="text-align: center; margin-top: 3rem; color: #666; font-size: 0.95rem;"><strong>Cancellation Policy:</strong> Full refund if cancelled within 24 hours of booking. After 24 hours, deposits are non-refundable but transferable to another traveler with $50 fee. Travel insurance highly recommended.</p>
     </section>
 
-    <!-- CTA Footer -->
     <section class="cta-footer">
         <h2>Ready to Experience Essence Festival?</h2>
         <p>Book now with a $500 deposit and pay monthly. Spots are limited!</p>
-        <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" class="cta-button">🎟️ Claim My Spot — $500 Deposit →</a>
+        <a href="https://book.stripe.com/fZueVc3Hgfaf7ZJaQz0Fi03" target="_blank" class="cta-button">🎟️ Claim My Spot — $500 Deposit →</a>
     </section>
 
-    <!-- Footer -->
+    <!-- ✅ FIX: Clean footer with Blog, clean email -->
     <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;">
-      <p>Creating unforgettable group travel experiences for over 20 years.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="trips.html">Upcoming Trips</a>
-      <a href="about.html">About Us</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="real-stories.html">Real Stories</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <a href="/cdn-cgi/l/email-protection#e2818d8c96838196a2968a879087838e94838183968b8d8c91cc818d8f"><span class="__cf_email__" data-cfemail="84e7ebeaf0e5e7f0c4f0ece1f6e1e5e8f2e5e7e5f0edebeaf7aae7ebe9">[email&#160;protected]</span></a>
-      <a href="tel:4049230017">404-923-0017</a>
-      <a href="contact.html">Send a Message</a>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
-</footer>
+        <div class="footer-grid">
+            <div class="footer-col"><img src="logo.jpeg" alt="The Real Vacations" style="height:48px; margin-bottom:14px;"><p>Creating unforgettable group travel experiences for over 20 years.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><a href="trips.html">Upcoming Trips</a><a href="about.html">About Us</a><a href="how-it-works.html">How It Works</a><a href="real-stories.html">Real Stories</a><a href="blog.html">Blog</a></div>
+            <div class="footer-col"><h4>Contact Us</h4><a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a><a href="tel:4049230017">404-923-0017</a><a href="contact.html">Send a Message</a></div>
+        </div>
+            <div style="text-align:center; margin-bottom:20px;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Instagram">📷</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Facebook">📘</a></div>
+    <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+    </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const wheel = document.getElementById('wheel');
-        let isSpinning = false;
-        
-        document.querySelector('.spin-btn').addEventListener
+ 
