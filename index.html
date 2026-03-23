@@ -198,8 +198,8 @@ var PRIZE_EXPIRY_HOURS = 48;
 // =============================================
 // 📧 FORMSPREE SETTINGS — SPIN WHEEL CLAIMS
 // =============================================
-// Prize claims are submitted to Formspree. You'll receive
-// an email with the person's name, email, prize, and code.
+
+// Formspree handles prize claim submissions
 var FORMSPREE_SPIN_URL = "https://formspree.io/f/xgonjyqa";
 
 // =============================================
@@ -271,7 +271,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <div class="trip-card-header">
         <span class="trip-badge green">⚡ Book Before April 19</span>
         <h3>Napa Valley Juneteenth 2026</h3>
-        <div class="date-loc">June 18–21, 2026 · California 🍷</div>
+        <div class="date-loc">June 18\u201321, 2026 · California 🍷</div>
       </div>
       <div class="trip-card-body">
         <p>Four days of world-class wines, Black-owned vineyards, and Juneteenth celebration dinners. Freedom never tasted so good.</p>
@@ -286,7 +286,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <div class="trip-card-header">
         <span class="trip-badge yellow">⚡ Opening Very Soon</span>
         <h3>Essence Festival 2026</h3>
-        <div class="date-loc">July 3–5, 2026 · New Orleans 🎵</div>
+        <div class="date-loc">July 3\u20135, 2026 · New Orleans \ud83c\udfb5</div>
       </div>
       <div class="trip-card-body">
         <p>The world's largest celebration of culture and music. Legendary performances and NOLA hospitality.</p>
@@ -302,7 +302,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <div class="trip-card-header">
         <span class="trip-badge orange">🔥 Very Few Spots Left</span>
         <h3>Mary J Blige Residency Finale</h3>
-        <div class="date-loc">July 18, 2026 · Las Vegas 🎤</div>
+        <div class="date-loc">July 18, 2026 · Las Vegas \ud83c\udfa4</div>
       </div>
       <div class="trip-card-body">
         <p>The final night of "My Life, My Story" at Dolby Live at Park MGM. An intimate performance you'll never forget.</p>
@@ -318,7 +318,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <div class="trip-card-header">
         <span class="trip-badge">🔥 Limited Availability</span>
         <h3>Keith Sweat R&B Lovers Tour</h3>
-        <div class="date-loc">August 29, 2026 · Atlanta 🎷</div>
+        <div class="date-loc">August 29, 2026 · Atlanta \ud83c\udfb7</div>
       </div>
       <div class="trip-card-body">
         <p>Keith Sweat, Joe, Dru Hill, Ginuwine & Kut Klose — all on one stage. VIP Meet & Greet available exclusively through us.</p>
@@ -396,13 +396,13 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
-      <a href="/cdn-cgi/l/email-protection#fa9995948e9b998eba8e929f889f9b968c9b999b8e93959489d4999597"><span class="__cf_email__" data-cfemail="a4c7cbcad0c5c7d0e4d0ccc1d6c1c5c8d2c5c7c5d0cdcbcad78ac7cbc9">[email&#160;protected]</span></a>
+      <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a>
       <a href="tel:4049230017">404-923-0017</a>
       <a href="contact.html">Send a Message</a>
     </div>
   </div>
-      <div style="text-align:center; margin-bottom:20px;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Instagram">📷</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px; transition:color 0.2s;" title="Facebook">📘</a></div>
-    <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
+    <div style="text-align:center; margin-bottom:20px;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="color:#c084fc; font-size:14px; margin:0 12px; text-decoration:none;">📸 Instagram</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="color:#c084fc; font-size:14px; margin:0 12px; text-decoration:none;">👥 Facebook</a></div>
+  <div class="footer-bottom">© 2026 The Real Vacations. All rights reserved.</div>
 </footer>
 
 <!-- ===== SPIN WHEEL MODAL ===== -->
@@ -441,7 +441,7 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
         <input type="email" id="claimEmail" placeholder="Your email address" autocomplete="email" />
         <button class="claim-btn" onclick="claimPrize()">🎟️ Claim My Code</button>
       </div>
-      <p class="claim-note">🔒 No spam ever. Your code is sent to this email instantly.</p>
+      <p class="claim-note">🔒 No spam ever. Your code appears instantly after claiming.</p>
     </div>
 
     <!-- STEP 3: Success — code sent -->
@@ -450,22 +450,18 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
       <div class="result-won">You Won!</div>
       <div class="result-prize" id="successPrize"></div>
 
-      <div class="success-wrap" style="margin:16px 0;">
-        <div class="success-label">🎟️ Your Discount Code:</div>
-        <div id="successCode" style="font-size:28px; font-weight:900; color:#c084fc; letter-spacing:3px; background:rgba(192,132,252,0.15); border:2px dashed #c084fc; padding:12px 24px; border-radius:12px; margin:8px auto; display:inline-block;"></div>
-      </div>
-
       <div class="success-wrap">
-        <div class="success-label">✅ Claim confirmation sent to:</div>
+        <div class="success-label">\u2705 Discount code emailed to:</div>
         <div class="success-msg" id="successEmail"></div>
       </div>
 
-      <div class="expire-timer" style="margin:14px 0;">
-        <div class="expire-label">⏰ Code expires: <span id="successExpiry" style="color:#c084fc; font-weight:600;"></span></div>
+      <div class="expire-timer" style="margin-bottom:14px;">
+        <div class="expire-label">⏰ Code expires in</div>
+        <div class="expire-clock" id="expireClock2">47:59:59</div>
       </div>
 
-      <p class="result-note">Single use only · Valid on any trip · Enter code at checkout</p>
-      <a href="https://youli.io/t/the-real-vacations/juneteenth-napa-weekend-june-18-21-2026" target="_blank" class="result-book-btn">🍷 Book Now — Use My Code →</a>
+      <p class="result-note">Single use only · Valid on any trip · Enter code at checkout<br>Code expires <span id="successExpiry"></span></p>
+      <a href="napa-juneteenth-june-18-21-2026.html" class="result-book-btn">🍷 Book Now — Use My Code →</a>
       <br><br>
       <a href="trips.html" style="color:#c084fc; font-size:13px;">Browse all trips →</a>
     </div>
@@ -474,7 +470,8 @@ var COUNTDOWN_CLOSED_MSG   = 'The booking window has passed. Contact us to check
 </div>
 
 <!-- ===== ALL JAVASCRIPT ===== -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+
 
 // ── Build flat segment array from WHEEL_PRIZES ──
 var allSegments = [];
@@ -582,6 +579,13 @@ function drawWheel(angle) {
 // ── SPIN ──
 function spinWheel() {
   if (isSpinning) return;
+  // One spin per session
+  try {
+    if (sessionStorage.getItem('trv_wheel_claimed') === 'true') {
+      alert('You have already claimed a prize! Check your records for your discount code.');
+      return;
+    }
+  } catch(e) {}
   isSpinning = true;
   document.getElementById('spinBtn').disabled = true;
 
@@ -657,7 +661,7 @@ function claimPrize() {
     return;
   }
 
-  // Show success step immediately (don't make them wait)
+  // Show success step
   document.getElementById('successPrize').textContent = wonPrize.label;
   document.getElementById('successCode').textContent = wonPrize.code;
   document.getElementById('successEmail').textContent = email;
@@ -667,17 +671,31 @@ function claimPrize() {
   var options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
   document.getElementById('successExpiry').textContent = expiryDate.toLocaleDateString('en-US', options);
 
+  // Switch to success step
   document.getElementById('stepClaim').classList.remove('active');
   document.getElementById('stepSuccess').classList.add('active');
 
-  // ✅ Submit to Formspree (sends YOU the claim info)
-  fetch('https://formspree.io/f/xgonjyqa', {
+  // Continue countdown on success screen
+  startExpireCountdown('expireClock2');
+
+  // Submit to Formspree (sends YOU the claim info)
+  fetch(FORMSPREE_SPIN_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: name,
       email: email,
-      prize
+      prize: wonPrize.label,
+      code: wonPrize.code,
+      source: 'homepage-spin-wheel',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(function(err) { console.log('Formspree error:', err); });
+
+  // Mark as claimed (one spin per session)
+  try { sessionStorage.setItem('trv_wheel_claimed', 'true'); } catch(e) {}
+}
+</script>
 <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 </html>
