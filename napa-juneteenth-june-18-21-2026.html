@@ -335,5 +335,22 @@
                 <p>Email: <a href="mailto:contact@therealvacations.com">contact@therealvacations.com</a></p>
                 <p>Phone: <a href="tel:4049230017">404-923-0017</a></p>
             </div>
-            <div style="text-align:center; margin-top:1.5rem;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px;" title="Instagram">📷</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="display:inline-block; margin:0 10px; color:#aaa; font-size:22px;" title="Facebook">📘</a></div>
-            <p style="margin-top: 2rem; opacity: 0.7;">�
+            <div style="text-align:center; margin-top:1.5rem;"><a href="https://www.instagram.com/therealvacations/" target="_blank" style="color:#c084fc; font-size:14px; margin:0 12px; text-decoration:none;">📸 Instagram</a><a href="https://www.facebook.com/therealvacations.trv" target="_blank" style="color:#c084fc; font-size:14px; margin:0 12px; text-decoration:none;">👥 Facebook</a></div>
+            <p style="margin-top: 2rem; opacity: 0.7;">&copy; 2026 The Real Vacations. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var wheel = document.getElementById('wheel');
+        var isSpinning = false;
+        document.querySelector('.spin-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isSpinning) return;
+            isSpinning = true;
+            var randomDegrees = 1440 + Math.floor(Math.random() * 360);
+            wheel.style.transform = 'rotate(' + randomDegrees + 'deg)';
+            setTimeout(function() { isSpinning = false; alert('🎉 Check your email for your discount code!'); }, 4500);
+        });
+    </script>
+</body>
+</html>

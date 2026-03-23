@@ -291,7 +291,27 @@
         if (trip) {
             var select = document.getElementById('trip');
             if (select) {
-                // Try exact match first
                 for (var i = 0; i < select.options.length; i++) {
                     if (select.options[i].value === trip) {
-                        select.selectedIndex = i
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            if (pkg) {
+                var msg = document.getElementById('message');
+                if (msg && !msg.value) {
+                    var pkgName = pkg === 'vip' ? 'VIP Package' : 'General Package';
+                    msg.placeholder = "I'm interested in the " + pkgName + ". Tell us about your travel plans, questions, or special requests...";
+                }
+            }
+        }
+
+        var sourceField = document.getElementById('source');
+        if (sourceField) {
+            sourceField.value = document.referrer || 'direct';
+        }
+    })();
+    </script>
+</body>
+</html>

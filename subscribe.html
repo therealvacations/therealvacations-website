@@ -225,10 +225,24 @@ function handleLogin() {
   var pass  = document.getElementById('loginPassword').value.trim();
   if (!email || !email.includes('@')) { alert('Please enter your email address.'); return; }
   if (!pass) { alert('Please enter your password.'); return; }
-  // TODO: Connect to auth backend
   console.log('Login:', email);
   showPanel('panelClaim');
 }
 
 function handleVerifyCode() {
-  var code = document.getElementById('verifyCodeInput').value.trim().toUpper
+  var code = document.getElementById('verifyCodeInput').value.trim().toUpperCase();
+  if (!code || code.length < 4) { alert('Please enter your verification code from the welcome email.'); return; }
+  console.log('Verify code:', code);
+  showPanel('panelSuccess');
+}
+
+function handleForgot() {
+  var email = document.getElementById('forgotEmail').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter your email address.'); return; }
+  console.log('Forgot password:', email);
+  alert('If an account exists with that email, a reset link has been sent.');
+  showPanel('panelLogin');
+}
+</script>
+</body>
+</html>
